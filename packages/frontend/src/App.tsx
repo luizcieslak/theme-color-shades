@@ -15,13 +15,35 @@ function shadesMonochrome(color: string) {
 	const hsl = tinyColor(color).toHsl()
 	for (let i = 9.5; i >= 0.5; i -= 1) {
 		hsl.l = 0.1 * i
-		shades.push('background-color: ' + tinyColor(hsl).toRgbString())
+		shades.push(tinyColor(hsl).toHexString())
 	}
 	return shades
 }
 
+/**
+ * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
+ * @param color hex color
+ */
+function shadesWithHueChange(colorInput: string) {
+	const shadesMonochromeArray = shadesMonochrome(colorInput)
+
+	// const hsl = tinyColor(colorInput).toHsl()
+	// const originalColorInputHue = tinyColor(colorInput).toHsl().h
+
+	// for (let i = 9; i >= -9; i -= 0.5) {
+	// 	hsl.h = originalColorInputHue + i
+	// 	shades.push(tinyColor(hsl).toHexString())
+	// }
+
+	return shadesMonochromeArray.slice().map((color, i) => {
+		const hsl = tinyColor(color).toHsl()
+		hsl.h += 9 + i * 0.5
+		return tinyColor(hsl).toHexString()
+	})
+}
+
 function CardColorHex({ hex, index }: { hex: string; index: number }) {
-	const tinyObj = tinyColor(`#${hex}`)
+	const tinyObj = tinyColor(`${hex}`)
 	return (
 		<Flex direction='column' alignItems='center' p={1} w='120px' border='1px'>
 			<Box w='80px' h='80px' bg={tinyObj.toString()} />
@@ -105,6 +127,18 @@ const App = () => {
 		shadesMonochrome(`#000F08`)
 	]
 
+	const arrayOfArrayPredefinedColors2 = [
+		shadesWithHueChange(`#3e2f5b`),
+		shadesWithHueChange(`#59ccf2`),
+		shadesWithHueChange(`#FC5A5A`),
+		shadesWithHueChange(`#3dd598`),
+		shadesWithHueChange(`#B5B5BE`),
+		shadesWithHueChange(`#FF933C`),
+		shadesWithHueChange(`#000F08`)
+	]
+
+	console.log(arrayOfArrayPredefinedColors)
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
@@ -152,6 +186,12 @@ const App = () => {
 					<Flex justifyContent='center'>
 						{arrayColors.map((color, index2) => (
 							<CardColorHex key={`ccx-${index2}`} hex={color} index={index2} />
+						))}
+					</Flex>
+
+					<Flex justifyContent='center'>
+						{arrayOfArrayPredefinedColors2[index1].map((color, index2) => (
+							<CardColorHex key={`ccx2-${index2}`} hex={color} index={index2} />
 						))}
 					</Flex>
 				</Box>
