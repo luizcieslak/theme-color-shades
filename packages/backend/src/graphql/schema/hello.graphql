@@ -1,0 +1,8 @@
+type HelloResponse {
+	name: String
+	greeting: String
+}
+
+extend type Query {
+	hello(name: String): HelloResponse
+}
