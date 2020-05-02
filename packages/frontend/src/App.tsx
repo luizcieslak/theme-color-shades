@@ -219,6 +219,12 @@ const App = () => {
 			method2: shadesWithHueChange(`#FC5A5A`)
 		},
 		{
+			name: 'brightYellow',
+			originalColor: '#fce15a',
+			method1: shadesMonochrome(`#fce15a`),
+			method2: shadesWithHueChange(`#fce15a`)
+		},
+		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
 			method1: shadesMonochrome(`#3dd598`),
