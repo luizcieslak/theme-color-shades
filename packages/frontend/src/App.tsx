@@ -42,10 +42,17 @@ function shadesWithHueChange(colorInput: string) {
 	})
 }
 
+interface ColorObject {
+	name: string
+	originalColor: string
+	method1: string[]
+	method2: string[]
+}
+
 function CardColorHex({ hex, index }: { hex: string; index: number }) {
 	const tinyObj = tinyColor(`${hex}`)
 	return (
-		<Flex direction='column' alignItems='center' p={1} w='120px' border='1px'>
+		<Flex direction='column' alignItems='center' p={1} w='120px' boxShadow='md'>
 			<Box w='80px' h='80px' bg={tinyObj.toString()} />
 			<Text fontSize='xs'>{(index + 1) * 100}</Text>
 			<Text fontSize='sm'>{tinyObj.toHexString()}</Text>
@@ -109,35 +116,51 @@ const App = () => {
 
 	const colorsInputArray = shadesMonochrome(`#${color}`)
 
-	// const purple = shadesMonochrome(`#3e2f5b`)
-	// const blueGIS = shadesMonochrome(`#59ccf2`)
-	// const redGIS = shadesMonochrome(`#FC5A5A`)
-	// const greenGIS = shadesMonochrome(`#3dd598`)
-	// const grayGIS = shadesMonochrome(`#B5B5BE`)
-	// const yellowGIS = shadesMonochrome(`#FF933C`)
-	// const darkJungleGreen = shadesMonochrome(`#000F08`)
+	const colorsArray: Array<ColorObject> = [
+		{
+			name: 'blueGIS',
+			originalColor: '#3e2f5b',
+			method1: shadesMonochrome(`#3e2f5b`),
+			method2: shadesWithHueChange(`#3e2f5b`)
+		},
 
-	const arrayOfArrayPredefinedColors = [
-		shadesMonochrome(`#3e2f5b`),
-		shadesMonochrome(`#59ccf2`),
-		shadesMonochrome(`#FC5A5A`),
-		shadesMonochrome(`#3dd598`),
-		shadesMonochrome(`#B5B5BE`),
-		shadesMonochrome(`#FF933C`),
-		shadesMonochrome(`#000F08`)
+		{
+			name: 'purple',
+			originalColor: '#59ccf2',
+			method1: shadesMonochrome(`#59ccf2`),
+			method2: shadesWithHueChange(`#59ccf2`)
+		},
+		{
+			name: 'redGIS',
+			originalColor: '#FC5A5A',
+			method1: shadesMonochrome(`#FC5A5A`),
+			method2: shadesWithHueChange(`#FC5A5A`)
+		},
+		{
+			name: 'greenGIS',
+			originalColor: '#3dd598',
+			method1: shadesMonochrome(`#3dd598`),
+			method2: shadesWithHueChange(`#3dd598`)
+		},
+		{
+			name: 'grayGIS',
+			originalColor: '#B5B5BE',
+			method1: shadesMonochrome(`#B5B5BE`),
+			method2: shadesWithHueChange(`#B5B5BE`)
+		},
+		{
+			name: 'yellowGIS',
+			originalColor: '#FF933C',
+			method1: shadesMonochrome(`#FF933C`),
+			method2: shadesWithHueChange(`#FF933C`)
+		},
+		{
+			name: 'darkJungleGreen',
+			originalColor: '#000F08',
+			method1: shadesMonochrome(`#000F08`),
+			method2: shadesWithHueChange(`#000F08`)
+		}
 	]
-
-	const arrayOfArrayPredefinedColors2 = [
-		shadesWithHueChange(`#3e2f5b`),
-		shadesWithHueChange(`#59ccf2`),
-		shadesWithHueChange(`#FC5A5A`),
-		shadesWithHueChange(`#3dd598`),
-		shadesWithHueChange(`#B5B5BE`),
-		shadesWithHueChange(`#FF933C`),
-		shadesWithHueChange(`#000F08`)
-	]
-
-	console.log(arrayOfArrayPredefinedColors)
 
 	return (
 		<div className='App'>
@@ -181,7 +204,23 @@ const App = () => {
 				</Flex>
 			</Box>
 
-			{arrayOfArrayPredefinedColors.map((arrayColors, index1) => (
+			{colorsArray.map((colorObject, i) => (
+				<Box key={`b-${i}`} border='1px' p={4} m={4}>
+					<Flex justifyContent='center'>
+						{colorObject.method1.map((color, i2) => (
+							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+						))}
+					</Flex>
+
+					<Flex justifyContent='center'>
+						{colorObject.method2.map((color, i2) => (
+							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+						))}
+					</Flex>
+				</Box>
+			))}
+
+			{/* {arrayOfArrayPredefinedColors.map((arrayColors, index1) => (
 				<Box key={`b-${index1}`} border='1px' p={4} m={4}>
 					<Flex justifyContent='center'>
 						{arrayColors.map((color, index2) => (
@@ -195,7 +234,7 @@ const App = () => {
 						))}
 					</Flex>
 				</Box>
-			))}
+			))} */}
 		</div>
 	)
 }
