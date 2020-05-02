@@ -27,14 +27,8 @@ function shadesMonochrome(color: string) {
 function shadesWithHueChange(colorInput: string) {
 	const shadesMonochromeArray = shadesMonochrome(colorInput)
 
-	// const hsl = tinyColor(colorInput).toHsl()
-	// const originalColorInputHue = tinyColor(colorInput).toHsl().h
-
-	// for (let i = 9; i >= -9; i -= 0.5) {
-	// 	hsl.h = originalColorInputHue + i
-	// 	shades.push(tinyColor(hsl).toHexString())
-	// }
-
+	// Here the hue changes between +-9 degrees
+	// const brigh
 	return shadesMonochromeArray.slice().map((color, i) => {
 		const hsl = tinyColor(color).toHsl()
 		hsl.h += 9 + i * 0.5
@@ -57,11 +51,17 @@ interface CardColorProps {
 
 function CardColorHex({ hex, index, name }: CardColorProps) {
 	const tinyObj = tinyColor(`${hex}`)
+
+	let shadeNumber
+	if (typeof index === 'number') {
+		shadeNumber = index > 0 ? index * 100 : 50
+	}
+
 	return (
 		<Flex direction='column' alignItems='center' px={1} py={2} boxShadow='md' minW='120px' minH='160px'>
 			{name && <Text fontSize='sm'>{name}</Text>}
 			<Box w='80px' h='80px' bg={tinyObj.toString()} />
-			{index && <Text fontSize='xs'>{(index + 1) * 100}</Text>}
+			{<Text fontSize='xs'>{shadeNumber}</Text>}
 			<Text fontSize='sm'>{tinyObj.toHexString()}</Text>
 			<Text fontSize='xs'>{tinyObj.toHslString()}</Text>
 		</Flex>
