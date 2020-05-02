@@ -20,6 +20,8 @@ function shadesMonochrome(color: string) {
 	return shades
 }
 
+const minAbsFromArray = (array: number[]) => Math.min(...array.slice().map(d => Math.abs(d)))
+
 /**
  * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
  * @param color hex color
@@ -27,12 +29,83 @@ function shadesMonochrome(color: string) {
 function shadesWithHueChange(colorInput: string) {
 	const shadesMonochromeArray = shadesMonochrome(colorInput)
 
+	const hslInput = tinyColor(colorInput).toHsl()
+
 	// Here the hue changes between +-9 degrees
-	// const brigh
+	let factor = 1.8
+	const lightenedHalf = []
+	const darkenedHalf = []
+
+	const brightestHues = [60, 180, 300]
+	const darkestHues = [0, 120, 240, 360] // 0 and 360 are the same
+
+	const distanceFromBrightest = brightestHues.map(h => hslInput.h - h)
+	const distanceFromBrightestAbs = distanceFromBrightest.map(d => Math.abs(d))
+	console.log('distanceFromBrightest', distanceFromBrightest, hslInput.h, tinyColor(colorInput).toHslString())
+
+	// const minDistanceBrightest = Math.min(...distanceFromBrightest)
+	const minDistanceBrightestAbs = minAbsFromArray(distanceFromBrightest)
+	console.log('minDistance', minDistanceBrightestAbs)
+	const indexMinDistanceFromBrightest = distanceFromBrightestAbs.indexOf(minDistanceBrightestAbs)
+	console.log('indexMinDistanceFromBrightest', indexMinDistanceFromBrightest)
+
+	if (minDistanceBrightestAbs < factor * 5) {
+		factor = minDistanceBrightestAbs / 5
+	}
+
+	for (let i = 0; i < 5; i++) {
+		console.log(
+			'pushing to array',
+			hslInput.h,
+			factor,
+			i,
+			Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest]),
+			factor * i * Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest])
+		)
+		const hue = hslInput.h + factor * i * Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest]) * -1
+		lightenedHalf.push(hue)
+	}
+
+	factor = 1.8
+
+	const distanceFromDarkest = darkestHues.map(h => hslInput.h - h)
+	const distanceFromDarkestAbs = distanceFromDarkest.map(d => Math.abs(d))
+	console.log('distanceFromDarkest', distanceFromDarkest, hslInput.h, tinyColor(colorInput).toHslString())
+
+	// const minDistanceDarkest = Math.min(...distanceFromDarkest)
+	const minDistanceDarkestAbs = Math.min(...distanceFromDarkestAbs)
+	console.log('minDistanceDarkestAbs', minDistanceDarkestAbs)
+	const indexMinDistanceFromDarkest = distanceFromDarkestAbs.indexOf(minDistanceDarkestAbs)
+	console.log('indexMinDistanceFromDarkest', indexMinDistanceFromDarkest)
+
+	if (minDistanceDarkestAbs < factor * 5) {
+		factor = minDistanceDarkestAbs / 5
+	}
+
+	for (let i = 0; i < 5; i++) {
+		console.log(
+			'pushing to array',
+			hslInput.h,
+			factor,
+			i,
+			Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]),
+			factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest])
+		)
+		const hue = hslInput.h + factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]) * -1
+		darkenedHalf.push(hue)
+	}
+
+	console.log('lightenedHalf', lightenedHalf)
+	console.log('darkenedHalf', darkenedHalf)
+
+	const HueArray = [...lightenedHalf.reverse(), ...darkenedHalf]
+	console.log('HueArray', HueArray)
+
 	return shadesMonochromeArray.slice().map((color, i) => {
-		const hsl = tinyColor(color).toHsl()
-		hsl.h += 9 + i * 0.5
-		return tinyColor(hsl).toHexString()
+		const hslColor = tinyColor(color).toHsl()
+		hslColor.h = HueArray[i]
+
+		return tinyColor(hslColor).toHexString()
 	})
 }
 
