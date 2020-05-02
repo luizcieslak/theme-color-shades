@@ -13,7 +13,7 @@ function shadesMonochrome(color: string) {
 	const shades = []
 
 	const hsl = tinyColor(color).toHsl()
-	for (let i = 9.5; i >= 0.5; i -= 1) {
+	for (let i = 9.5; i >= 0.8; i -= 0.87) {
 		hsl.l = 0.1 * i
 		shades.push(tinyColor(hsl).toHexString())
 	}
