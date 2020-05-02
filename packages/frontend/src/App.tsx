@@ -174,12 +174,7 @@ const App = () => {
 		<div className='App'>
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Learn React
-				</a>
+				<p>Theme color shades</p>
 			</header>
 			<Box border='1px' p={4} m={4}>
 				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
@@ -187,29 +182,14 @@ const App = () => {
 				<Flex justifyContent='center' pb={2}>
 					<CardColorHex hex={inputColor} name='color from input' />
 				</Flex>
-				{/* <Flex justifyContent='center'>
-				{[...lightened.reverse(), obj, ...darkened].map((color, index) => (
-					<CardColor key={`cc-${index}`} tinyObj={color} index={index} />
-				))}
-			</Flex>
-			<br />
-			<Flex justifyContent='center'>
-				{[...desaturated.reverse(), obj, ...saturated].map((color, index) => (
-					<CardColor key={`cc-${index}`} tinyObj={color} index={index} />
-				))}
-			</Flex>
-			<br />
-			<Flex justifyContent='center'>
-				{[...bothMinus.reverse(), obj, ...bothPlus].map((color, index) => (
-					<CardColor key={`cc-${index}`} tinyObj={color} index={index} />
-				))}
-			</Flex> */}
-				<Flex justifyContent='center'>
+				<Flex justifyContent='center' alignItems='center'>
+					<Text pr={4}>Method 1</Text>
 					{inputColorMethod1.map((color, i) => (
 						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
 					))}
 				</Flex>
-				<Flex justifyContent='center'>
+				<Flex justifyContent='center' alignItems='center'>
+					<Text pr={4}>Method 2</Text>
 					{inputColorMethod2.map((color, i) => (
 						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
 					))}
@@ -221,35 +201,21 @@ const App = () => {
 					<Flex justifyContent='center' pb={2}>
 						<CardColorHex hex={colorObject.originalColor} name={colorObject.name} />
 					</Flex>
-					<Flex justifyContent='center'>
+					<Flex justifyContent='center' alignItems='center'>
+						<Text pr={4}>Method 1</Text>
 						{colorObject.method1.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
 						))}
 					</Flex>
 
-					<Flex justifyContent='center'>
+					<Flex justifyContent='center' alignItems='center'>
+						<Text pr={4}>Method 2</Text>
 						{colorObject.method2.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
 						))}
 					</Flex>
 				</Box>
 			))}
-
-			{/* {arrayOfArrayPredefinedColors.map((arrayColors, index1) => (
-				<Box key={`b-${index1}`} border='1px' p={4} m={4}>
-					<Flex justifyContent='center'>
-						{arrayColors.map((color, index2) => (
-							<CardColorHex key={`ccx-${index2}`} hex={color} index={index2} />
-						))}
-					</Flex>
-
-					<Flex justifyContent='center'>
-						{arrayOfArrayPredefinedColors2[index1].map((color, index2) => (
-							<CardColorHex key={`ccx2-${index2}`} hex={color} index={index2} />
-						))}
-					</Flex>
-				</Box>
-			))} */}
 		</div>
 	)
 }
