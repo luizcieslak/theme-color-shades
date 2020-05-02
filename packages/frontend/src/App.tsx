@@ -69,9 +69,9 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 }
 
 const App = () => {
-	const [color, setColor] = useState('3e2f5b') // 500
+	const [inputColor, setInputColor] = useState('3e2f5b') // 500
 
-	const obj = tinyColor(`#${color}`)
+	const tinyObjInputColor = tinyColor(`#${inputColor}`)
 
 	// // darken 4 colors: 600, 700, 800, 900
 	// const darkened = Array(4)
@@ -121,7 +121,8 @@ const App = () => {
 	// 			.desaturate((i + 1) * 10)
 	// 	})
 
-	const colorsInputArray = shadesMonochrome(`#${color}`)
+	const inputColorMethod1 = shadesMonochrome(`#${inputColor}`)
+	const inputColorMethod2 = shadesWithHueChange(`#${inputColor}`)
 
 	const colorsArray: Array<ColorObject> = [
 		{
@@ -181,10 +182,10 @@ const App = () => {
 				</a>
 			</header>
 			<Box border='1px' p={4} m={4}>
-				<Input type='text' value={color} onChange={(e: any) => setColor(e.target.value)} />
+				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
 				<br />
 				<Flex justifyContent='center' pb={2}>
-					<CardColorHex hex={color} name='color from input' />
+					<CardColorHex hex={inputColor} name='color from input' />
 				</Flex>
 				{/* <Flex justifyContent='center'>
 				{[...lightened.reverse(), obj, ...darkened].map((color, index) => (
@@ -204,8 +205,8 @@ const App = () => {
 				))}
 			</Flex> */}
 				<Flex justifyContent='center'>
-					{colorsInputArray.map((color, index) => (
-						<CardColorHex key={`cc-${index}`} hex={color} index={index} />
+					{inputColorMethod1.map((color, i) => (
+						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
 					))}
 				</Flex>
 			</Box>
