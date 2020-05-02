@@ -49,12 +49,19 @@ interface ColorObject {
 	method2: string[]
 }
 
-function CardColorHex({ hex, index }: { hex: string; index: number }) {
+interface CardColorProps {
+	hex: string
+	index?: number
+	name?: string
+}
+
+function CardColorHex({ hex, index, name }: CardColorProps) {
 	const tinyObj = tinyColor(`${hex}`)
 	return (
-		<Flex direction='column' alignItems='center' p={1} w='120px' boxShadow='md'>
+		<Flex direction='column' alignItems='center' p={1} boxShadow='md'>
+			{name && <Text fontSize='sm'>{name}</Text>}
 			<Box w='80px' h='80px' bg={tinyObj.toString()} />
-			<Text fontSize='xs'>{(index + 1) * 100}</Text>
+			{index && <Text fontSize='xs'>{(index + 1) * 100}</Text>}
 			<Text fontSize='sm'>{tinyObj.toHexString()}</Text>
 			<Text fontSize='xs'>{tinyObj.toHslString()}</Text>
 		</Flex>
@@ -118,14 +125,14 @@ const App = () => {
 
 	const colorsArray: Array<ColorObject> = [
 		{
-			name: 'blueGIS',
+			name: 'purple',
 			originalColor: '#3e2f5b',
 			method1: shadesMonochrome(`#3e2f5b`),
 			method2: shadesWithHueChange(`#3e2f5b`)
 		},
 
 		{
-			name: 'purple',
+			name: 'blueGIS',
 			originalColor: '#59ccf2',
 			method1: shadesMonochrome(`#59ccf2`),
 			method2: shadesWithHueChange(`#59ccf2`)
@@ -175,10 +182,10 @@ const App = () => {
 			</header>
 			<Box border='1px' p={4} m={4}>
 				<Input type='text' value={color} onChange={(e: any) => setColor(e.target.value)} />
-				<br />#{color}
 				<br />
-				{tinyColor(`#${color}`).toHslString()}
-				<br />
+				<Flex justifyContent='center' pb={2}>
+					<CardColorHex hex={color} name='color from input' />
+				</Flex>
 				{/* <Flex justifyContent='center'>
 				{[...lightened.reverse(), obj, ...darkened].map((color, index) => (
 					<CardColor key={`cc-${index}`} tinyObj={color} index={index} />
@@ -196,7 +203,6 @@ const App = () => {
 					<CardColor key={`cc-${index}`} tinyObj={color} index={index} />
 				))}
 			</Flex> */}
-				<br />
 				<Flex justifyContent='center'>
 					{colorsInputArray.map((color, index) => (
 						<CardColorHex key={`cc-${index}`} hex={color} index={index} />
@@ -206,6 +212,9 @@ const App = () => {
 
 			{colorsArray.map((colorObject, i) => (
 				<Box key={`b-${i}`} border='1px' p={4} m={4}>
+					<Flex justifyContent='center' pb={2}>
+						<CardColorHex hex={colorObject.originalColor} name={colorObject.name} />
+					</Flex>
 					<Flex justifyContent='center'>
 						{colorObject.method1.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
