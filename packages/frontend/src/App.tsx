@@ -209,6 +209,11 @@ const App = () => {
 						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
 					))}
 				</Flex>
+				<Flex justifyContent='center'>
+					{inputColorMethod2.map((color, i) => (
+						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
+					))}
+				</Flex>
 			</Box>
 
 			{colorsArray.map((colorObject, i) => (
