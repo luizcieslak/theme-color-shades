@@ -20,8 +20,6 @@ function shadesMonochrome(color: string) {
 	return shades
 }
 
-const minAbsFromArray = (array: number[]) => Math.min(...array.slice().map(d => Math.abs(d)))
-
 /**
  * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
  * @param color hex color
@@ -39,16 +37,19 @@ function shadesWithHueChange(colorInput: string) {
 	const brightestHues = [60, 180, 300]
 	const darkestHues = [0, 120, 240, 360] // 0 and 360 are the same
 
+	// Get distance from current hue to brightest degrees
 	const distanceFromBrightest = brightestHues.map(h => hslInput.h - h)
 	const distanceFromBrightestAbs = distanceFromBrightest.map(d => Math.abs(d))
 	console.log('distanceFromBrightest', distanceFromBrightest, hslInput.h, tinyColor(colorInput).toHslString())
 
-	// const minDistanceBrightest = Math.min(...distanceFromBrightest)
-	const minDistanceBrightestAbs = minAbsFromArray(distanceFromBrightest)
+	// Get the distance from the array of absolute values
+	const minDistanceBrightestAbs = Math.min(...distanceFromBrightestAbs)
 	console.log('minDistance', minDistanceBrightestAbs)
+	// Since the arrays are equivalent, get the index of the shortest distance
 	const indexMinDistanceFromBrightest = distanceFromBrightestAbs.indexOf(minDistanceBrightestAbs)
 	console.log('indexMinDistanceFromBrightest', indexMinDistanceFromBrightest)
 
+	// change the factor if there is no room to iterate 5 times
 	if (minDistanceBrightestAbs < factor * 5) {
 		factor = minDistanceBrightestAbs / 5
 	}
@@ -66,6 +67,7 @@ function shadesWithHueChange(colorInput: string) {
 		lightenedHalf.push(hue)
 	}
 
+	// repeat the same process for darkest
 	factor = 1.8
 
 	const distanceFromDarkest = darkestHues.map(h => hslInput.h - h)
