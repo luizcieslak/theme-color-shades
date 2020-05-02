@@ -58,7 +58,7 @@ interface CardColorProps {
 function CardColorHex({ hex, index, name }: CardColorProps) {
 	const tinyObj = tinyColor(`${hex}`)
 	return (
-		<Flex direction='column' alignItems='center' p={1} boxShadow='md'>
+		<Flex direction='column' alignItems='center' px={1} py={2} boxShadow='md' minW='120px' minH='160px'>
 			{name && <Text fontSize='sm'>{name}</Text>}
 			<Box w='80px' h='80px' bg={tinyObj.toString()} />
 			{index && <Text fontSize='xs'>{(index + 1) * 100}</Text>}
@@ -69,9 +69,8 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 }
 
 const App = () => {
-	const [inputColor, setInputColor] = useState('3e2f5b') // 500
-
-	const tinyObjInputColor = tinyColor(`#${inputColor}`)
+	const [inputColor, setInputColor] = useState('3e2f5b')
+	// const tinyObjInputColor = tinyColor(`#${inputColor}`)
 
 	// // darken 4 colors: 600, 700, 800, 900
 	// const darkened = Array(4)
