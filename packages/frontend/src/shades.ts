@@ -1,4 +1,3 @@
-import React from 'react'
 import shadesMonochrome from './shadesMonochrome'
 import shadesWithHueChange from './shadesWithHueChange'
 import shadesWithSaturationChange from './shadesWithSaturationChange'

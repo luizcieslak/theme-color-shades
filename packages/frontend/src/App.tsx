@@ -3,10 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import tinyColor from 'tinycolor2'
-import { Box, Input, Flex, Text } from '@chakra-ui/core'
-import shadesMonochrome from './shadesMonochrome'
-import shadesWithHueChange from './shadesWithHueChange'
-import shadesWithSaturationChange from './shadesWithSaturationChange'
+import { Box, Flex, Text } from '@chakra-ui/core'
 import shades from './shades'
 
 interface ColorObject {

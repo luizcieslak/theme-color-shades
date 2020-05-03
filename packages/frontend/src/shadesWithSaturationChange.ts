@@ -1,6 +1,4 @@
 import tinyColor from 'tinycolor2'
-import shadesMonochrome from './shadesMonochrome'
-import shadesWithHueChange from './shadesWithHueChange'
 
 function applySaturationFactorsinHalf(halfArray: tinyColor.Instance[], factor: number) {
 	const saturatedArray = halfArray.slice()
@@ -9,7 +7,7 @@ function applySaturationFactorsinHalf(halfArray: tinyColor.Instance[], factor: n
 	saturatedArray[1].saturate(2 * factor)
 	saturatedArray[2].saturate(1 * factor)
 
-	console.log('applySaturationFactorsinHalf', saturatedArray[3].toHsl().s, saturatedArray[3].toHsl())
+	//console.log('applySaturationFactorsinHalf', saturatedArray[3].toHsl().s, saturatedArray[3].toHsl())
 
 	// I chose not multiply this below by integer numbers (e.g 1 and 2)
 	// to not become too deep ahd to has a shape more like a parable
