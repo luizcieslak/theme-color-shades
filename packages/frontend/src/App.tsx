@@ -101,7 +101,7 @@ const App = () => {
 			originalColor: '#3e2f5b',
 			method1: shadesMonochrome(`#3e2f5b`),
 			method2: shadesWithHueChange(`#3e2f5b`),
-			method3: shadesWithHueChange(`#3e2f5b`, 3.6)
+			method3: shadesWithHueChange(`#3e2f5b`, 5)
 		},
 
 		{
@@ -109,49 +109,49 @@ const App = () => {
 			originalColor: '#59ccf2',
 			method1: shadesMonochrome(`#59ccf2`),
 			method2: shadesWithHueChange(`#59ccf2`),
-			method3: shadesWithHueChange(`#59ccf2`, 3.6)
+			method3: shadesWithHueChange(`#59ccf2`, 5)
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
 			method1: shadesMonochrome(`#FC5A5A`),
 			method2: shadesWithHueChange(`#FC5A5A`),
-			method3: shadesWithHueChange(`#FC5A5A`, 3.6)
+			method3: shadesWithHueChange(`#FC5A5A`, 5)
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
 			method1: shadesMonochrome(`#fce15a`),
 			method2: shadesWithHueChange(`#fce15a`),
-			method3: shadesWithHueChange(`#fce15a`, 3.6)
+			method3: shadesWithHueChange(`#fce15a`, 5)
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
 			method1: shadesMonochrome(`#3dd598`),
 			method2: shadesWithHueChange(`#3dd598`),
-			method3: shadesWithHueChange(`#3dd598`, 3.6)
+			method3: shadesWithHueChange(`#3dd598`, 5)
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
 			method1: shadesMonochrome(`#B5B5BE`),
 			method2: shadesWithHueChange(`#B5B5BE`),
-			method3: shadesWithHueChange(`#B5B5BE`, 3.6)
+			method3: shadesWithHueChange(`#B5B5BE`, 5)
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
 			method1: shadesMonochrome(`#FF933C`),
 			method2: shadesWithHueChange(`#FF933C`),
-			method3: shadesWithHueChange(`#FF933C`, 3.6)
+			method3: shadesWithHueChange(`#FF933C`, 5)
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
 			method1: shadesMonochrome(`#000F08`),
 			method2: shadesWithHueChange(`#000F08`),
-			method3: shadesWithHueChange(`#000F08`, 3.6)
+			method3: shadesWithHueChange(`#000F08`, 5)
 		}
 	]
 
