@@ -28,15 +28,10 @@ function applySaturationFactorsinHalf(halfArray: tinyColor.Instance[], factor: n
  * Create a array of shades from input, using shadesWithHueChange to change hue + lightness and add a saturation change.
  * @param color hex color
  */
-export default function shadesWithSaturationChange(colorInput: string, factor = 1.8) {
-	const shadesMonochromeArray = shadesMonochrome(colorInput)
-	const shadesWithHueChangeArray = shadesWithHueChange(colorInput)
-
-	const hslInput = tinyColor(colorInput).toHsl()
-
+export default function shadesWithSaturationChange(colorInputArray: tinyColor.Instance[], factor = 1.8) {
 	// folded in half, the operations are the same (check the graph, is a parabole)
-	let arrayFirstHalf = shadesWithHueChangeArray.slice(0, 5)
-	let arraySecondHalf = shadesWithHueChangeArray.slice(5, 10)
+	let arrayFirstHalf = colorInputArray.slice(0, 5)
+	let arraySecondHalf = colorInputArray.slice(5, 10)
 
 	arrayFirstHalf = applySaturationFactorsinHalf(arrayFirstHalf, factor)
 	arraySecondHalf = applySaturationFactorsinHalf(arraySecondHalf.reverse(), factor).reverse()

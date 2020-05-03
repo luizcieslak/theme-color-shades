@@ -79,10 +79,8 @@ function getDarkenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
  * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
  * @param color hex color
  */
-export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
-	const shadesMonochromeArray = shadesMonochrome(colorInput)
-
-	const hslInput = tinyColor(colorInput).toHsl()
+export default function shadesWithHueChange(colorInputArray: tinyColor.Instance[], factor = 1.8) {
+	const hslInput = tinyColor(colorInputArray[0]).toHsl()
 
 	const lightenedHalf = getLightenedHalf(hslInput, factor)
 	const darkenedHalf = getDarkenedHalf(hslInput, factor)
@@ -93,7 +91,7 @@ export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
 	const HueArray = [...lightenedHalf.reverse(), ...darkenedHalf]
 	console.log('HueArray', HueArray)
 
-	return shadesMonochromeArray.slice().map((tinyColorObj, i) => {
+	return colorInputArray.slice().map((tinyColorObj, i) => {
 		const hslColor = tinyColorObj.toHsl()
 		hslColor.h = HueArray[i]
 
