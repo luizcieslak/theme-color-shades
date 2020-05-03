@@ -4,34 +4,18 @@ import './App.css'
 
 import tinyColor from 'tinycolor2'
 import { Box, Input, Flex, Text } from '@chakra-ui/core'
-
-/**
- * Create a array of shades from input, change only Lightness in HSL.
- * @param color hex color
- */
-function shadesMonochrome(color: string) {
-	const shades = []
-
-	const hsl = tinyColor(color).toHsl()
-	// for (let i = 9.5; i >= 0.8; i -= 0.87) {
-	for (let i = 9.5; i >= 0.5; i -= 1) {
-		hsl.l = 0.1 * i
-		shades.push(tinyColor(hsl).toHexString())
-	}
-	return shades
-}
+import shadesMonochrome from './shadesMonochrome'
 
 /**
  * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
  * @param color hex color
  */
-function shadesWithHueChange(colorInput: string) {
+function shadesWithHueChange(colorInput: string, factor = 1.8) {
 	const shadesMonochromeArray = shadesMonochrome(colorInput)
 
 	const hslInput = tinyColor(colorInput).toHsl()
 
 	// Here the hue changes between +-9 degrees
-	let factor = 1.8
 	const lightenedHalf = []
 	const darkenedHalf = []
 
@@ -117,6 +101,7 @@ interface ColorObject {
 	originalColor: string
 	method1: string[]
 	method2: string[]
+	method3: string[]
 }
 
 interface CardColorProps {
@@ -204,50 +189,58 @@ const App = () => {
 			name: 'purple',
 			originalColor: '#3e2f5b',
 			method1: shadesMonochrome(`#3e2f5b`),
-			method2: shadesWithHueChange(`#3e2f5b`)
+			method2: shadesWithHueChange(`#3e2f5b`),
+			method3: shadesWithHueChange(`#3e2f5b`, 3.6)
 		},
 
 		{
 			name: 'blueGIS',
 			originalColor: '#59ccf2',
 			method1: shadesMonochrome(`#59ccf2`),
-			method2: shadesWithHueChange(`#59ccf2`)
+			method2: shadesWithHueChange(`#59ccf2`),
+			method3: shadesWithHueChange(`#59ccf2`, 3.6)
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
 			method1: shadesMonochrome(`#FC5A5A`),
-			method2: shadesWithHueChange(`#FC5A5A`)
+			method2: shadesWithHueChange(`#FC5A5A`),
+			method3: shadesWithHueChange(`#FC5A5A`, 3.6)
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
 			method1: shadesMonochrome(`#fce15a`),
-			method2: shadesWithHueChange(`#fce15a`)
+			method2: shadesWithHueChange(`#fce15a`),
+			method3: shadesWithHueChange(`#fce15a`, 3.6)
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
 			method1: shadesMonochrome(`#3dd598`),
-			method2: shadesWithHueChange(`#3dd598`)
+			method2: shadesWithHueChange(`#3dd598`),
+			method3: shadesWithHueChange(`#3dd598`, 3.6)
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
 			method1: shadesMonochrome(`#B5B5BE`),
-			method2: shadesWithHueChange(`#B5B5BE`)
+			method2: shadesWithHueChange(`#B5B5BE`),
+			method3: shadesWithHueChange(`#B5B5BE`, 3.6)
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
 			method1: shadesMonochrome(`#FF933C`),
-			method2: shadesWithHueChange(`#FF933C`)
+			method2: shadesWithHueChange(`#FF933C`),
+			method3: shadesWithHueChange(`#FF933C`, 3.6)
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
 			method1: shadesMonochrome(`#000F08`),
-			method2: shadesWithHueChange(`#000F08`)
+			method2: shadesWithHueChange(`#000F08`),
+			method3: shadesWithHueChange(`#000F08`, 3.6)
 		}
 	]
 
@@ -292,6 +285,13 @@ const App = () => {
 					<Flex justifyContent='center' alignItems='center'>
 						<Text pr={4}>Method 2</Text>
 						{colorObject.method2.map((color, i2) => (
+							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+						))}
+					</Flex>
+
+					<Flex justifyContent='center' alignItems='center'>
+						<Text pr={4}>Method 3</Text>
+						{colorObject.method3.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
 						))}
 					</Flex>
