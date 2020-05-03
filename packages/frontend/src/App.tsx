@@ -13,7 +13,8 @@ function shadesMonochrome(color: string) {
 	const shades = []
 
 	const hsl = tinyColor(color).toHsl()
-	for (let i = 9.5; i >= 0.8; i -= 0.87) {
+	// for (let i = 9.5; i >= 0.8; i -= 0.87) {
+	for (let i = 9.5; i >= 0.5; i -= 1) {
 		hsl.l = 0.1 * i
 		shades.push(tinyColor(hsl).toHexString())
 	}
@@ -195,8 +196,8 @@ const App = () => {
 	// 			.desaturate((i + 1) * 10)
 	// 	})
 
-	const inputColorMethod1 = shadesMonochrome(`#${inputColor}`)
-	const inputColorMethod2 = shadesWithHueChange(`#${inputColor}`)
+	// const inputColorMethod1 = shadesMonochrome(`#${inputColor}`)
+	// const inputColorMethod2 = shadesWithHueChange(`#${inputColor}`)
 
 	const colorsArray: Array<ColorObject> = [
 		{
@@ -256,7 +257,7 @@ const App = () => {
 				<img src={logo} className='App-logo' alt='logo' />
 				<p>Theme color shades</p>
 			</header>
-			<Box border='1px' p={4} m={4}>
+			{/* <Box border='1px' p={4} m={4}>
 				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
 				<br />
 				<Flex justifyContent='center' pb={2}>
@@ -274,7 +275,7 @@ const App = () => {
 						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
 					))}
 				</Flex>
-			</Box>
+			</Box> */}
 
 			{colorsArray.map((colorObject, i) => (
 				<Box key={`b-${i}`} border='1px' p={4} m={4}>
