@@ -3,7 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import tinyColor from 'tinycolor2'
-import { Box, Flex, Text } from '@chakra-ui/core'
+import { Box, Flex, Text, Input } from '@chakra-ui/core'
 import shades from './shades'
 
 interface ColorObject {
@@ -43,58 +43,13 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 
 const App = () => {
 	const [inputColor, setInputColor] = useState('3e2f5b')
-	// const tinyObjInputColor = tinyColor(`#${inputColor}`)
-
-	// // darken 4 colors: 600, 700, 800, 900
-	// const darkened = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj.clone().darken((i + 1) * 10)
-	// 	})
-
-	// // lighten 4 colors: 100, 200, 300, 400
-	// const lightened = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj.clone().lighten((i + 1) * 10)
-	// 	})
-
-	// // darken 4 colors: 600, 700, 800, 900
-	// const saturated = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj.clone().saturate((i + 1) * 10)
-	// 	})
-
-	// // lighten 4 colors: 100, 200, 300, 400
-	// const desaturated = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj.clone().desaturate((i + 1) * 10)
-	// 	})
-
-	// // darken 4 colors: 600, 700, 800, 900
-	// const bothPlus = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj
-	// 			.clone()
-	// 			.darken((i + 1) * 10)
-	// 			.saturate((i + 1) * 10)
-	// 	})
-
-	// // lighten 4 colors: 100, 200, 300, 400
-	// const bothMinus = Array(4)
-	// 	.fill(0)
-	// 	.map((el, i) => {
-	// 		return obj
-	// 			.clone()
-	// 			.lighten((i + 1) * 10)
-	// 			.desaturate((i + 1) * 10)
-	// 	})
-
-	// const inputColorMethod1 = shadesMonochrome(`#${inputColor}`)
-	// const inputColorMethod2 = shadesWithHueChange(`#${inputColor}`)
+	const colorObjectInput: ColorObject = {
+		name: 'color from input',
+		originalColor: `#${inputColor}`,
+		method3: shades({ color: `#${inputColor}`, hue: { factor: 5 } }),
+		method4: shades({ color: `#${inputColor}`, saturation: {} }),
+		method5: shades({ color: `#${inputColor}`, hue: { factor: 15 }, saturation: { factor: 15 } })
+	}
 
 	const colorsArray: Array<ColorObject> = [
 		{
@@ -178,25 +133,33 @@ const App = () => {
 				<img src={logo} className='App-logo' alt='logo' />
 				<p>Theme color shades</p>
 			</header>
-			{/* <Box border='1px' p={4} m={4}>
+			<Box border='1px' p={4} m={4}>
 				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
-				<br />
 				<Flex justifyContent='center' pb={2}>
-					<CardColorHex hex={inputColor} name='color from input' />
+					<CardColorHex hex={colorObjectInput.originalColor} name={colorObjectInput.name} />
 				</Flex>
+				<br />
 				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method 1</Text>
-					{inputColorMethod1.map((color, i) => (
-						<CardColorHex key={`cc-${i}`} hex={color.toHexString()} index={i} />
+					<Text pr={4}>Method 3</Text>
+					{colorObjectInput.method3.map((color, i2) => (
+						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 					))}
 				</Flex>
+
 				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method 2</Text>
-					{inputColorMethod2.map((color, i) => (
-						<CardColorHex key={`cc-${i}`} hex={color.toHexString()} index={i} />
+					<Text pr={4}>Method 4</Text>
+					{colorObjectInput.method4.map((color, i2) => (
+						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 					))}
 				</Flex>
-			</Box> */}
+
+				<Flex justifyContent='center' alignItems='center'>
+					<Text pr={4}>Method 5</Text>
+					{colorObjectInput.method5.map((color, i2) => (
+						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
+					))}
+				</Flex>
+			</Box>
 
 			{colorsArray.map((colorObject, i) => (
 				<Box key={`b-${i}`} border='1px' p={4} m={4}>

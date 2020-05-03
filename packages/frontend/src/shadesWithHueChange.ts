@@ -25,13 +25,13 @@ function getLightenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) 
 
 	for (let i = 0; i < 5; i++) {
 		//console.log(
-			'pushing to array',
-			hslInput.h,
-			factor,
-			i,
-			Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest]),
-			factor * i * Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest])
-		)
+		// 	'pushing to array',
+		// 	hslInput.h,
+		// 	factor,
+		// 	i,
+		// 	Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest]),
+		// 	factor * i * Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest])
+		// )
 		const hue = hslInput.h + factor * i * Math.sign(distanceFromBrightest[indexMinDistanceFromBrightest]) * -1
 		lightenedHalf.push(hue)
 	}
@@ -60,13 +60,13 @@ function getDarkenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
 
 	for (let i = 0; i < 5; i++) {
 		//console.log(
-			'pushing to array',
-			hslInput.h,
-			factor,
-			i,
-			Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]),
-			factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest])
-		)
+		// 	'pushing to array',
+		// 	hslInput.h,
+		// 	factor,
+		// 	i,
+		// 	Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]),
+		// 	factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest])
+		// )
 		const hue = hslInput.h + factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]) * -1
 		darkenedHalf.push(hue)
 	}
