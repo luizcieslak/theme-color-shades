@@ -1,26 +1,16 @@
 import tinyColor from 'tinycolor2'
 import shadesMonochrome from './shadesMonochrome'
 
-/**
- * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
- * @param color hex color
- */
-export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
-	const shadesMonochromeArray = shadesMonochrome(colorInput)
-
-	const hslInput = tinyColor(colorInput).toHsl()
-
+function getLightenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
 	// Here the hue changes between +-9 degrees
 	const lightenedHalf = []
-	const darkenedHalf = []
 
 	const brightestHues = [60, 180, 300]
-	const darkestHues = [0, 120, 240, 360] // 0 and 360 are the same
 
 	// Get distance from current hue to brightest degrees
 	const distanceFromBrightest = brightestHues.map(h => hslInput.h - h)
 	const distanceFromBrightestAbs = distanceFromBrightest.map(d => Math.abs(d))
-	console.log('distanceFromBrightest', distanceFromBrightest, hslInput.h, tinyColor(colorInput).toHslString())
+	console.log('distanceFromBrightest', distanceFromBrightest, hslInput.h)
 
 	// Get the distance from the array of absolute values
 	const minDistanceBrightestAbs = Math.min(...distanceFromBrightestAbs)
@@ -47,12 +37,17 @@ export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
 		lightenedHalf.push(hue)
 	}
 
-	// repeat the same process for darkest
-	factor = 1.8
+	return lightenedHalf
+}
+
+function getDarkenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
+	const darkenedHalf = []
+
+	const darkestHues = [0, 120, 240, 360] // 0 and 360 are the same
 
 	const distanceFromDarkest = darkestHues.map(h => hslInput.h - h)
 	const distanceFromDarkestAbs = distanceFromDarkest.map(d => Math.abs(d))
-	console.log('distanceFromDarkest', distanceFromDarkest, hslInput.h, tinyColor(colorInput).toHslString())
+	console.log('distanceFromDarkest', distanceFromDarkest, hslInput.h)
 
 	// const minDistanceDarkest = Math.min(...distanceFromDarkest)
 	const minDistanceDarkestAbs = Math.min(...distanceFromDarkestAbs)
@@ -76,6 +71,21 @@ export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
 		const hue = hslInput.h + factor * i * Math.sign(distanceFromDarkest[indexMinDistanceFromDarkest]) * -1
 		darkenedHalf.push(hue)
 	}
+
+	return darkenedHalf
+}
+
+/**
+ * Create a array of shades from input, using shadesMonochrome to change lightness and add a hue modification.
+ * @param color hex color
+ */
+export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
+	const shadesMonochromeArray = shadesMonochrome(colorInput)
+
+	const hslInput = tinyColor(colorInput).toHsl()
+
+	const lightenedHalf = getLightenedHalf(hslInput, factor)
+	const darkenedHalf = getDarkenedHalf(hslInput, factor)
 
 	console.log('lightenedHalf', lightenedHalf)
 	console.log('darkenedHalf', darkenedHalf)
