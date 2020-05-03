@@ -6,6 +6,7 @@ import tinyColor from 'tinycolor2'
 import { Box, Input, Flex, Text } from '@chakra-ui/core'
 import shadesMonochrome from './shadesMonochrome'
 import shadesWithHueChange from './shadesWithHueChange'
+import shadesWithSaturationChange from './shadesWithSaturationChange'
 
 interface ColorObject {
 	name: string
@@ -13,6 +14,8 @@ interface ColorObject {
 	method1: tinyColor.Instance[]
 	method2: tinyColor.Instance[]
 	method3: tinyColor.Instance[]
+	method4: tinyColor.Instance[]
+	method5: tinyColor.Instance[]
 }
 
 interface CardColorProps {
@@ -101,7 +104,9 @@ const App = () => {
 			originalColor: '#3e2f5b',
 			method1: shadesMonochrome(`#3e2f5b`),
 			method2: shadesWithHueChange(`#3e2f5b`),
-			method3: shadesWithHueChange(`#3e2f5b`, 5)
+			method3: shadesWithHueChange(`#3e2f5b`, 5),
+			method4: shadesWithSaturationChange(`#3e2f5b`),
+			method5: shadesWithSaturationChange(`#3e2f5b`, 10)
 		},
 
 		{
@@ -109,49 +114,63 @@ const App = () => {
 			originalColor: '#59ccf2',
 			method1: shadesMonochrome(`#59ccf2`),
 			method2: shadesWithHueChange(`#59ccf2`),
-			method3: shadesWithHueChange(`#59ccf2`, 5)
+			method3: shadesWithHueChange(`#59ccf2`, 5),
+			method4: shadesWithSaturationChange(`#59ccf2`),
+			method5: shadesWithSaturationChange(`#59ccf2`, 10)
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
 			method1: shadesMonochrome(`#FC5A5A`),
 			method2: shadesWithHueChange(`#FC5A5A`),
-			method3: shadesWithHueChange(`#FC5A5A`, 5)
+			method3: shadesWithHueChange(`#FC5A5A`, 5),
+			method4: shadesWithSaturationChange(`#FC5A5A`),
+			method5: shadesWithSaturationChange(`#FC5A5A`, 10)
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
 			method1: shadesMonochrome(`#fce15a`),
 			method2: shadesWithHueChange(`#fce15a`),
-			method3: shadesWithHueChange(`#fce15a`, 5)
+			method3: shadesWithHueChange(`#fce15a`, 5),
+			method4: shadesWithSaturationChange(`#fce15a`),
+			method5: shadesWithSaturationChange(`#fce15a`, 10)
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
 			method1: shadesMonochrome(`#3dd598`),
 			method2: shadesWithHueChange(`#3dd598`),
-			method3: shadesWithHueChange(`#3dd598`, 5)
+			method3: shadesWithHueChange(`#3dd598`, 5),
+			method4: shadesWithSaturationChange(`#3dd598`),
+			method5: shadesWithSaturationChange(`#3dd598`, 10)
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
 			method1: shadesMonochrome(`#B5B5BE`),
 			method2: shadesWithHueChange(`#B5B5BE`),
-			method3: shadesWithHueChange(`#B5B5BE`, 5)
+			method3: shadesWithHueChange(`#B5B5BE`, 5),
+			method4: shadesWithSaturationChange(`#B5B5BE`),
+			method5: shadesWithSaturationChange(`#B5B5BE`, 10)
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
 			method1: shadesMonochrome(`#FF933C`),
 			method2: shadesWithHueChange(`#FF933C`),
-			method3: shadesWithHueChange(`#FF933C`, 5)
+			method3: shadesWithHueChange(`#FF933C`, 5),
+			method4: shadesWithSaturationChange(`#FF933C`),
+			method5: shadesWithSaturationChange(`#FF933C`, 10)
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
 			method1: shadesMonochrome(`#000F08`),
 			method2: shadesWithHueChange(`#000F08`),
-			method3: shadesWithHueChange(`#000F08`, 5)
+			method3: shadesWithHueChange(`#000F08`, 5),
+			method4: shadesWithSaturationChange(`#000F08`),
+			method5: shadesWithSaturationChange(`#000F08`, 10)
 		}
 	]
 
@@ -203,6 +222,20 @@ const App = () => {
 					<Flex justifyContent='center' alignItems='center'>
 						<Text pr={4}>Method 3</Text>
 						{colorObject.method3.map((color, i2) => (
+							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
+						))}
+					</Flex>
+
+					<Flex justifyContent='center' alignItems='center'>
+						<Text pr={4}>Method 4</Text>
+						{colorObject.method4.map((color, i2) => (
+							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
+						))}
+					</Flex>
+
+					<Flex justifyContent='center' alignItems='center'>
+						<Text pr={4}>Method 5</Text>
+						{colorObject.method5.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 						))}
 					</Flex>
