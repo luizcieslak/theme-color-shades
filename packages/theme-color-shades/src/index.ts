@@ -1,25 +1,29 @@
-const fs = require('fs')
-const readline = require('readline')
+// const fs = require('fs')
+// const readline = require('readline')
 
-import { join as pathJoin } from 'path'
+import shades from './shades'
 
-import hexToHsl from 'hex-to-hsl'
+// import { join as pathJoin } from 'path'
 
-async function processLineByLine() {
-	const path = pathJoin(__dirname + '../../../src' + '/green-funny.txt')
-	const fileStream = fs.createReadStream(path)
+// import hexToHsl from 'hex-to-hsl'
 
-	const rl = readline.createInterface({
-		input: fileStream,
-		crlfDelay: Infinity
-	})
-	// Note: we use the crlfDelay option to recognize all instances of CR LF
-	// ('\r\n') in input.txt as a single line break.
+// async function processLineByLine() {
+// 	const path = pathJoin(__dirname + '../../../src' + '/green-funny.txt')
+// 	const fileStream = fs.createReadStream(path)
 
-	for await (const line of rl) {
-		// Each line in input.txt will be successively available here as `line`.
-		console.log(`Line from file: ${line} - HSL: ${hexToHsl(line)}`)
-	}
-}
+// 	const rl = readline.createInterface({
+// 		input: fileStream,
+// 		crlfDelay: Infinity
+// 	})
+// 	// Note: we use the crlfDelay option to recognize all instances of CR LF
+// 	// ('\r\n') in input.txt as a single line break.
 
-processLineByLine()
+// 	for await (const line of rl) {
+// 		// Each line in input.txt will be successively available here as `line`.
+// 		console.log(`Line from file: ${line} - HSL: ${hexToHsl(line)}`)
+// 	}
+// }
+
+// processLineByLine()
+
+export default shades

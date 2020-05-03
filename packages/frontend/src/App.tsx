@@ -4,7 +4,8 @@ import './App.css'
 
 import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
-import shades from './shades'
+// TODO: this should be a standard library import. Don't create a @types/ inside frontend
+import shades from 'theme-color-shades/lib/src'
 
 interface ColorObject {
 	name: string

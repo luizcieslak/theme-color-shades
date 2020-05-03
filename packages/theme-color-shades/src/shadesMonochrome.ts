@@ -5,7 +5,7 @@ import tinyColor from 'tinycolor2'
  * @param color hex color
  */
 export default function shadesMonochrome(color: string) {
-	const shades = []
+	const shades = Array<tinyColor.Instance>()
 
 	const hsl = tinyColor(color).toHsl()
 	// for (let i = 9.5; i >= 0.8; i -= 0.87) {

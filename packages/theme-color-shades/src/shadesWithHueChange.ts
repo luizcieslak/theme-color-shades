@@ -2,7 +2,7 @@ import tinyColor from 'tinycolor2'
 
 function getLightenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
 	// Here the hue changes between +-9 degrees
-	const lightenedHalf = []
+	const lightenedHalf = Array<number>()
 
 	const brightestHues = [60, 180, 300]
 
@@ -40,7 +40,7 @@ function getLightenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) 
 }
 
 function getDarkenedHalf(hslInput: tinycolor.ColorFormats.HSL, factor: number) {
-	const darkenedHalf = []
+	const darkenedHalf = Array<number>()
 
 	const darkestHues = [0, 120, 240, 360] // 0 and 360 are the same
 
