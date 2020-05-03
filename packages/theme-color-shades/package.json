@@ -1,8 +1,8 @@
 {
-  "name": "backend",
+  "name": "theme-color-shades",
   "private": false,
   "version": "0.0.1",
-  "description": "checklib backend",
+  "description": "CLI command to create a group of color shades ready to be used in your UI library.",
   "main": "index.js",
   "dependencies": {
     "@babel/runtime": "7.9.2",
