@@ -10,9 +10,9 @@ import shadesWithHueChange from './shadesWithHueChange'
 interface ColorObject {
 	name: string
 	originalColor: string
-	method1: string[]
-	method2: string[]
-	method3: string[]
+	method1: tinyColor.Instance[]
+	method2: tinyColor.Instance[]
+	method3: tinyColor.Instance[]
 }
 
 interface CardColorProps {
@@ -170,13 +170,13 @@ const App = () => {
 				<Flex justifyContent='center' alignItems='center'>
 					<Text pr={4}>Method 1</Text>
 					{inputColorMethod1.map((color, i) => (
-						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
+						<CardColorHex key={`cc-${i}`} hex={color.toHexString()} index={i} />
 					))}
 				</Flex>
 				<Flex justifyContent='center' alignItems='center'>
 					<Text pr={4}>Method 2</Text>
 					{inputColorMethod2.map((color, i) => (
-						<CardColorHex key={`cc-${i}`} hex={color} index={i} />
+						<CardColorHex key={`cc-${i}`} hex={color.toHexString()} index={i} />
 					))}
 				</Flex>
 			</Box> */}
@@ -189,21 +189,21 @@ const App = () => {
 					<Flex justifyContent='center' alignItems='center'>
 						<Text pr={4}>Method 1</Text>
 						{colorObject.method1.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 						))}
 					</Flex>
 
 					<Flex justifyContent='center' alignItems='center'>
 						<Text pr={4}>Method 2</Text>
 						{colorObject.method2.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 						))}
 					</Flex>
 
 					<Flex justifyContent='center' alignItems='center'>
 						<Text pr={4}>Method 3</Text>
 						{colorObject.method3.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color} index={i2} />
+							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 						))}
 					</Flex>
 				</Box>

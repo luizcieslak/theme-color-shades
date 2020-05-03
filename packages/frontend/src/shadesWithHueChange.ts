@@ -93,10 +93,10 @@ export default function shadesWithHueChange(colorInput: string, factor = 1.8) {
 	const HueArray = [...lightenedHalf.reverse(), ...darkenedHalf]
 	console.log('HueArray', HueArray)
 
-	return shadesMonochromeArray.slice().map((color, i) => {
-		const hslColor = tinyColor(color).toHsl()
+	return shadesMonochromeArray.slice().map((tinyColorObj, i) => {
+		const hslColor = tinyColorObj.toHsl()
 		hslColor.h = HueArray[i]
 
-		return tinyColor(hslColor).toHexString()
+		return tinyColor(hslColor)
 	})
 }

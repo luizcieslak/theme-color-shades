@@ -11,7 +11,7 @@ export default function shadesMonochrome(color: string) {
 	// for (let i = 9.5; i >= 0.8; i -= 0.87) {
 	for (let i = 9.5; i >= 0.5; i -= 1) {
 		hsl.l = 0.1 * i
-		shades.push(tinyColor(hsl).toHexString())
+		shades.push(tinyColor(hsl))
 	}
 	return shades
 }
