@@ -7,6 +7,7 @@ import { Box, Input, Flex, Text } from '@chakra-ui/core'
 import shadesMonochrome from './shadesMonochrome'
 import shadesWithHueChange from './shadesWithHueChange'
 import shadesWithSaturationChange from './shadesWithSaturationChange'
+import shades from './shades'
 
 interface ColorObject {
 	name: string
@@ -102,75 +103,75 @@ const App = () => {
 		{
 			name: 'purple',
 			originalColor: '#3e2f5b',
-			method1: shadesMonochrome(`#3e2f5b`),
-			method2: shadesWithHueChange(shadesMonochrome(`#3e2f5b`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#3e2f5b`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#3e2f5b`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#3e2f5b`), 10)
+			method1: shades({ color: `#3e2f5b` }),
+			method2: shades({ color: `#3e2f5b`, hue: {} }),
+			method3: shades({ color: `#3e2f5b`, hue: { factor: 5 } }),
+			method4: shades({ color: `#3e2f5b`, saturation: {} }),
+			method5: shades({ color: `#3e2f5b`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 
 		{
 			name: 'blueGIS',
 			originalColor: '#59ccf2',
-			method1: shadesMonochrome(`#59ccf2`),
-			method2: shadesWithHueChange(shadesMonochrome(`#59ccf2`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#59ccf2`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#59ccf2`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#59ccf2`), 10)
+			method1: shades({ color: `#59ccf2` }),
+			method2: shades({ color: `#59ccf2`, hue: {} }),
+			method3: shades({ color: `#59ccf2`, hue: { factor: 5 } }),
+			method4: shades({ color: `#59ccf2`, saturation: {} }),
+			method5: shades({ color: `#59ccf2`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
-			method1: shadesMonochrome(`#FC5A5A`),
-			method2: shadesWithHueChange(shadesMonochrome(`#FC5A5A`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#FC5A5A`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#FC5A5A`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#FC5A5A`), 10)
+			method1: shades({ color: `#FC5A5A` }),
+			method2: shades({ color: `#FC5A5A`, hue: {} }),
+			method3: shades({ color: `#FC5A5A`, hue: { factor: 5 } }),
+			method4: shades({ color: `#FC5A5A`, saturation: {} }),
+			method5: shades({ color: `#FC5A5A`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
-			method1: shadesMonochrome(`#fce15a`),
-			method2: shadesWithHueChange(shadesMonochrome(`#fce15a`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#fce15a`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#fce15a`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#fce15a`), 10)
+			method1: shades({ color: `#fce15a` }),
+			method2: shades({ color: `#fce15a`, hue: {} }),
+			method3: shades({ color: `#fce15a`, hue: { factor: 5 } }),
+			method4: shades({ color: `#fce15a`, saturation: {} }),
+			method5: shades({ color: `#fce15a`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
-			method1: shadesMonochrome(`#3dd598`),
-			method2: shadesWithHueChange(shadesMonochrome(`#3dd598`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#3dd598`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#3dd598`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#3dd598`), 10)
+			method1: shades({ color: `#3dd598` }),
+			method2: shades({ color: `#3dd598`, hue: {} }),
+			method3: shades({ color: `#3dd598`, hue: { factor: 5 } }),
+			method4: shades({ color: `#3dd598`, saturation: {} }),
+			method5: shades({ color: `#3dd598`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
-			method1: shadesMonochrome(`#B5B5BE`),
-			method2: shadesWithHueChange(shadesMonochrome(`#B5B5BE`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#B5B5BE`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#B5B5BE`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#B5B5BE`), 10)
+			method1: shades({ color: `#B5B5BE` }),
+			method2: shades({ color: `#B5B5BE`, hue: {} }),
+			method3: shades({ color: `#B5B5BE`, hue: { factor: 5 } }),
+			method4: shades({ color: `#B5B5BE`, saturation: {} }),
+			method5: shades({ color: `#B5B5BE`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
-			method1: shadesMonochrome(`#FF933C`),
-			method2: shadesWithHueChange(shadesMonochrome(`#FF933C`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#FF933C`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#FF933C`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#FF933C`), 10)
+			method1: shades({ color: `#FF933C` }),
+			method2: shades({ color: `#FF933C`, hue: {} }),
+			method3: shades({ color: `#FF933C`, hue: { factor: 5 } }),
+			method4: shades({ color: `#FF933C`, saturation: {} }),
+			method5: shades({ color: `#FF933C`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
-			method1: shadesMonochrome(`#000F08`),
-			method2: shadesWithHueChange(shadesMonochrome(`#000F08`)),
-			method3: shadesWithHueChange(shadesMonochrome(`#000F08`), 5),
-			method4: shadesWithSaturationChange(shadesMonochrome(`#000F08`)),
-			method5: shadesWithSaturationChange(shadesMonochrome(`#000F08`), 10)
+			method1: shades({ color: `#000F08` }),
+			method2: shades({ color: `#000F08`, hue: {} }),
+			method3: shades({ color: `#000F08`, hue: { factor: 5 } }),
+			method4: shades({ color: `#000F08`, saturation: {} }),
+			method5: shades({ color: `#000F08`, hue: { factor: 10 }, saturation: { factor: 10 } })
 		}
 	]
 
