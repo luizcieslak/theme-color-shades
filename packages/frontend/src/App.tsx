@@ -43,7 +43,7 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 }
 
 const App = () => {
-	const [inputColor, setInputColor] = useState('3e2f5b')
+	const [inputColor, setInputColor] = useState('d31233')
 	const colorObjectInput: ColorObject = {
 		name: 'color from input',
 		originalColor: `#${inputColor}`,
