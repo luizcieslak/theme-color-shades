@@ -9,3 +9,6 @@
 
 # Ignore hidden files as default
 # .*
+
+# Local Netlify folder
+.netlify

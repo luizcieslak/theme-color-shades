@@ -1,8 +1,8 @@
 {
   "name": "frontend",
   "private": true,
-  "description": "checklib frontend",
-  "version": "0.0.1",
+  "description": "theme-color-shades frontend",
+  "version": "0.0.0",
   "author": "Luiz Cieslak <luiz@cieslak.dev>",
   "dependencies": {
     "@chakra-ui/core": "^0.7.0",
