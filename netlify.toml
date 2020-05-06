@@ -2,7 +2,7 @@
 [build]
   command = "yarn build:frontend"
   functions = "functions"
-  publish = "packages/frontend/build"
+  publish = "packages/frontend/public"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
