@@ -1,6 +1,6 @@
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
-import { Box, Flex } from 'rebass'
+import { Box, Flex } from '@chakra-ui/core'
 import GatsbyImage from 'gatsby-image'
 import { GatsbyIconQuery } from '../generated/graphql'
 
@@ -35,7 +35,7 @@ const Header: React.FunctionComponent<IProps> = props => {
 	const data: GatsbyIconQuery = useStaticQuery(iconQuery)
 	console.log('data icon header', data)
 	return (
-		<Box color='white' bg='primary' px='5' py='5'>
+		<Box color='white' bg='teal.500' px='5' py='5'>
 			<Flex alignItems='center'>
 				<Box width='100px' pr='4'>
 					<GatsbyImage fluid={data.file.childImageSharp.fluid} />

@@ -1,11 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import { ThemeProvider } from 'emotion-theming'
-
-import { light } from '../theme'
+import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import theme from '../theme'
 import './layout.css'
 
-import { Box } from 'rebass'
+import { Box } from '@chakra-ui/core'
 import Header from './header'
 import { SiteQuery } from '../generated/graphql'
 
@@ -23,7 +22,8 @@ const Layout: React.FunctionComponent = ({ children }) => {
 	const data: SiteQuery = useStaticQuery(pageQuery)
 
 	return (
-		<ThemeProvider theme={light}>
+		<ThemeProvider theme={theme}>
+			<CSSReset />
 			<>
 				<Header siteTitle={data.site.siteMetadata.title} />
 				<Box p='5'>

@@ -4,7 +4,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import GatsbyImage from 'gatsby-image'
-import { Box } from 'rebass'
+import { Box } from '@chakra-ui/core'
 import { GatsbyAstronautQuery } from '../generated/graphql'
 
 import { FaBeer } from 'react-icons/fa'
@@ -14,7 +14,6 @@ interface IProps {
 }
 
 const IndexPage: React.FC<IProps> = ({ data }) => {
-	console.log('oba', data.file.childImageSharp.fluid)
 	return (
 		<Layout>
 			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
