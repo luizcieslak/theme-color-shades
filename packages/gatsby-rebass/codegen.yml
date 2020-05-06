@@ -1,0 +1,9 @@
+overwrite: true
+schema: 'http://localhost:8000/___graphql'
+documents: 'src/**/*.{ts,js,tsx}'
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - fragment-matcher
