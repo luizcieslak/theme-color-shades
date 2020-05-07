@@ -1,11 +1,59 @@
+import { Link, graphql } from 'gatsby'
 import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import GatsbyImage from 'gatsby-image'
+import { GatsbyAstronautQuery } from '../generated/graphql'
+
+import { FaBeer } from 'react-icons/fa'
 
 import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
 // TODO: this should be a standard library import. Don't create a @types/ inside frontend
 import shades from 'theme-color-shades/lib/src'
+
+// interface IProps {
+// 	data: GatsbyAstronautQuery
+// }
+
+// const IndexPage: React.FC<IProps> = ({ data }) => {
+// 	return (
+// 		<Layout>
+// 			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
+// 			<Box width='30%'>
+// 				{/* TODO: add optional chaining in file */}
+
+// 				<FaBeer />
+// 				<GatsbyImage fluid={data.file.childImageSharp.fluid} />
+// 			</Box>
+// 			<Link to='/page-2'>go to page 2</Link>
+// 		</Layout>
+// 	)
+// }
+
+// export const pageQuery = graphql`
+// 	query GatsbyAstronaut {
+// 		file(relativePath: { eq: "gatsby-astronaut.png" }) {
+// 			childImageSharp {
+// 				fluid {
+// 					base64
+// 					tracedSVG
+// 					aspectRatio
+// 					src
+// 					srcSet
+// 					srcWebp
+// 					srcSetWebp
+// 					sizes
+// 					originalImg
+// 					originalName
+// 					presentationWidth
+// 					presentationHeight
+// 				}
+// 			}
+// 		}
+// 	}
+// `
 
 interface ColorObject {
 	name: string
@@ -42,7 +90,7 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 	)
 }
 
-const App = () => {
+const IndexPage: React.FC = () => {
 	const [inputColor, setInputColor] = useState('d31233')
 	const colorObjectInput: ColorObject = {
 		name: 'color from input',
@@ -129,11 +177,8 @@ const App = () => {
 	]
 
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>Theme color shades</p>
-			</header>
+		<Layout>
+			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
 			<Box border='1px' p={4} m={4}>
 				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
 				<Flex justifyContent='center' pb={2}>
@@ -203,8 +248,8 @@ const App = () => {
 					</Flex>
 				</Box>
 			))}
-		</div>
+		</Layout>
 	)
 }
 
-export default App
+export default IndexPage

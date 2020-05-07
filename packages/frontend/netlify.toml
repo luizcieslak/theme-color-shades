@@ -1,8 +1,8 @@
 # example netlify.toml
 [build]
-  command = "yarn build:frontend"
+  command = "yarn build"
   functions = "functions"
-  publish = "packages/frontend/public"
+  publish = "public"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.

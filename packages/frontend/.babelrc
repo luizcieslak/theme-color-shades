@@ -1,0 +1,9 @@
+{
+	"plugins": [],
+	"presets": [["babel-preset-gatsby"]],
+	"env": {
+		"production": {
+			"plugins": ["transform-remove-console"]
+		}
+	}
+}
