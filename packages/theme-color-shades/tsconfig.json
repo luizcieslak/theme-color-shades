@@ -1,19 +1,23 @@
 {
-	"compilerOptions": {
-		"lib": ["esnext.asynciterable", "es7"],
-		"target": "es5",
-		"module": "commonjs",
-		"moduleResolution": "node",
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"noUnusedLocals": true,
-		"skipLibCheck": true,
-		"strictNullChecks": true,
-		"sourceMap": true,
-		"outDir": "lib/src",
-		"allowJs": true,
-		"resolveJsonModule": true,
-		"esModuleInterop": true
-	},
-	"include": ["./src/**/*"]
+  "include": ["src", "types"],
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*", "node_modules/*"]
+    },
+    "jsx": "react",
+    "esModuleInterop": true
+  }
 }

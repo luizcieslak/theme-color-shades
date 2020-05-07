@@ -2,6 +2,7 @@
   "arrowParens": "avoid",
   "semi": false,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "tabWidth": 2,
   "useTabs": true,
   "printWidth": 120,
