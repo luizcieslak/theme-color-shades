@@ -11,7 +11,8 @@ import { FaBeer } from 'react-icons/fa'
 import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
 // TODO: this should be a standard library import. Don't create a @types/ inside frontend
-import shades from 'theme-color-shades/lib/src'
+// import shades from 'theme-color-shades/lib/src'
+import shades, { sum } from 'tsdx-test'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -72,6 +73,7 @@ interface CardColorProps {
 }
 
 function CardColorHex({ hex, index, name }: CardColorProps) {
+	// console.log('tsdx', sum(1, 2))
 	const tinyObj = tinyColor(`${hex}`)
 
 	let shadeNumber

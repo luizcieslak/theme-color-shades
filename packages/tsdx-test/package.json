@@ -1,0 +1,37 @@
+{
+  "name": "tsdx-test",
+  "private": false,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "author": "luizcieslak",
+  "module": "dist/tsdx-test.esm.js",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "tsdx": "^0.13.2",
+    "tslib": "^1.11.2",
+    "typescript": "^3.8.3"
+  }
+}
