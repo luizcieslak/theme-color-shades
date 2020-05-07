@@ -3,71 +3,44 @@
   "private": false,
   "version": "0.0.1",
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
-  "main": "index.js",
-  "dependencies": {
-    "@babel/runtime": "7.9.2",
-    "@types/tinycolor2": "^1.4.2",
-    "apollo-server-koa": "^2.12.0",
-    "apollo-server-micro": "^2.12.0",
-    "axios": "0.19.0",
-    "babel-types": "6.26.0",
-    "dotenv": "8.2.0",
-    "eslint": "6.7.2",
-    "graphql-tools": "^5.0.0",
-    "hex-to-hsl": "^1.0.2",
-    "isomorphic-unfetch": "^3.0.0",
-    "koa": "^2.11.0",
-    "koa-bodyparser": "^4.2.1",
-    "koa-json": "^2.0.2",
-    "koa-logger": "^3.2.1",
-    "koa-router": "^8.0.8",
-    "package-json": "^6.5.0",
-    "tinycolor2": "^1.4.1",
-    "tsc-watch": "^4.2.3",
-    "validate-npm-package-name": "^3.0.0"
-  },
-  "devDependencies": {
-    "@types/jest": "24.9.1",
-    "@types/koa": "^2.11.2",
-    "@types/koa-bodyparser": "^4.3.0",
-    "@types/koa-json": "^2.0.18",
-    "@types/koa-router": "^7.4.0",
-    "@types/node": "12.12.34",
-    "jest": "24.9.0",
-    "jest-cli": "24.9.0",
-    "lint-staged": "9.5.0",
-    "nodemon": "2.0.2",
-    "prettier": "1.19.1",
-    "standard-version": "6.0.1",
-    "ts-jest": "24.3.0",
-    "ts-node": "8.8.1",
-    "tslint-config-prettier": "1.18.0",
-    "typescript": "3.8.3",
-    "typescript-eslint-parser": "22.0.0"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write --single-quote true --trailing-comma all --print-width 120 --semi false",
-      "git add"
-    ]
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
   "scripts": {
-    "start": "node ./lib/src/index.js",
-    "dev:old": "nodemon ./lib/src/index.js",
-    "dev": "tsc-watch --onSuccess \"nodemon ./lib/src/index.js\"",
-    "clean": "rm -rf lib/ && mkdir lib",
-    "ts:watch": "tsc --watch",
-    "build": "npm run clean && tsc --build tsconfig.json",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "lint:staged": "lint-staged",
-    "format": "prettier --write src/**/*.{ts,tsx,js,jsx}",
-    "kill": "kill -9 $(lsof -t -i:3001)"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
+    "prepare": "tsdx build"
   },
+  "dependencies": {
+    "tinycolor2": "^1.4.1",
+    "dotenv": "8.2.0"
+  },
+  "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "tsdx lint"
     }
+  },
+  "author": "luizcieslak",
+  "module": "dist/tsdx-test.esm.js",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "tsdx": "^0.13.2",
+    "@types/node": "12.12.34",
+    "@types/jest": "24.9.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslib": "^1.11.2",
+    "@types/tinycolor2": "^1.4.2",
+    "typescript": "^3.8.3"
   }
 }

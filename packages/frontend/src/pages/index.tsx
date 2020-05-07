@@ -12,7 +12,7 @@ import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
 // TODO: this should be a standard library import. Don't create a @types/ inside frontend
 // import shades from 'theme-color-shades/lib/src'
-import shades, { sum } from 'tsdx-test'
+import shades, { sum } from 'theme-color-shades'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
