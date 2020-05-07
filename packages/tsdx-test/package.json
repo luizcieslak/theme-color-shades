@@ -17,6 +17,7 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
     "prepare": "tsdx build"
   },
   "peerDependencies": {},
@@ -24,12 +25,6 @@
     "hooks": {
       "pre-commit": "tsdx lint"
     }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "author": "luizcieslak",
   "module": "dist/tsdx-test.esm.js",
