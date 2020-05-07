@@ -4,12 +4,16 @@ import shadesWithSaturationChange from './shadesWithSaturationChange'
 
 interface ShadesArgs {
 	color: string
-	saturation?: {
-		factor?: number
-	}
-	hue?: {
-		factor?: number
-	}
+	saturation:
+		| {
+				factor: number
+		  }
+		| boolean
+	hue:
+		| {
+				factor: number
+		  }
+		| boolean
 }
 
 export default function shades({ hue, saturation, color }: ShadesArgs) {
@@ -17,12 +21,19 @@ export default function shades({ hue, saturation, color }: ShadesArgs) {
 	let colorsArray = shadesMonochrome(color)
 
 	if (hue) {
-		colorsArray = shadesWithHueChange(colorsArray, hue.factor || 1.8)
+		if (typeof hue === 'object') {
+			colorsArray = shadesWithHueChange(colorsArray, hue.factor)
+		} else {
+			colorsArray = shadesWithHueChange(colorsArray, 1.8)
+		}
 	}
 
 	if (saturation) {
-		colorsArray = shadesWithSaturationChange(colorsArray, saturation.factor || 5)
+		if (typeof saturation === 'object') {
+			colorsArray = shadesWithSaturationChange(colorsArray, saturation.factor)
+		} else {
+			colorsArray = shadesWithSaturationChange(colorsArray, 5)
+		}
 	}
-
 	return colorsArray
 }

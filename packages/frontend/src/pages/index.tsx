@@ -93,50 +93,50 @@ const IndexPage: React.FC = () => {
 	const colorObjectInput: ColorObject = {
 		name: 'color from input',
 		originalColor: `#${inputColor}`,
-		method: shades({ color: `#${inputColor}`, hue: {}, saturation: {} })
+		method: shades({ color: `#${inputColor}`, hue: true, saturation: true })
 	}
 
 	const colorsArray: Array<ColorObject> = [
 		{
 			name: 'purple',
 			originalColor: '#3e2f5b',
-			method: shades({ color: `#3e2f5b`, hue: {}, saturation: {} })
+			method: shades({ color: `#3e2f5b`, hue: true, saturation: true })
 		},
 
 		{
 			name: 'blueGIS',
 			originalColor: '#59ccf2',
-			method: shades({ color: `#59ccf2`, hue: {}, saturation: {} })
+			method: shades({ color: `#59ccf2`, hue: true, saturation: true })
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
-			method: shades({ color: `#FC5A5A`, hue: {}, saturation: {} })
+			method: shades({ color: `#FC5A5A`, hue: true, saturation: true })
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
-			method: shades({ color: `#fce15a`, hue: {}, saturation: {} })
+			method: shades({ color: `#fce15a`, hue: true, saturation: true })
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
-			method: shades({ color: `#3dd598`, hue: {}, saturation: {} })
+			method: shades({ color: `#3dd598`, hue: true, saturation: true })
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
-			method: shades({ color: `#B5B5BE`, hue: {}, saturation: {} })
+			method: shades({ color: `#B5B5BE`, hue: true, saturation: true })
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
-			method: shades({ color: `#FF933C`, hue: {}, saturation: {} })
+			method: shades({ color: `#FF933C`, hue: true, saturation: true })
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
-			method: shades({ color: `#000F08`, hue: {}, saturation: {} })
+			method: shades({ color: `#000F08`, hue: true, saturation: true })
 		}
 	]
 
