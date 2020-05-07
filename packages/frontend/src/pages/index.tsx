@@ -59,11 +59,7 @@ import shades, { sum } from 'theme-color-shades'
 interface ColorObject {
 	name: string
 	originalColor: string
-	method1?: tinyColor.Instance[]
-	method2?: tinyColor.Instance[]
-	method3: tinyColor.Instance[]
-	method4: tinyColor.Instance[]
-	method5: tinyColor.Instance[]
+	method: tinyColor.Instance[]
 }
 
 interface CardColorProps {
@@ -97,84 +93,50 @@ const IndexPage: React.FC = () => {
 	const colorObjectInput: ColorObject = {
 		name: 'color from input',
 		originalColor: `#${inputColor}`,
-		method3: shades({ color: `#${inputColor}`, hue: { factor: 5 } }),
-		method4: shades({ color: `#${inputColor}`, saturation: {} }),
-		method5: shades({ color: `#${inputColor}`, hue: {}, saturation: {} })
+		method: shades({ color: `#${inputColor}`, hue: {}, saturation: {} })
 	}
 
 	const colorsArray: Array<ColorObject> = [
 		{
 			name: 'purple',
 			originalColor: '#3e2f5b',
-			// method1: shades({ color: `#3e2f5b` }),
-			// method2: shades({ color: `#3e2f5b`, hue: {} }),
-			method3: shades({ color: `#3e2f5b`, hue: { factor: 5 } }),
-			method4: shades({ color: `#3e2f5b`, saturation: {} }),
-			method5: shades({ color: `#3e2f5b`, hue: {}, saturation: {} })
+			method: shades({ color: `#3e2f5b`, hue: {}, saturation: {} })
 		},
 
 		{
 			name: 'blueGIS',
 			originalColor: '#59ccf2',
-			// method1: shades({ color: `#59ccf2` }),
-			// method2: shades({ color: `#59ccf2`, hue: {} }),
-			method3: shades({ color: `#59ccf2`, hue: { factor: 5 } }),
-			method4: shades({ color: `#59ccf2`, saturation: {} }),
-			method5: shades({ color: `#59ccf2`, hue: {}, saturation: {} })
+			method: shades({ color: `#59ccf2`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
-			// method1: shades({ color: `#FC5A5A` }),
-			// method2: shades({ color: `#FC5A5A`, hue: {} }),
-			method3: shades({ color: `#FC5A5A`, hue: { factor: 5 } }),
-			method4: shades({ color: `#FC5A5A`, saturation: {} }),
-			method5: shades({ color: `#FC5A5A`, hue: {}, saturation: {} })
+			method: shades({ color: `#FC5A5A`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
-			// method1: shades({ color: `#fce15a` }),
-			// method2: shades({ color: `#fce15a`, hue: {} }),
-			method3: shades({ color: `#fce15a`, hue: { factor: 5 } }),
-			method4: shades({ color: `#fce15a`, saturation: {} }),
-			method5: shades({ color: `#fce15a`, hue: {}, saturation: {} })
+			method: shades({ color: `#fce15a`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
-			// method1: shades({ color: `#3dd598` }),
-			// method2: shades({ color: `#3dd598`, hue: {} }),
-			method3: shades({ color: `#3dd598`, hue: { factor: 5 } }),
-			method4: shades({ color: `#3dd598`, saturation: {} }),
-			method5: shades({ color: `#3dd598`, hue: {}, saturation: {} })
+			method: shades({ color: `#3dd598`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
-			// method1: shades({ color: `#B5B5BE` }),
-			// method2: shades({ color: `#B5B5BE`, hue: {} }),
-			method3: shades({ color: `#B5B5BE`, hue: { factor: 5 } }),
-			method4: shades({ color: `#B5B5BE`, saturation: {} }),
-			method5: shades({ color: `#B5B5BE`, hue: {}, saturation: {} })
+			method: shades({ color: `#B5B5BE`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
-			// method1: shades({ color: `#FF933C` }),
-			// method2: shades({ color: `#FF933C`, hue: {} }),
-			method3: shades({ color: `#FF933C`, hue: { factor: 5 } }),
-			method4: shades({ color: `#FF933C`, saturation: {} }),
-			method5: shades({ color: `#FF933C`, hue: {}, saturation: {} })
+			method: shades({ color: `#FF933C`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
-			// method1: shades({ color: `#000F08` }),
-			// method2: shades({ color: `#000F08`, hue: {} }),
-			method3: shades({ color: `#000F08`, hue: { factor: 5 } }),
-			method4: shades({ color: `#000F08`, saturation: {} }),
-			method5: shades({ color: `#000F08`, hue: {}, saturation: {} })
+			method: shades({ color: `#000F08`, hue: {}, saturation: {} })
 		}
 	]
 
@@ -188,22 +150,8 @@ const IndexPage: React.FC = () => {
 				</Flex>
 				<br />
 				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method 3</Text>
-					{colorObjectInput.method3.map((color, i2) => (
-						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-					))}
-				</Flex>
-
-				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method 4</Text>
-					{colorObjectInput.method4.map((color, i2) => (
-						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-					))}
-				</Flex>
-
-				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method 5</Text>
-					{colorObjectInput.method5.map((color, i2) => (
+					<Text pr={4}>Method</Text>
+					{colorObjectInput.method.map((color, i2) => (
 						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 					))}
 				</Flex>
@@ -214,37 +162,9 @@ const IndexPage: React.FC = () => {
 					<Flex justifyContent='center' pb={2}>
 						<CardColorHex hex={colorObject.originalColor} name={colorObject.name} />
 					</Flex>
-					{/* <Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method 1</Text>
-						{colorObject.method1.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-						))}
-					</Flex> */}
-
-					{/* <Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method 2</Text>
-						{colorObject.method2.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-						))}
-					</Flex> */}
-
 					<Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method 3</Text>
-						{colorObject.method3.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-						))}
-					</Flex>
-
-					<Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method 4</Text>
-						{colorObject.method4.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-						))}
-					</Flex>
-
-					<Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method 5</Text>
-						{colorObject.method5.map((color, i2) => (
+						<Text pr={4}>Method</Text>
+						{colorObject.method.map((color, i2) => (
 							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
 						))}
 					</Flex>
