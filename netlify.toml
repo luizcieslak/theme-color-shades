@@ -1,8 +1,8 @@
 # example netlify.toml
 [build]
-  command = "yarn build"
+  command = "npx lerna add tsdx-test && yarn workspace frontend run build"
   functions = "functions"
-  publish = "public"
+  publish = "packages/frontend/public"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
