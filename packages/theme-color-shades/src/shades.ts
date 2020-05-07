@@ -21,7 +21,7 @@ export default function shades({ hue, saturation, color }: ShadesArgs) {
 	}
 
 	if (saturation) {
-		colorsArray = shadesWithSaturationChange(colorsArray, saturation.factor || 10)
+		colorsArray = shadesWithSaturationChange(colorsArray, saturation.factor || 5)
 	}
 
 	return colorsArray

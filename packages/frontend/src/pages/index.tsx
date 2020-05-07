@@ -99,7 +99,7 @@ const IndexPage: React.FC = () => {
 		originalColor: `#${inputColor}`,
 		method3: shades({ color: `#${inputColor}`, hue: { factor: 5 } }),
 		method4: shades({ color: `#${inputColor}`, saturation: {} }),
-		method5: shades({ color: `#${inputColor}`, hue: { factor: 15 }, saturation: { factor: 15 } })
+		method5: shades({ color: `#${inputColor}`, hue: {}, saturation: {} })
 	}
 
 	const colorsArray: Array<ColorObject> = [
@@ -110,7 +110,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#3e2f5b`, hue: {} }),
 			method3: shades({ color: `#3e2f5b`, hue: { factor: 5 } }),
 			method4: shades({ color: `#3e2f5b`, saturation: {} }),
-			method5: shades({ color: `#3e2f5b`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#3e2f5b`, hue: {}, saturation: {} })
 		},
 
 		{
@@ -120,7 +120,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#59ccf2`, hue: {} }),
 			method3: shades({ color: `#59ccf2`, hue: { factor: 5 } }),
 			method4: shades({ color: `#59ccf2`, saturation: {} }),
-			method5: shades({ color: `#59ccf2`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#59ccf2`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'redGIS',
@@ -129,7 +129,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#FC5A5A`, hue: {} }),
 			method3: shades({ color: `#FC5A5A`, hue: { factor: 5 } }),
 			method4: shades({ color: `#FC5A5A`, saturation: {} }),
-			method5: shades({ color: `#FC5A5A`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#FC5A5A`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'brightYellow',
@@ -138,7 +138,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#fce15a`, hue: {} }),
 			method3: shades({ color: `#fce15a`, hue: { factor: 5 } }),
 			method4: shades({ color: `#fce15a`, saturation: {} }),
-			method5: shades({ color: `#fce15a`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#fce15a`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'greenGIS',
@@ -147,7 +147,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#3dd598`, hue: {} }),
 			method3: shades({ color: `#3dd598`, hue: { factor: 5 } }),
 			method4: shades({ color: `#3dd598`, saturation: {} }),
-			method5: shades({ color: `#3dd598`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#3dd598`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'grayGIS',
@@ -156,7 +156,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#B5B5BE`, hue: {} }),
 			method3: shades({ color: `#B5B5BE`, hue: { factor: 5 } }),
 			method4: shades({ color: `#B5B5BE`, saturation: {} }),
-			method5: shades({ color: `#B5B5BE`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#B5B5BE`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'yellowGIS',
@@ -165,7 +165,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#FF933C`, hue: {} }),
 			method3: shades({ color: `#FF933C`, hue: { factor: 5 } }),
 			method4: shades({ color: `#FF933C`, saturation: {} }),
-			method5: shades({ color: `#FF933C`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#FF933C`, hue: {}, saturation: {} })
 		},
 		{
 			name: 'darkJungleGreen',
@@ -174,7 +174,7 @@ const IndexPage: React.FC = () => {
 			// method2: shades({ color: `#000F08`, hue: {} }),
 			method3: shades({ color: `#000F08`, hue: { factor: 5 } }),
 			method4: shades({ color: `#000F08`, saturation: {} }),
-			method5: shades({ color: `#000F08`, hue: { factor: 15 }, saturation: { factor: 15 } })
+			method5: shades({ color: `#000F08`, hue: {}, saturation: {} })
 		}
 	]
 
