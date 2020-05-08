@@ -1,4 +1,9 @@
 import { Command, flags } from '@oclif/command'
+import shades from 'theme-color-shades'
+
+// interface Args {
+// 	color: string
+// }
 
 class Cli extends Command {
 	static description = 'describe the command here'
@@ -10,14 +15,25 @@ class Cli extends Command {
 		// flag with a value (-n, --name=VALUE)
 		name: flags.string({ char: 'n', description: 'name to print' }),
 		// flag with no value (-f, --force)
-		force: flags.boolean({ char: 'f' }),
+		force: flags.boolean({ char: 'f' })
 	}
 
-	static args = [{ name: 'file' }]
+	static args = [{ name: 'color' }]
 
 	async run() {
 		const { args, flags } = this.parse(Cli)
 		console.log('args, flags', args, flags)
+
+		// this.log(`
+		// 	m    #                                                ""#                                #                 #
+		// mm#mm  # mm    mmm   mmmmm   mmm           mmm    mmm     #     mmm    m mm          mmm   # mm    mmm    mmm#   mmm    mmm
+		// 	#    #"  #  #"  #  # # #  #"  #         #"  "  #" "#    #    #" "#   #"  "        #   "  #"  #  "   #  #" "#  #"  #  #   "
+		// 	#    #   #  #""""  # # #  #""""   """   #      #   #    #    #   #   #      """    """m  #   #  m"""#  #   #  #""""   """m
+		// 	"mm  #   #  "#mm"  # # #  "#mm"         "#mm"  "#m#"    "mm  "#m#"   #            "mmm"  #   #  "mm"#  "#m##  "#mm"  "mmm"
+		// `)
+
+		const result = shades({ color: args.color, saturation: true, hue: true })
+		this.log(JSON.stringify(result))
 
 		const name = flags.name ?? 'world'
 		this.log(`hello ${name} from ./src/index.ts`)
