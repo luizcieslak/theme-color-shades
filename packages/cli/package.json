@@ -2,7 +2,7 @@
   "name": "cli",
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
   "version": "0.0.0",
-  "author": "luizcieslak @luizcieslak",
+  "author": "luizcieslak",
   "bin": {
     "theme-color-shades": "./bin/run"
   },
@@ -19,6 +19,8 @@
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",
+    "tslint-config-prettier": "1.18.0",
+    "prettier": "^2.0.5",
     "ts-node": "^8",
     "typescript": "^3.3"
   },
@@ -43,6 +45,7 @@
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
     "test": "echo NO TESTS",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
