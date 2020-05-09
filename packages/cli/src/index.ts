@@ -5,6 +5,8 @@ import shades from 'theme-color-shades'
 // 	color: string
 // }
 
+type outputFormat = 'object' | 'array'
+
 class Cli extends Command {
 	static description = 'describe the command here'
 
@@ -15,14 +17,19 @@ class Cli extends Command {
 		// flag with a value (-n, --name=VALUE)
 		name: flags.string({ char: 'n', description: 'name to print' }),
 		// flag with no value (-f, --force)
-		force: flags.boolean({ char: 'f' })
+		// force: flags.boolean({ char: 'f' }),
+		format: flags.string({
+			char: 'f',
+			description: 'output format. It can be array or object.',
+			options: ['array', 'object'],
+		}),
 	}
 
 	static args = [{ name: 'color' }]
 
 	async run() {
 		const { args, flags } = this.parse(Cli)
-		console.log('args, flags', args, flags)
+		console.log('args, flags', args, flags, 'alooo')
 
 		// this.log(`
 		// 	m    #                                                ""#                                #                 #
@@ -32,14 +39,19 @@ class Cli extends Command {
 		// 	"mm  #   #  "#mm"  # # #  "#mm"         "#mm"  "#m#"    "mm  "#m#"   #            "mmm"  #   #  "mm"#  "#m##  "#mm"  "mmm"
 		// `)
 
-		const result = shades({ color: args.color, saturation: true, hue: true })
+		const result = shades({
+			color: args.color,
+			saturation: true,
+			hue: true,
+			outputFormat: (flags.format as outputFormat) ?? 'object',
+		})
 		this.log(JSON.stringify(result))
 
-		const name = flags.name ?? 'world'
-		this.log(`hello ${name} from ./src/index.ts`)
-		if (args.file && flags.force) {
-			this.log(`you input --force and --file: ${args.file}`)
-		}
+		// const name = flags.name ?? 'world'
+		// this.log(`hello ${name} from ./src/index.ts`)
+		// if (args.file && flags.force) {
+		// this.log(`you input --force and --file: ${args.file}`)
+		// }
 	}
 }
 
