@@ -11,12 +11,16 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "chalk": "^4.0.0",
     "theme-color-shades": "^0.0.1",
+    "tinycolor2": "^1.4.1",
     "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
+    "@types/chalk": "^2.2.0",
     "@types/node": "^10",
+    "@types/tinycolor2": "^1.4.2",
     "eslint": "^5.13",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",

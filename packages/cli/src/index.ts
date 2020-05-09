@@ -1,9 +1,11 @@
 import { Command, flags } from '@oclif/command'
 import shades from 'theme-color-shades'
 
-// interface Args {
+import chalk from 'chalk'
 // 	color: string
 // }
+
+import tinyColor from 'tinycolor2'
 
 type outputFormat = 'object' | 'array'
 
@@ -54,6 +56,14 @@ class Cli extends Command {
 			hue: true,
 			outputFormat: (flags.format as outputFormat) ?? 'object',
 		})
+
+		const rgbColor = tinyColor(args.color).toRgb()
+
+		this.log(
+			`Hello! Here is your requested shades using ${chalk
+				.rgb(rgbColor.r, rgbColor.g, rgbColor.b)
+				.inverse(args.color)} as reference:\n`
+		)
 		this.log(JSON.stringify(result))
 
 		// const name = flags.name ?? 'world'
