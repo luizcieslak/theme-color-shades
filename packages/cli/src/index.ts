@@ -11,6 +11,7 @@ class Cli extends Command {
 	static description = 'describe the command here'
 
 	static flags = {
+		// see: https://oclif.io/docs/flags#__docusaurus
 		// add --version flag to show CLI version
 		version: flags.version({ char: 'v' }),
 		help: flags.help({ char: 'h' }),
@@ -25,7 +26,15 @@ class Cli extends Command {
 		}),
 	}
 
-	static args = [{ name: 'color' }]
+	static args = [
+		{
+			// see: https://oclif.io/docs/args#__docusaurus
+			name: 'color',
+			required: true,
+			description:
+				'Color in HEX format. Since # needs to be escaped from terminal, wrap it in quotes or remove the #, e.g. "#312333" or 312333.',
+		},
+	]
 
 	async run() {
 		const { args, flags } = this.parse(Cli)
