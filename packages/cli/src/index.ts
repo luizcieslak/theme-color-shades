@@ -64,7 +64,13 @@ class Cli extends Command {
 				.rgb(rgbColor.r, rgbColor.g, rgbColor.b)
 				.inverse(args.color)} as reference:\n`
 		)
+
 		this.log(JSON.stringify(result))
+
+		this.log(
+			`\nWanna see how these shades play out in some components before using?
+Check it out here: ${process.env.URL}/components/?color=${tinyColor(args.color).toHexString().slice(1)}`
+		)
 
 		// const name = flags.name ?? 'world'
 		// this.log(`hello ${name} from ./src/index.ts`)
