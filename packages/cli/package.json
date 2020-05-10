@@ -1,0 +1,60 @@
+{
+  "name": "cli",
+  "description": "CLI command to create a group of color shades ready to be used in your UI library.",
+  "version": "0.0.0",
+  "author": "luizcieslak",
+  "bin": {
+    "theme-color-shades": "./bin/run"
+  },
+  "bugs": "https://github.com/luizcieslak/https://github.com/luizcieslak/theme-color-shades/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "@types/ascii-art": "^1.4.0",
+    "ascii-art": "^2.5.0",
+    "chalk": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "theme-color-shades": "^0.0.1",
+    "tinycolor2": "^1.4.1",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/chalk": "^2.2.0",
+    "@types/node": "^10",
+    "@types/tinycolor2": "^1.4.2",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "prettier": "^2.0.5",
+    "ts-node": "^8",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/luizcieslak/https://github.com/luizcieslak/theme-color-shades",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "theme-color-shades"
+  },
+  "repository": "luizcieslak/https://github.com/luizcieslak/theme-color-shades",
+  "scripts": {
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}

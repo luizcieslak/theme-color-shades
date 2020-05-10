@@ -90,53 +90,56 @@ function CardColorHex({ hex, index, name }: CardColorProps) {
 
 const IndexPage: React.FC = () => {
 	const [inputColor, setInputColor] = useState('d31233')
+
+	// console.log('test', shades({ color: `#3e2f5b`, hue: true, saturation: true, outputFormat: 'array' }))
+	// console.log('test2', shades({ color: `#3e2f5b`, hue: true, saturation: true, outputFormat: 'object' }))
 	const colorObjectInput: ColorObject = {
 		name: 'color from input',
 		originalColor: `#${inputColor}`,
-		method: shades({ color: `#${inputColor}`, hue: true, saturation: true })
+		method: shades({ color: `#${inputColor}`, hue: true, saturation: true }) as tinyColor.Instance[]
 	}
 
 	const colorsArray: Array<ColorObject> = [
 		{
 			name: 'purple',
 			originalColor: '#3e2f5b',
-			method: shades({ color: `#3e2f5b`, hue: true, saturation: true })
+			method: shades({ color: `#3e2f5b`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 
 		{
 			name: 'blueGIS',
 			originalColor: '#59ccf2',
-			method: shades({ color: `#59ccf2`, hue: true, saturation: true })
+			method: shades({ color: `#59ccf2`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'redGIS',
 			originalColor: '#FC5A5A',
-			method: shades({ color: `#FC5A5A`, hue: true, saturation: true })
+			method: shades({ color: `#FC5A5A`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'brightYellow',
 			originalColor: '#fce15a',
-			method: shades({ color: `#fce15a`, hue: true, saturation: true })
+			method: shades({ color: `#fce15a`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'greenGIS',
 			originalColor: '#3dd598',
-			method: shades({ color: `#3dd598`, hue: true, saturation: true })
+			method: shades({ color: `#3dd598`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'grayGIS',
 			originalColor: '#B5B5BE',
-			method: shades({ color: `#B5B5BE`, hue: true, saturation: true })
+			method: shades({ color: `#B5B5BE`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'yellowGIS',
 			originalColor: '#FF933C',
-			method: shades({ color: `#FF933C`, hue: true, saturation: true })
+			method: shades({ color: `#FF933C`, hue: true, saturation: true }) as tinyColor.Instance[]
 		},
 		{
 			name: 'darkJungleGreen',
 			originalColor: '#000F08',
-			method: shades({ color: `#000F08`, hue: true, saturation: true })
+			method: shades({ color: `#000F08`, hue: true, saturation: true }) as tinyColor.Instance[]
 		}
 	]
 
