@@ -1,6 +1,17 @@
 import React from 'react'
 import { ColorObj } from 'theme-color-shades'
-import { Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton, Button, Box, Flex, Stack } from '@chakra-ui/core'
+import {
+	Alert,
+	AlertIcon,
+	AlertTitle,
+	AlertDescription,
+	CloseButton,
+	Button,
+	Box,
+	Flex,
+	Stack,
+	Spinner
+} from '@chakra-ui/core'
 
 const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 	console.log('demo', colorObj)
@@ -54,6 +65,14 @@ const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 				<Button py={4} color={colorObj['500']} variant='link'>
 					Link
 				</Button>
+			</Stack>
+			<Box py={2} />
+			<Stack isInline spacing={4}>
+				<Spinner color={colorObj['500']} size='xs' />
+				<Spinner color={colorObj['500']} size='sm' />
+				<Spinner color={colorObj['500']} size='md' />
+				<Spinner color={colorObj['500']} size='lg' />
+				<Spinner color={colorObj['500']} size='xl' />
 			</Stack>
 		</>
 	)
