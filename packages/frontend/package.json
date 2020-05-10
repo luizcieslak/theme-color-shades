@@ -27,6 +27,7 @@
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-sharp": "^2.3.2",
     "preact": "^10.0.5",
+    "query-string": "^6.12.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "^5.2.1",
