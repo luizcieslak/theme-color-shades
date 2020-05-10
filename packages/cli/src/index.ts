@@ -7,6 +7,11 @@ import chalk from 'chalk'
 
 import tinyColor from 'tinycolor2'
 
+import asciiArt from 'ascii-art'
+require('dotenv').config()
+
+import path from 'path'
+
 type outputFormat = 'object' | 'array'
 
 class Cli extends Command {
@@ -58,6 +63,19 @@ class Cli extends Command {
 		})
 
 		const rgbColor = tinyColor(args.color).toRgb()
+
+		// TODO: Check if this path is the same when published to npm.
+		const art1 = await asciiArt
+			.image({
+				filepath: path.join(__dirname + '/images/colorwheel.png'),
+				width: 20,
+				height: 20,
+				alphabet: 'variant4',
+			})
+			.toPromise()
+
+		this.log(art1)
+		this.log(`Theme Color Shades ${this.config.version} \n`)
 
 		this.log(
 			`Hello! Here is your requested shades using ${chalk

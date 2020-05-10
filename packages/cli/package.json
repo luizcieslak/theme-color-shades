@@ -11,6 +11,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "@types/ascii-art": "^1.4.0",
+    "ascii-art": "^2.5.0",
     "chalk": "^4.0.0",
     "dotenv": "^8.2.0",
     "theme-color-shades": "^0.0.1",
