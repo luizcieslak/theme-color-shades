@@ -10,7 +10,11 @@ import {
 	Box,
 	Flex,
 	Stack,
-	Spinner
+	Spinner,
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	Icon
 } from '@chakra-ui/core'
 
 const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
@@ -74,6 +78,20 @@ const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 				<Spinner color={colorObj['500']} size='lg' />
 				<Spinner color={colorObj['500']} size='xl' />
 			</Stack>
+
+			<Breadcrumb spacing='8px' separator={<Icon color={colorObj['500']} name='chevron-right' />}>
+				<BreadcrumbItem>
+					<BreadcrumbLink href='/'>Home</BreadcrumbLink>
+				</BreadcrumbItem>
+
+				<BreadcrumbItem>
+					<BreadcrumbLink href='/'>About</BreadcrumbLink>
+				</BreadcrumbItem>
+
+				<BreadcrumbItem isCurrentPage>
+					<BreadcrumbLink href='/'>Contact</BreadcrumbLink>
+				</BreadcrumbItem>
+			</Breadcrumb>
 		</>
 	)
 }
