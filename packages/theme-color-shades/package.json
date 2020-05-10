@@ -1,7 +1,7 @@
 {
   "name": "theme-color-shades",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,10 +23,9 @@
     "prepare": "tsdx build"
   },
   "dependencies": {
-    "tinycolor2": "^1.4.1",
-    "dotenv": "8.2.0"
+    "dotenv": "8.2.0",
+    "tinycolor2": "^1.4.1"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -35,13 +34,13 @@
   "author": "luizcieslak",
   "module": "dist/tsdx-test.esm.js",
   "devDependencies": {
+    "@types/jest": "24.9.1",
+    "@types/node": "12.12.34",
+    "@types/tinycolor2": "^1.4.2",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
-    "@types/node": "12.12.34",
-    "@types/jest": "24.9.1",
-    "tslint-config-prettier": "1.18.0",
     "tslib": "^1.11.2",
-    "@types/tinycolor2": "^1.4.2",
+    "tslint-config-prettier": "1.18.0",
     "typescript": "^3.8.3"
   }
 }

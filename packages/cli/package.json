@@ -1,7 +1,7 @@
 {
   "name": "cli",
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "luizcieslak",
   "bin": {
     "theme-color-shades": "./bin/run"
@@ -15,7 +15,7 @@
     "ascii-art": "^2.5.0",
     "chalk": "^4.0.0",
     "dotenv": "^8.2.0",
-    "theme-color-shades": "^0.0.1",
+    "theme-color-shades": "^0.0.2",
     "tinycolor2": "^1.4.1",
     "tslib": "^1"
   },

@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": false,
   "description": "frontend for theme-color-shades",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Luiz Cieslak <luiz@cieslak.dev>",
   "dependencies": {
     "@chakra-ui/core": "^0.7.0",
@@ -31,7 +31,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
-    "theme-color-shades": "^0.0.1"
+    "theme-color-shades": "^0.0.2"
   },
   "keywords": [
     "gatsby"
