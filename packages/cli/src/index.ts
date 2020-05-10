@@ -1,16 +1,11 @@
+import path from 'path'
 import { Command, flags } from '@oclif/command'
 import shades from 'theme-color-shades'
-
 import chalk from 'chalk'
-// 	color: string
-// }
-
 import tinyColor from 'tinycolor2'
-
 import asciiArt from 'ascii-art'
-require('dotenv').config()
 
-import path from 'path'
+require('dotenv').config()
 
 type outputFormat = 'object' | 'array'
 
@@ -45,15 +40,6 @@ class Cli extends Command {
 
 	async run() {
 		const { args, flags } = this.parse(Cli)
-		console.log('args, flags', args, flags, 'alooo')
-
-		// this.log(`
-		// 	m    #                                                ""#                                #                 #
-		// mm#mm  # mm    mmm   mmmmm   mmm           mmm    mmm     #     mmm    m mm          mmm   # mm    mmm    mmm#   mmm    mmm
-		// 	#    #"  #  #"  #  # # #  #"  #         #"  "  #" "#    #    #" "#   #"  "        #   "  #"  #  "   #  #" "#  #"  #  #   "
-		// 	#    #   #  #""""  # # #  #""""   """   #      #   #    #    #   #   #      """    """m  #   #  m"""#  #   #  #""""   """m
-		// 	"mm  #   #  "#mm"  # # #  "#mm"         "#mm"  "#m#"    "mm  "#m#"   #            "mmm"  #   #  "mm"#  "#m##  "#mm"  "mmm"
-		// `)
 
 		const result = shades({
 			color: args.color,
@@ -89,12 +75,6 @@ class Cli extends Command {
 			`\nWanna see how these shades play out in some components before using?
 Check it out here: ${process.env.URL}/components/?color=${tinyColor(args.color).toHexString().slice(1)}`
 		)
-
-		// const name = flags.name ?? 'world'
-		// this.log(`hello ${name} from ./src/index.ts`)
-		// if (args.file && flags.force) {
-		// this.log(`you input --force and --file: ${args.file}`)
-		// }
 	}
 }
 
