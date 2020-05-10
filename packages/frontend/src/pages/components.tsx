@@ -3,7 +3,7 @@ import qs from 'query-string'
 import tinyColor from 'tinycolor2'
 
 import Layout from '../components/layout'
-import shades from 'theme-color-shades'
+import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
 
 const Components = () => {
@@ -17,7 +17,9 @@ const Components = () => {
 		}
 	}
 
-	const shadesArray = shades({ color, hue: true, saturation: true })
+	const shadesTinyColor = shades({ color, hue: true, saturation: true })
+	const shadesArray = shades({ color, hue: true, saturation: true, outputFormat: 'array' })
+	const shadesObject = shades({ color, hue: true, saturation: true, outputFormat: 'object' })
 
 	return (
 		<Layout>
