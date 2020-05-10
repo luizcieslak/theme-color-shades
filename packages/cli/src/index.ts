@@ -83,7 +83,7 @@ class Cli extends Command {
 				.inverse(args.color)} as reference:\n`
 		)
 
-		this.log(JSON.stringify(result))
+		this.log(JSON.stringify(result, null, 2))
 
 		this.log(
 			`\nWanna see how these shades play out in some components before using?
