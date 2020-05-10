@@ -5,6 +5,7 @@ import tinyColor from 'tinycolor2'
 import Layout from '../components/layout'
 import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
+import DemoComponents from '../components/DemoComponents'
 
 const Components = () => {
 	let color = '#06D6A0' //default
@@ -23,7 +24,8 @@ const Components = () => {
 
 	return (
 		<Layout>
-			<Shades originalColor={color} shades={shadesArray as tinyColor.Instance[]} />
+			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
+			<DemoComponents colorObj={shadesObject as ColorObj} />
 		</Layout>
 	)
 }
