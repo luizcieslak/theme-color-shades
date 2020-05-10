@@ -15,7 +15,7 @@ import path from 'path'
 type outputFormat = 'object' | 'array'
 
 class Cli extends Command {
-	static description = 'describe the command here'
+	static description = 'CLI command to create a group of color shades ready to be used in your UI library.'
 
 	static flags = {
 		// see: https://oclif.io/docs/flags#__docusaurus
