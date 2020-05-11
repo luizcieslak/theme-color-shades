@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
+import theme, { CustomTheme } from '../theme'
 
 const Components = () => {
 	let color = '#06D6A0' //default
@@ -21,9 +22,17 @@ const Components = () => {
 	const shadesTinyColor = shades({ color, hue: true, saturation: true })
 	const shadesArray = shades({ color, hue: true, saturation: true, outputFormat: 'array' })
 	const shadesObject = shades({ color, hue: true, saturation: true, outputFormat: 'object' })
+	const themeWithNewColor: CustomTheme = {
+		...theme,
+		colors: {
+			...theme.colors,
+			brand: shadesObject as ColorObj
+		}
+	}
 
 	return (
-		<Layout>
+		<Layout theme={themeWithNewColor}>
+			{/* <Layout> */}
 			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
 			<DemoComponents colorObj={shadesObject as ColorObj} />
 		</Layout>
