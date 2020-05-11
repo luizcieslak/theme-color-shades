@@ -39,11 +39,11 @@ const Title = styled(Text)`
 const DemoComponents: React.FC = () => {
 	return (
 		<>
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Written texts
 			</Title>
 
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Alerts
 			</Title>
 
@@ -65,7 +65,7 @@ const DemoComponents: React.FC = () => {
 				</Alert>
 			</Stack>
 
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Buttons
 			</Title>
 
@@ -107,7 +107,7 @@ const DemoComponents: React.FC = () => {
 				</Button>
 				<IconButton variantColor='brand' aria-label='Search database' icon='search' />
 			</Stack>
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Progress and Spinners
 			</Title>
 
@@ -120,7 +120,7 @@ const DemoComponents: React.FC = () => {
 				<Spinner color={'brand.500'} size='xl' />
 			</Stack>
 
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Breadcrumb
 			</Title>
 
@@ -138,7 +138,7 @@ const DemoComponents: React.FC = () => {
 				</BreadcrumbItem>
 			</Breadcrumb>
 
-			<Title my={8} fontSize='xl'>
+			<Title mt={8} mb={12} fontSize='xl'>
 				Form components
 			</Title>
 
