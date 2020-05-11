@@ -1,5 +1,4 @@
 import React from 'react'
-import { ColorObj } from 'theme-color-shades'
 import {
 	Alert,
 	AlertIcon,
@@ -8,7 +7,6 @@ import {
 	CloseButton,
 	Button,
 	Box,
-	Flex,
 	Stack,
 	Spinner,
 	Breadcrumb,
@@ -20,12 +18,35 @@ import {
 	CircularProgress,
 	IconButton,
 	RadioGroup,
-	Radio
+	Radio,
+	Text
 } from '@chakra-ui/core'
+import styled from '@emotion/styled'
+
+const Title = styled(Text)`
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: 40px;
+		height: 5px;
+		background: ${props => props.theme.colors.brand['500']};
+	}
+`
 
 const DemoComponents: React.FC = () => {
 	return (
 		<>
+			<Title my={8} fontSize='xl'>
+				Written texts
+			</Title>
+
+			<Title my={8} fontSize='xl'>
+				Alerts
+			</Title>
+
 			<Alert status='info' bg='brand.500'>
 				<AlertIcon color='brand.600' />
 				<AlertTitle mr={2}>Here's an Alert example.</AlertTitle>
@@ -44,7 +65,9 @@ const DemoComponents: React.FC = () => {
 				<CloseButton position='absolute' right='8px' top='8px' />
 			</Alert>
 
-			<Box py={2} />
+			<Title my={8} fontSize='xl'>
+				Buttons
+			</Title>
 
 			<Stack isInline spacing={4} flexWrap='wrap'>
 				<Button
@@ -84,7 +107,10 @@ const DemoComponents: React.FC = () => {
 				</Button>
 				<IconButton variantColor='brand' aria-label='Search database' icon='search' />
 			</Stack>
-			<Box py={2} />
+			<Title my={8} fontSize='xl'>
+				Progress and Spinners
+			</Title>
+
 			<Stack isInline spacing={4}>
 				<CircularProgress isIndeterminate color='brand' />
 				<Spinner color={'brand.500'} size='xs' />
@@ -93,6 +119,9 @@ const DemoComponents: React.FC = () => {
 				<Spinner color={'brand.500'} size='lg' />
 				<Spinner color={'brand.500'} size='xl' />
 			</Stack>
+			<Title my={8} fontSize='xl'>
+				Breadcrumb
+			</Title>
 
 			<Breadcrumb spacing='8px' separator={<Icon color={'brand.500'} name='chevron-right' />}>
 				<BreadcrumbItem>
@@ -107,9 +136,15 @@ const DemoComponents: React.FC = () => {
 					<BreadcrumbLink href='/'>Contact</BreadcrumbLink>
 				</BreadcrumbItem>
 			</Breadcrumb>
+
+			<Title my={8} fontSize='xl'>
+				Form components
+			</Title>
+
 			<Checkbox variantColor='brand' defaultIsChecked>
 				Checkbox
 			</Checkbox>
+			<Box py={2} />
 			<RadioGroup defaultValue='2' spacing={5} isInline>
 				<Radio variantColor='brand' value='1'>
 					Radio
@@ -118,6 +153,7 @@ const DemoComponents: React.FC = () => {
 					Radio
 				</Radio>
 			</RadioGroup>
+			<Box py={2} />
 			<Stack align='center' isInline>
 				<Switch color='brand' size='sm' defaultIsChecked />
 				<Switch color='brand' size='md' />
