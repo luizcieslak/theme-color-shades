@@ -42,6 +42,44 @@ const DemoComponents: React.FC = () => {
 			<Title mt={8} mb={12} fontSize='xl'>
 				Written texts
 			</Title>
+			<Stack spacing={4}>
+				<Box>
+					<Text fontFamily='Roboto' color='brand.900' fontWeight='bold' fontSize='xl' letterSpacing='0.05px'>
+						Roboto Title
+					</Text>
+					<Text fontFamily='Roboto' color='brand.800'>
+						Roboto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum urna ac tortor mattis, id
+						cursus odio pulvinar. Nunc vitae auctor nulla, sit amet tristique purus. Maecenas aliquam risus at orci
+						volutpat varius. Donec ut ligula egestas, egestas urna ac, suscipit tortor. Aenean efficitur urna non felis
+						hendrerit, vel scelerisque odio molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+						Etiam eu vestibulum velit. In ut sollicitudin dolor, at tristique purus.
+					</Text>
+				</Box>
+				<Box>
+					<Text fontFamily='Montserrat' color='brand.900' fontWeight='bold' fontSize='xl' letterSpacing='0.05px'>
+						Montserrat Title
+					</Text>
+					<Text fontFamily='Montserrat' color='brand.800'>
+						Montserrat Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum urna ac tortor mattis, id
+						cursus odio pulvinar. Nunc vitae auctor nulla, sit amet tristique purus. Maecenas aliquam risus at orci
+						volutpat varius. Donec ut ligula egestas, egestas urna ac, suscipit tortor. Aenean efficitur urna non felis
+						hendrerit, vel scelerisque odio molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+						Etiam eu vestibulum velit. In ut sollicitudin dolor, at tristique purus.
+					</Text>
+				</Box>
+				<Box>
+					<Text fontFamily='Lato' color='brand.900' fontWeight='bold' fontSize='xl' letterSpacing='0.05px'>
+						Lato Title
+					</Text>
+					<Text fontFamily='Montserrat' color='brand.800'>
+						Lato Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum urna ac tortor mattis, id cursus
+						odio pulvinar. Nunc vitae auctor nulla, sit amet tristique purus. Maecenas aliquam risus at orci volutpat
+						varius. Donec ut ligula egestas, egestas urna ac, suscipit tortor. Aenean efficitur urna non felis
+						hendrerit, vel scelerisque odio molestie. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+						Etiam eu vestibulum velit. In ut sollicitudin dolor, at tristique purus.
+					</Text>
+				</Box>
+			</Stack>
 
 			<Title mt={8} mb={12} fontSize='xl'>
 				Alerts
