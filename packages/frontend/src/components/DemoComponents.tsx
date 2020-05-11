@@ -86,19 +86,24 @@ const DemoComponents: React.FC = () => {
 			</Title>
 
 			<Stack spacing={4}>
-				<Alert status='info' bg='brand.500'>
-					<AlertIcon color='brand.600' />
+				<Alert status='info'>
+					<AlertIcon />
 					<AlertTitle mr={2}>Here's an Alert example.</AlertTitle>
 					<AlertDescription>Bg is 200, icon is 600.</AlertDescription>
 					<CloseButton position='absolute' right='8px' top='8px' />
 				</Alert>
 
-				<Alert status='info' bg={'brand.500'}>
-					<AlertIcon color={'brand.100'} />
-					<AlertTitle mr={2} color='white'>
-						Same as previous.
-					</AlertTitle>
+				<Alert status='info' variant='solid'>
+					<AlertIcon />
+					<AlertTitle mr={2}>Same as previous.</AlertTitle>
 					<AlertDescription color='white'>with a white text.</AlertDescription>
+					<CloseButton position='absolute' right='8px' top='8px' />
+				</Alert>
+
+				<Alert status='info' variant='left-accent'>
+					<AlertIcon />
+					<AlertTitle mr={2}>Left accent.</AlertTitle>
+					<AlertDescription>Alert!</AlertDescription>
 					<CloseButton position='absolute' right='8px' top='8px' />
 				</Alert>
 			</Stack>
