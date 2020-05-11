@@ -14,7 +14,8 @@ import {
 	Breadcrumb,
 	BreadcrumbItem,
 	BreadcrumbLink,
-	Icon
+	Icon,
+	Checkbox
 } from '@chakra-ui/core'
 
 const DemoComponents: React.FC = () => {
@@ -84,6 +85,9 @@ const DemoComponents: React.FC = () => {
 					<BreadcrumbLink href='/'>Contact</BreadcrumbLink>
 				</BreadcrumbItem>
 			</Breadcrumb>
+			<Checkbox variantColor='brand' defaultIsChecked>
+				Checkbox
+			</Checkbox>
 		</>
 	)
 }
