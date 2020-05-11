@@ -18,7 +18,9 @@ import {
 	Checkbox,
 	Switch,
 	CircularProgress,
-	IconButton
+	IconButton,
+	RadioGroup,
+	Radio
 } from '@chakra-ui/core'
 
 const DemoComponents: React.FC = () => {
@@ -108,6 +110,14 @@ const DemoComponents: React.FC = () => {
 			<Checkbox variantColor='brand' defaultIsChecked>
 				Checkbox
 			</Checkbox>
+			<RadioGroup defaultValue='2' spacing={5} isInline>
+				<Radio variantColor='brand' value='1'>
+					Radio
+				</Radio>
+				<Radio variantColor='brand' value='2'>
+					Radio
+				</Radio>
+			</RadioGroup>
 			<Stack align='center' isInline>
 				<Switch color='brand' size='sm' defaultIsChecked />
 				<Switch color='brand' size='md' />
