@@ -15,7 +15,8 @@ import {
 	BreadcrumbItem,
 	BreadcrumbLink,
 	Icon,
-	Checkbox
+	Checkbox,
+	Switch
 } from '@chakra-ui/core'
 
 const DemoComponents: React.FC = () => {
@@ -103,6 +104,11 @@ const DemoComponents: React.FC = () => {
 			<Checkbox variantColor='brand' defaultIsChecked>
 				Checkbox
 			</Checkbox>
+			<Stack align='center' isInline>
+				<Switch color='brand' size='sm' defaultIsChecked />
+				<Switch color='brand' size='md' />
+				<Switch color='brand' size='lg' defaultIsChecked />
+			</Stack>
 		</>
 	)
 }
