@@ -17,6 +17,7 @@ import {
 	Icon,
 	Checkbox,
 	Switch,
+	CircularProgress,
 	IconButton
 } from '@chakra-ui/core'
 
@@ -83,6 +84,7 @@ const DemoComponents: React.FC = () => {
 			</Stack>
 			<Box py={2} />
 			<Stack isInline spacing={4}>
+				<CircularProgress isIndeterminate color='brand' />
 				<Spinner color={'brand.500'} size='xs' />
 				<Spinner color={'brand.500'} size='sm' />
 				<Spinner color={'brand.500'} size='md' />
