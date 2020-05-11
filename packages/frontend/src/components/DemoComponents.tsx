@@ -42,7 +42,15 @@ const DemoComponents: React.FC = () => {
 			<Box py={2} />
 
 			<Stack isInline spacing={4} flexWrap='wrap'>
-				<Button py={4} bg={'brand.500'} border='1px' borderRadius='5px' color='white' _hover={{ bg: 'brand.600' }}>
+				<Button
+					py={4}
+					variantColor='brand'
+					// bg={'brand.500'}
+					// border='1px'
+					// borderRadius='5px'
+					// color='white'
+					//  _hover={{ bg: 'brand.600' }}
+				>
 					Solid
 				</Button>
 				<Button
@@ -50,16 +58,23 @@ const DemoComponents: React.FC = () => {
 					variant='outline'
 					border='1px'
 					borderRadius='5px'
-					color={'brand.500'}
-					borderColor={'brand.500'}
-					_hover={{ bg: 'brand.100' }}
+					variantColor='brand'
+					// color={'brand.500'}
+					// borderColor={'brand.500'}
+					// _hover={{ bg: 'brand.100' }}
 				>
 					Outline
 				</Button>
-				<Button py={4} bg='white' variant='ghost' color={'brand.500'} _hover={{ bg: 'brand.100' }}>
+				<Button
+					py={4}
+					bg='white'
+					variant='ghost'
+					variantColor='brand'
+					// color={'brand.500'} _hover={{ bg: 'brand.100' }}
+				>
 					Ghost
 				</Button>
-				<Button py={4} color={'brand.500'} variant='link'>
+				<Button py={4} variantColor='brand' variant='link'>
 					Link
 				</Button>
 			</Stack>
