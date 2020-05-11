@@ -16,7 +16,8 @@ import {
 	BreadcrumbLink,
 	Icon,
 	Checkbox,
-	Switch
+	Switch,
+	IconButton
 } from '@chakra-ui/core'
 
 const DemoComponents: React.FC = () => {
@@ -78,6 +79,7 @@ const DemoComponents: React.FC = () => {
 				<Button py={4} variantColor='brand' variant='link'>
 					Link
 				</Button>
+				<IconButton variantColor='brand' aria-label='Search database' icon='search' />
 			</Stack>
 			<Box py={2} />
 			<Stack isInline spacing={4}>
