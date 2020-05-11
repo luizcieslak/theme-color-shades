@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
-import theme from '../theme'
+import customTheme, { CustomTheme } from '../theme'
 import './layout.css'
 
 import { Box } from '@chakra-ui/core'
@@ -18,7 +18,11 @@ const pageQuery = graphql`
 	}
 `
 
-const Layout: React.FunctionComponent = ({ children }) => {
+interface LayoutProps {
+	theme?: CustomTheme
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 	const data: SiteQuery = useStaticQuery(pageQuery)
 
 	return (
