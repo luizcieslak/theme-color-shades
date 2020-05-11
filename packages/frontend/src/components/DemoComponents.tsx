@@ -17,12 +17,11 @@ import {
 	Icon
 } from '@chakra-ui/core'
 
-const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
-	console.log('demo', colorObj)
+const DemoComponents: React.FC = () => {
 	return (
 		<>
-			<Alert status='info' bg={colorObj['500']}>
-				<AlertIcon color={colorObj['600']} />
+			<Alert status='info' bg='brand.500'>
+				<AlertIcon color='brand.600' />
 				<AlertTitle mr={2}>Here's an Alert example.</AlertTitle>
 				<AlertDescription>Bg is 200, icon is 600.</AlertDescription>
 				<CloseButton position='absolute' right='8px' top='8px' />
@@ -30,8 +29,8 @@ const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 
 			<Box py={2} />
 
-			<Alert status='info' bg={colorObj['500']}>
-				<AlertIcon color={colorObj['100']} />
+			<Alert status='info' bg={'brand.500'}>
+				<AlertIcon color={'brand.100'} />
 				<AlertTitle mr={2} color='white'>
 					Same as previous.
 				</AlertTitle>
@@ -42,14 +41,7 @@ const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 			<Box py={2} />
 
 			<Stack isInline spacing={4} flexWrap='wrap'>
-				<Button
-					py={4}
-					bg={colorObj['500']}
-					border='1px'
-					borderRadius='5px'
-					color='white'
-					_hover={{ bg: colorObj['600'] }}
-				>
+				<Button py={4} bg={'brand.500'} border='1px' borderRadius='5px' color='white' _hover={{ bg: 'brand.600' }}>
 					Solid
 				</Button>
 				<Button
@@ -57,29 +49,29 @@ const DemoComponents: React.FC<{ colorObj: ColorObj }> = ({ colorObj }) => {
 					variant='outline'
 					border='1px'
 					borderRadius='5px'
-					color={colorObj['500']}
-					borderColor={colorObj['500']}
-					_hover={{ bg: colorObj['100'] }}
+					color={'brand.500'}
+					borderColor={'brand.500'}
+					_hover={{ bg: 'brand.100' }}
 				>
 					Outline
 				</Button>
-				<Button py={4} bg='white' variant='ghost' color={colorObj['500']} _hover={{ bg: colorObj['100'] }}>
+				<Button py={4} bg='white' variant='ghost' color={'brand.500'} _hover={{ bg: 'brand.100' }}>
 					Ghost
 				</Button>
-				<Button py={4} color={colorObj['500']} variant='link'>
+				<Button py={4} color={'brand.500'} variant='link'>
 					Link
 				</Button>
 			</Stack>
 			<Box py={2} />
 			<Stack isInline spacing={4}>
-				<Spinner color={colorObj['500']} size='xs' />
-				<Spinner color={colorObj['500']} size='sm' />
-				<Spinner color={colorObj['500']} size='md' />
-				<Spinner color={colorObj['500']} size='lg' />
-				<Spinner color={colorObj['500']} size='xl' />
+				<Spinner color={'brand.500'} size='xs' />
+				<Spinner color={'brand.500'} size='sm' />
+				<Spinner color={'brand.500'} size='md' />
+				<Spinner color={'brand.500'} size='lg' />
+				<Spinner color={'brand.500'} size='xl' />
 			</Stack>
 
-			<Breadcrumb spacing='8px' separator={<Icon color={colorObj['500']} name='chevron-right' />}>
+			<Breadcrumb spacing='8px' separator={<Icon color={'brand.500'} name='chevron-right' />}>
 				<BreadcrumbItem>
 					<BreadcrumbLink href='/'>Home</BreadcrumbLink>
 				</BreadcrumbItem>
