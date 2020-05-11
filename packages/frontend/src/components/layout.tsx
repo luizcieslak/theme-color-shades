@@ -3,6 +3,7 @@ import React from 'react'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import customTheme, { CustomTheme } from '../theme'
 import './layout.css'
+import '../globalFonts.css'
 
 import { Box } from '@chakra-ui/core'
 import Header from './header'
