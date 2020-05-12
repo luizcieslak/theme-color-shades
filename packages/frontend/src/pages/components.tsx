@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import qs from 'query-string'
 import tinyColor from 'tinycolor2'
 
@@ -10,8 +10,8 @@ import theme, { CustomTheme } from '../theme'
 import { FormLabel, RadioGroup, Radio, Textarea } from '@chakra-ui/core'
 
 const Components = () => {
+	const [format, setFormat] = useState<string>('object')
 
-const Components = () => {
 	let color = '#06D6A0' //default
 
 	if (typeof window !== 'undefined') {
@@ -24,7 +24,8 @@ const Components = () => {
 
 	const shadesTinyColor = shades({ color, hue: true, saturation: true })
 	const shadesArray = shades({ color, hue: true, saturation: true, outputFormat: 'array' })
-	const shadesObject = shades({ color, hue: true, saturation: true, outputFormat: 'object' })
+	const shadesObject = shades({ color, hue: true, saturation: { factor: 12 }, outputFormat: 'object' })
+
 	const themeWithNewColor: CustomTheme = {
 		...theme,
 		colors: {
@@ -40,7 +41,7 @@ const Components = () => {
 			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
 
 			<FormLabel htmlFor='format'>Select output format</FormLabel>
-			<RadioGroup id='format' defaultValue='object' spacing={5} isInline>
+			<RadioGroup id='format' value={format} onChange={e => setFormat(e.target.value)} spacing={5} isInline>
 				<Radio variantColor='brand' value='object'>
 					Object
 				</Radio>
@@ -48,6 +49,7 @@ const Components = () => {
 					Array
 				</Radio>
 			</RadioGroup>
+			<Textarea value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)} minH='280px' />
 			<DemoComponents />
 		</Layout>
 	)
