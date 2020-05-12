@@ -7,9 +7,9 @@ import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
 import theme, { CustomTheme } from '../theme'
-import { FormLabel, RadioGroup, Radio, Text } from '@chakra-ui/core'
+import { FormLabel, RadioGroup, Radio, Textarea } from '@chakra-ui/core'
 
-import ntcjs from 'ntcjs'
+const Components = () => {
 
 const Components = () => {
 	let color = '#06D6A0' //default
@@ -36,7 +36,7 @@ const Components = () => {
 	return (
 		<Layout theme={themeWithNewColor}>
 			{/* <Layout> */}
-			<Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text>
+			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
 			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
 
 			<FormLabel htmlFor='format'>Select output format</FormLabel>

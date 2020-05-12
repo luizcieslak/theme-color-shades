@@ -2,6 +2,7 @@ import React from 'react'
 import tinyColor from 'tinycolor2'
 import { Box, Flex } from '@chakra-ui/core'
 import CardColorHex from './ CardColorHex'
+import ntcjs from 'ntcjs'
 
 interface ShadesArgs {
 	originalColor: string
@@ -24,7 +25,7 @@ const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
 		<>
 			<Box p={4} m={4}>
 				<Flex justifyContent='center' pb={2}>
-					<CardColorHex hex={originalColor} name='Base Color' />
+					<CardColorHex hex={originalColor} name={ntcjs.name(`#${originalColor}`)[1]} />
 				</Flex>
 				<Flex justifyContent='center' alignItems='center' w='100%'>
 					{shades.map((color, i) => (
