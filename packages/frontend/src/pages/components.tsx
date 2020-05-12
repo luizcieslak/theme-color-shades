@@ -7,7 +7,7 @@ import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
 import theme, { CustomTheme } from '../theme'
-import { FormLabel, RadioGroup, Radio, Textarea } from '@chakra-ui/core'
+import { FormLabel, RadioGroup, Radio, Textarea, useClipboard, Button } from '@chakra-ui/core'
 
 const Components = () => {
 	const [format, setFormat] = useState<string>('object')
@@ -25,6 +25,8 @@ const Components = () => {
 	const shadesTinyColor = shades({ color, hue: true, saturation: true })
 	const shadesArray = shades({ color, hue: true, saturation: true, outputFormat: 'array' })
 	const shadesObject = shades({ color, hue: true, saturation: { factor: 12 }, outputFormat: 'object' })
+
+	const { onCopy, hasCopied } = useClipboard(JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2))
 
 	const themeWithNewColor: CustomTheme = {
 		...theme,
@@ -49,6 +51,9 @@ const Components = () => {
 					Array
 				</Radio>
 			</RadioGroup>
+			<Button py={4} variantColor='brand' onClick={onCopy}>
+				{hasCopied ? 'Copied' : 'Copy'}
+			</Button>
 			<Textarea value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)} minH='280px' />
 			<DemoComponents />
 		</Layout>
