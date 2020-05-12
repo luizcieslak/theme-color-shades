@@ -24,7 +24,8 @@ import {
 	Image,
 	Collapse,
 	Avatar,
-	Input
+	Input,
+	Badge
 } from '@chakra-ui/core'
 import styled from '@emotion/styled'
 
@@ -84,6 +85,11 @@ const DemoComponents: React.FC = () => {
 						h='250px'
 						objectFit='cover'
 					/>
+					<Stack isInline>
+						<Badge>Default</Badge>
+						<Badge variantColor='green'>Amazing</Badge>
+						<Badge variantColor='brand'>Outstanding</Badge>
+					</Stack>
 
 					<Text fontWeight='bold' letterSpacing='0.2em' color='brand.900'>
 						Overview
