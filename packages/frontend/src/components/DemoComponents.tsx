@@ -39,7 +39,7 @@ const Title = styled(Text)`
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 40px;
+		width: 35px;
 		height: 5px;
 		background: ${props => props.theme.colors.brand['500']};
 	}
@@ -123,7 +123,7 @@ const DemoComponents: React.FC = () => {
 						</Text>
 					</Text>
 
-					<Flex>
+					<Flex flexWrap='wrap' alignItems='center'>
 						<Flex justifyContent='center' direction='column'>
 							<Text fontWeight='bold' color='brand.900'>
 								Cats
@@ -132,7 +132,17 @@ const DemoComponents: React.FC = () => {
 								Sponsoring
 							</Text>
 						</Flex>
-						<Flex ml={6} border='2px' borderColor='brand.500' alignItems='center' justifyContent='center' py={2} px={4}>
+						<Flex
+							ml={['auto', 6]}
+							mr={[6, 0]}
+							border='2px'
+							borderColor='brand.500'
+							alignItems='center'
+							justifyContent='center'
+							py={2}
+							px={4}
+							h='56px'
+						>
 							<Text color='brand.500' fontWeight='bold'>
 								10+
 							</Text>
@@ -145,15 +155,15 @@ const DemoComponents: React.FC = () => {
 									<StyledAvatar key={`avatar-${i}`} name={`Cat no. ${i}`} src='https://placekitten.com/50/50' />
 								))}
 						</AvatarGroup> */}
-						<Flex ml='auto' direction='column'>
+						<Flex my={[2, 0]} ml={[0, 'auto']} direction='column'>
 							<Text fontSize='sm' color='gray.600'>
 								Highlights
 							</Text>
 							<Stack isInline spacing={2}>
-								<Image w='40px' h='40px' src='https://placekitten.com/50/50' />
-								<Image w='40px' h='40px' src='https://placekitten.com/50/51' />
-								<Image w='40px' h='40px' src='https://placekitten.com/50/52' />
-								<Flex w='40px' h='40px' bg='brand.400' alignItems='center' justifyContent='center' py={2} px={4}>
+								<Image w='35px' h='35px' src='https://placekitten.com/50/50' />
+								<Image w='35px' h='35px' src='https://placekitten.com/50/51' />
+								<Image w='35px' h='35px' src='https://placekitten.com/50/52' />
+								<Flex w='35px' h='35px' bg='brand.400' alignItems='center' justifyContent='center' py={2} px={4}>
 									<Text color='white' fontWeight='bold'>
 										7+
 									</Text>
