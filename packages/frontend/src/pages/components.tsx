@@ -34,7 +34,7 @@ const Components = () => {
 		<Layout theme={themeWithNewColor}>
 			{/* <Layout> */}
 			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
-			<DemoComponents colorObj={shadesObject as ColorObj} />
+			<DemoComponents />
 		</Layout>
 	)
 }

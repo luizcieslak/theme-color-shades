@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
 	Alert,
 	AlertIcon,
@@ -19,9 +19,17 @@ import {
 	IconButton,
 	RadioGroup,
 	Radio,
-	Text
+	Text,
+	Flex,
+	Image,
+	Collapse,
+	Avatar,
+	Input
 } from '@chakra-ui/core'
 import styled from '@emotion/styled'
+
+import { MdBookmarkBorder, MdPlusOne, MdShare } from 'react-icons/md'
+import { AiOutlineHeart } from 'react-icons/ai'
 
 const Title = styled(Text)`
 	position: relative;
@@ -36,9 +44,149 @@ const Title = styled(Text)`
 	}
 `
 
+const StyledAvatar = styled(Avatar)`
+	&:last-child {
+		background-color: red;
+	}
+`
+
 const DemoComponents: React.FC = () => {
+	const [uiCollapse, setUiCollapse] = useState(false)
+
 	return (
 		<>
+			<Title mt={8} mb={12} fontSize='xl'>
+				UI Example
+			</Title>
+			<Box boxShadow='xl' p={4} maxW='768px'>
+				<Stack spacing={6}>
+					<Flex justifyContent='space-between'>
+						<Box>
+							<Text fontWeight='bold' fontSize='xl' color='brand.900'>
+								Suspiciously Cute Cat
+							</Text>
+							<Text color='gray.700'>Born in October 14th 2018</Text>
+						</Box>
+						<IconButton
+							variantColor='brand'
+							aria-label='Search database'
+							icon={MdBookmarkBorder}
+							isRound
+							boxShadow='lg'
+						/>
+					</Flex>
+
+					<Image
+						src='https://placekitten.com/1920/250'
+						border='1px'
+						borderColor='transparent'
+						borderRadius='20px'
+						h='250px'
+						objectFit='cover'
+					/>
+
+					<Text fontWeight='bold' letterSpacing='0.2em' color='brand.900'>
+						Overview
+					</Text>
+					<Text as='span' color='gray.600'>
+						Felis catus has had a very long relationship with humans. Ancient Egyptians may have first domesticated cats
+						as early as 4,000 years ago. Plentiful rodents probably drew wild felines to human communities.{' '}
+						<Text
+							as='span'
+							fontWeight='bold'
+							cursor='pointer'
+							onClick={() => setUiCollapse(!uiCollapse)}
+							display={uiCollapse ? 'none' : 'inline-block'}
+						>
+							Read more{' '}
+						</Text>
+						<Collapse as='span' isOpen={uiCollapse}>
+							The cats' skill in killing them may have first earned the affectionate attention of humans. Early
+							Egyptians worshipped a cat goddess and even mummified their beloved pets for their journey to the next
+							world—accompanied by mummified mice! Cultures around the world later adopted cats as their own companions.
+							Designed by @msdesigns_
+						</Collapse>
+						<Text
+							as='span'
+							fontWeight='bold'
+							cursor='pointer'
+							onClick={() => setUiCollapse(!uiCollapse)}
+							display={uiCollapse ? 'inline-block' : 'none'}
+						>
+							Read less{' '}
+						</Text>
+					</Text>
+
+					<Flex>
+						<Flex justifyContent='center' direction='column'>
+							<Text fontWeight='bold' color='brand.900'>
+								Cats
+							</Text>
+							<Text color='gray.600' fontSize='sm'>
+								Sponsoring
+							</Text>
+						</Flex>
+						<Flex ml={6} border='2px' borderColor='brand.500' alignItems='center' justifyContent='center' py={2} px={4}>
+							<Text color='brand.500' fontWeight='bold'>
+								10+
+							</Text>
+						</Flex>
+						{/* 
+						<AvatarGroup size='md' max={4}>
+							{Array(10)
+								.fill(0)
+								.map((a, i) => (
+									<StyledAvatar key={`avatar-${i}`} name={`Cat no. ${i}`} src='https://placekitten.com/50/50' />
+								))}
+						</AvatarGroup> */}
+						<Flex ml='auto' direction='column'>
+							<Text fontSize='sm' color='gray.600'>
+								Highlights
+							</Text>
+							<Stack isInline spacing={2}>
+								<Image w='40px' h='40px' src='https://placekitten.com/50/50' />
+								<Image w='40px' h='40px' src='https://placekitten.com/50/51' />
+								<Image w='40px' h='40px' src='https://placekitten.com/50/52' />
+								<Flex w='40px' h='40px' bg='brand.400' alignItems='center' justifyContent='center' py={2} px={4}>
+									<Text color='white' fontWeight='bold'>
+										7+
+									</Text>
+								</Flex>
+							</Stack>
+						</Flex>
+					</Flex>
+					<Box boxShadow='xl' px={4} py={8}>
+						<Flex alignItems='flex-start' justifyContent='space-between'>
+							<Flex direction='column'>
+								<Text color='gray.500' fontSize='sm'>
+									Comment by <strong>Furry Paw</strong>
+								</Text>
+								<Text color='brand.900' pt={4}>
+									"I loved the history, nice one!"
+								</Text>
+							</Flex>
+							<IconButton
+								variantColor='brand'
+								size='xs'
+								aria-label='Search database'
+								icon={AiOutlineHeart}
+								isRound
+								boxShadow='lg'
+							/>
+						</Flex>
+					</Box>
+					<Input placeholder='Add a new comment' />
+					<Flex justifyContent='space-around'>
+						<Button variantColor='brand' rightIcon={MdPlusOne} border='1px' borderRadius='20px'>
+							Sponsor
+						</Button>
+						<Button variantColor='brand' variant='outline' rightIcon={MdShare} border='1px' borderRadius='20px'>
+							See details
+						</Button>
+					</Flex>
+				</Stack>
+			</Box>
+
 			<Title mt={8} mb={12} fontSize='xl'>
 				Written texts
 			</Title>
