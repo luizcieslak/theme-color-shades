@@ -26,6 +26,7 @@
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-sharp": "^2.3.2",
+    "ntcjs": "^1.1.2",
     "preact": "^10.0.5",
     "query-string": "^6.12.1",
     "react": "16.13.1",
