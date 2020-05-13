@@ -5,8 +5,10 @@ import SEO from '../components/seo'
 
 import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
-import shades from 'theme-color-shades'
+import shades, { ColorObj } from 'theme-color-shades'
 import CardColorHex from '../components/ CardColorHex'
+import Logo from './Logo'
+import theme, { CustomTheme } from '../theme'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -57,10 +59,27 @@ interface ColorObject {
 }
 
 const IndexPage: React.FC = () => {
+	const [colorFromLogo, setColorFromLogo] = useState('')
+
+	const shadesObject = shades({ color: colorFromLogo, hue: true, saturation: true, outputFormat: 'object' })
+
+	const themeWithNewColor: CustomTheme = {
+		...theme,
+		colors: {
+			...theme.colors,
+			brand: shadesObject as ColorObj
+		}
+	}
+
 	return (
-		<Layout>
+		<Layout theme={themeWithNewColor}>
+			{/* <Layout> */}
 			<SEO keywords={[`gatsby`, `colors`, `react`]} />
 			index
+			<Box w='300px'>
+				<Logo setColor={setColorFromLogo} />
+			</Box>
+			<Text color='brand.500'>Generate a group of color shades ready to be used in your UI library.</Text>
 		</Layout>
 	)
 }
