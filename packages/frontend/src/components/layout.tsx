@@ -31,11 +31,8 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 			<CSSReset />
 			<>
 				<Header siteTitle={data.site.siteMetadata.title} />
-				<Box p='5'>
-					{/* <h1>{data && data.}</h1> */}
-					<div>
-						<main>{children}</main>
-					</div>
+				<Box as='main' px={[2, 12]}>
+					{children}
 				</Box>
 			</>
 		</ThemeProvider>
