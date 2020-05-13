@@ -13,6 +13,7 @@ import { Box, Flex, Text, Input } from '@chakra-ui/core'
 // TODO: this should be a standard library import. Don't create a @types/ inside frontend
 // import shades from 'theme-color-shades/lib/src'
 import shades, { sum } from 'theme-color-shades'
+import CardColorHex from '../components/ CardColorHex'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -60,32 +61,6 @@ interface ColorObject {
 	name: string
 	originalColor: string
 	method: tinyColor.Instance[]
-}
-
-interface CardColorProps {
-	hex: string
-	index?: number
-	name?: string
-}
-
-function CardColorHex({ hex, index, name }: CardColorProps) {
-	// console.log('tsdx', sum(1, 2))
-	const tinyObj = tinyColor(`${hex}`)
-
-	let shadeNumber
-	if (typeof index === 'number') {
-		shadeNumber = index > 0 ? index * 100 : 50
-	}
-
-	return (
-		<Flex direction='column' alignItems='center' px={1} py={2} boxShadow='md' minW='120px' minH='160px'>
-			{name && <Text fontSize='sm'>{name}</Text>}
-			<Box w='80px' h='80px' bg={tinyObj.toString()} />
-			{<Text fontSize='xs'>{shadeNumber}</Text>}
-			<Text fontSize='sm'>{tinyObj.toHexString()}</Text>
-			<Text fontSize='xs'>{tinyObj.toHslString()}</Text>
-		</Flex>
-	)
 }
 
 const IndexPage: React.FC = () => {

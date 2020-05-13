@@ -19,7 +19,7 @@ interface ShadesArgs {
 	outputFormat?: 'array' | 'object' | 'tinycolor'
 }
 
-interface ColorObj {
+export interface ColorObj {
 	50: string
 	100: string
 	200: string

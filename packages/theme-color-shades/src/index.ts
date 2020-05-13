@@ -1,4 +1,4 @@
-import shades from './shades'
+import shades, { ColorObj } from './shades'
 
 export const sum = (a: number, b: number) => {
 	if ('development' === process.env.NODE_ENV) {
@@ -6,5 +6,7 @@ export const sum = (a: number, b: number) => {
 	}
 	return a + b
 }
+
+export { ColorObj }
 
 export default shades
