@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel } from '@chakra-ui/core'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link } from '@chakra-ui/core'
 import shades, { ColorObj } from 'theme-color-shades'
 import CardColorHex from '../components/ CardColorHex'
 import Logo from '../components/Logo'
@@ -13,6 +13,8 @@ import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
 import SvgTerm from '../components/SvgTerm'
+
+import { IoIosHeart } from 'react-icons/io'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -148,6 +150,29 @@ const IndexPage: React.FC = () => {
 					{/* <Box w='50%'>
 						<SvgTerm />
 					</Box> */}
+				</Stack>
+			</Box>
+
+			<Box>
+				<Stack spacing={4} py={10}>
+					<Text fontSize='6xl' textAlign='center' color='brand.900'>
+						We
+						<Box d='inline' as={IoIosHeart} color='brand.500' mx={2} />
+						open source
+					</Text>
+
+					<Text textAlign='center' fontSize='xl' color='gray.800'>
+						Please refer to the{' '}
+						<Link
+							color='brand.700'
+							href='https://github.com/luizcieslak/theme-color-shades'
+							rel='noopener'
+							target='_blank'
+						>
+							GitHub repo
+						</Link>{' '}
+						to check the docs and to contribute to the project!
+					</Text>
 				</Stack>
 			</Box>
 		</Layout>
