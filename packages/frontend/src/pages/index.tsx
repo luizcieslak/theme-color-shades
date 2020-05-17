@@ -8,8 +8,11 @@ import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel } from '@c
 import shades, { ColorObj } from 'theme-color-shades'
 import CardColorHex from '../components/ CardColorHex'
 import Logo from '../components/Logo'
-import theme, { CustomTheme } from '../theme'
+import customTheme, { CustomTheme } from '../theme'
 import { navigate } from 'gatsby'
+import styled from '@emotion/styled'
+import { theme } from 'styled-tools'
+import SvgTerm from '../components/SvgTerm'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -53,6 +56,40 @@ import { navigate } from 'gatsby'
 // 	}
 // `
 
+const BoxWithGradient = styled(Box)`
+	background: -moz-linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
+	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
+	props.theme.colors.brand['900']} 100%); /* ff3.6+ */
+	background: -webkit-gradient(
+		linear,
+		left bottom,
+		right top,
+		color-stop(15%, ${props => props.theme.colors.brand['500']}),
+		color-stop(33%, ${props => props.theme.colors.brand['700']}),
+		color-stop(74%, ${props => props.theme.colors.brand['900']}),
+		color-stop(100%, ${props => props.theme.colors.brand['900']})
+	); /* safari4+,chrome */
+	background: -webkit-linear-gradient(
+		45deg,
+		${props => props.theme.colors.brand['500']} 15%,
+		${props => props.theme.colors.brand['700']} 33%,
+		${props => props.theme.colors.brand['900']} 74%,
+		${props => props.theme.colors.brand['900']} 100%
+	); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(45deg, ${theme('brand.500')} 15%, ${props =>
+	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
+	props.theme.colors.brand['900']} 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
+	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
+	props.theme.colors.brand['900']} 100%); /* ie10+ */
+	background: linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
+	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
+	props.theme.colors.brand['900']} 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${props =>
+		props.theme.colors.brand['900']}', endColorstr='${theme('brand.500')}',GradientType=1 ); /* ie6-9 */
+	color: ${props => props.theme.colors.brand['500']};
+`
+
 interface ColorObject {
 	name: string
 	originalColor: string
@@ -62,15 +99,15 @@ interface ColorObject {
 const IndexPage: React.FC = () => {
 	const [colorFromLogo, setColorFromLogo] = useState('')
 
-	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(theme)
+	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
 	useEffect(() => {
 		if (colorFromLogo !== '') {
 			const shadesObject = shades({ color: colorFromLogo, hue: true, saturation: true, outputFormat: 'object' })
 			setThemeWithNewColor({
-				...theme,
+				...customTheme,
 				colors: {
-					...theme.colors,
+					...customTheme.colors,
 					brand: shadesObject as ColorObj
 				}
 			})
@@ -101,6 +138,18 @@ const IndexPage: React.FC = () => {
 					</Stack>
 				</Stack>
 			</SimpleGrid>
+
+			<Box>
+				<BoxWithGradient pos='absolute' w='99.2vw' height='100%' zIndex='-10' />
+				<Stack spacing={4} py={20}>
+					<Text color='white' fontSize='6xl' textAlign='center'>
+						You can also get them from the CLI
+					</Text>
+					{/* <Box w='50%'>
+						<SvgTerm />
+					</Box> */}
+				</Stack>
+			</Box>
 		</Layout>
 	)
 }
