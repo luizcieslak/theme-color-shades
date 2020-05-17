@@ -75,7 +75,7 @@ interface IProps {
 	lang: string
 	meta: []
 	keywords: string[]
-	title: string
+	title?: string
 }
 
 function SEO({ description, lang, meta, keywords, title }: IProps) {
@@ -86,14 +86,14 @@ function SEO({ description, lang, meta, keywords, title }: IProps) {
 		keywords,
 		meta,
 		metaDescription,
-		title
+		title: title || data.site.siteMetadata.titlec
 	})
 
 	return (
 		<Helmet
 			htmlAttributes={{ lang }}
-			title={title}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+			title={title || data.site.siteMetadata.title}
+			titleTemplate={title && `%s | ${data.site.siteMetadata.title}`}
 			meta={builtMeta}
 		/>
 	)
