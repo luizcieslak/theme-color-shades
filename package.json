@@ -1,9 +1,14 @@
 {
   "name": "theme-color-shades",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@theme-color-shades/core"
+    ]
+  },
   "devDependencies": {
     "lerna": "^3.18.1"
   },
