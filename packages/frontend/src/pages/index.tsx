@@ -61,37 +61,16 @@ import { IoIosHeart } from 'react-icons/io'
 // `
 
 const BoxWithGradient = styled(Box)`
-	background: -moz-linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
-	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
-	props.theme.colors.brand['900']} 100%); /* ff3.6+ */
-	background: -webkit-gradient(
-		linear,
-		left bottom,
-		right top,
-		color-stop(15%, ${props => props.theme.colors.brand['500']}),
-		color-stop(33%, ${props => props.theme.colors.brand['700']}),
-		color-stop(74%, ${props => props.theme.colors.brand['900']}),
-		color-stop(100%, ${props => props.theme.colors.brand['900']})
-	); /* safari4+,chrome */
-	background: -webkit-linear-gradient(
-		45deg,
-		${props => props.theme.colors.brand['500']} 15%,
-		${props => props.theme.colors.brand['700']} 33%,
-		${props => props.theme.colors.brand['900']} 74%,
-		${props => props.theme.colors.brand['900']} 100%
-	); /* safari5.1+,chrome10+ */
-	background: -o-linear-gradient(45deg, ${theme('brand.500')} 15%, ${props =>
-	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
-	props.theme.colors.brand['900']} 100%); /* opera 11.10+ */
-	background: -ms-linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
-	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
-	props.theme.colors.brand['900']} 100%); /* ie10+ */
-	background: linear-gradient(45deg, ${props => props.theme.colors.brand['500']} 15%, ${props =>
-	props.theme.colors.brand['700']} 33%, ${props => props.theme.colors.brand['900']} 74%, ${props =>
-	props.theme.colors.brand['900']} 100%); /* w3c */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${props =>
-		props.theme.colors.brand['900']}', endColorstr='${theme('brand.500')}',GradientType=1 ); /* ie6-9 */
-	color: ${props => props.theme.colors.brand['500']};
+	background: ${props => props.theme.colors.brand['600']};
+	background: -moz-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	background: -webkit-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	background: linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="${props =>
+		props.theme.colors.brand['600']}",endColorstr="${props =>
+	props.theme.colors.brand['700']}",GradientType=1); /* ie6-9 */
 `
 
 interface ColorObject {
@@ -143,7 +122,7 @@ const IndexPage: React.FC = () => {
 				</Stack>
 			</SimpleGrid>
 
-			<Box>
+			<Box pos='relative'>
 				<BoxWithGradient pos='absolute' w='99.2vw' height='100%' zIndex='-10' />
 				<Stack spacing={4} py={20}>
 					<Text color='white' fontSize='6xl' textAlign='center'>
