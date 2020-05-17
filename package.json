@@ -10,10 +10,10 @@
     ]
   },
   "devDependencies": {
-    "lerna": "^3.18.1"
+    "lerna": "^3.21.0"
   },
   "scripts": {
-    "postinstall": "yarn workspaces info",
+    "postinstall": "yarn workspaces info && lerna bootstrap",
     "clean": "lerna clean",
     "dev": "lerna run dev --parallel --stream",
     "dev:frontend": "yarn workspace frontend run dev",
