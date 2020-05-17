@@ -1,5 +1,5 @@
 {
-  "name": "checklib",
+  "name": "theme-color-shades",
   "private": true,
   "workspaces": [
     "packages/*"

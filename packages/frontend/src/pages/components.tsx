@@ -3,7 +3,7 @@ import qs from 'query-string'
 import tinyColor from 'tinycolor2'
 
 import Layout from '../components/layout'
-import shades, { ColorObj } from 'theme-color-shades'
+import shades, { ColorObj } from '@theme-color-shades/core'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
 import theme, { CustomTheme } from '../theme'

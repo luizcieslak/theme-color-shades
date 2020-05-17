@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "@theme-color-shades/cli",
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
   "version": "0.0.1",
   "author": "luizcieslak",
