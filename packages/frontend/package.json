@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "private": false,
-  "description": "frontend for theme-color-shades",
+  "description": "frontend for theme-color-shades.",
   "version": "0.0.2",
   "author": "Luiz Cieslak <luiz@cieslak.dev>",
   "dependencies": {
