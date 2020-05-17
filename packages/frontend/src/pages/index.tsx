@@ -108,13 +108,13 @@ const IndexPage: React.FC = () => {
 				</Box>
 				<Stack spacing={2}>
 					<Text color='brand.900' fontSize={['2xl', '4xl', '5xl']}>
-						Generate a group of color shades ready to be used in your UI library.
+						Generate a set of shades ready to be used in your UI library.
 					</Text>
 					<FormLabel htmlFor='color' fontSize='xl'>
 						Try it out:
 					</FormLabel>
 					<Stack isInline spacing={4}>
-						<Input placeholder='an HEX color' defaultValue={colorFromLogo} w='50%' />
+						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} w='50%' />
 						<Button variantColor='brand' onClick={() => navigate(`components?color=${colorFromLogo.split('#')[1]}`)}>
 							Go!
 						</Button>
