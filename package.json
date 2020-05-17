@@ -18,6 +18,7 @@
     "dev": "lerna run dev --parallel --stream",
     "dev:frontend": "yarn workspace frontend run dev",
     "dev:backend": "yarn workspace backend run dev",
+    "build": "lerna run build",
     "build:frontend": "lerna run build --scope=frontend",
     "test": "lerna run test",
     "format": "lerna run format"
