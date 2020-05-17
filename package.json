@@ -8,7 +8,7 @@
     "lerna": "^3.18.1"
   },
   "scripts": {
-    "postinstall": "echo 'oba'",
+    "postinstall": "yarn workspaces info",
     "clean": "lerna clean",
     "dev": "lerna run dev --parallel --stream",
     "dev:frontend": "yarn workspace frontend run dev",
