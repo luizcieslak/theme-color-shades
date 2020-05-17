@@ -12,7 +12,9 @@ import customTheme, { CustomTheme } from '../theme'
 import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
-import SvgTerm from '../components/SvgTerm'
+
+import cliDemo from '../components/cliDemo.svg'
+import cliDemoMobile from '../components/cliDemoMobile.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
@@ -150,6 +152,17 @@ const IndexPage: React.FC = () => {
 					{/* <Box w='50%'>
 						<SvgTerm />
 					</Box> */}
+					<Flex justifyContent='center'>
+						{typeof window !== 'undefined' && window.innerWidth >= 768 ? (
+							<Box as={'object'} type='image/svg+xml' data={cliDemo} border='1px' borderRadius='10px'>
+								CLI demo
+							</Box>
+						) : (
+							<Box as={'object'} type='image/svg+xml' data={cliDemoMobile} border='1px' borderRadius='10px'>
+								CLI demo
+							</Box>
+						)}
+					</Flex>
 				</Stack>
 			</Box>
 
