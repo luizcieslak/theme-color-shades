@@ -14,7 +14,6 @@ import {
 	Textarea,
 	useClipboard,
 	Button,
-	Flex,
 	Stack,
 	Box,
 	Text,
@@ -30,7 +29,10 @@ const Components = () => {
 	const [hueFactor, setHueFactor] = useState(2)
 	const [saturationFactor, setSaturationFactor] = useState(12)
 
-	let color = '#06D6A0' //default
+	let color = tinyColor
+		.random()
+		.toHexString()
+		.split('#')[1] // if none is passed, random color is selected.
 
 	if (typeof window !== 'undefined') {
 		const query = qs.parse(window.location.search)
