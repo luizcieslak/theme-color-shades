@@ -33,12 +33,12 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 		<ThemeProvider theme={theme}>
 			<CSSReset />
 			<>
-				{currentPage === '/components/' ? (
+				{currentPage === '/components/' || currentPage === '/components' ? (
 					<ComponentsHeader siteTitle={data.site?.siteMetadata?.title as string} />
 				) : (
 					<Header siteTitle={data.site?.siteMetadata?.title as string} />
 				)}
-				<Box as='main' px={[2, 12]}>
+				<Box as='main' mx='auto' maxW='1280px' py={20} px={2}>
 					{children}
 				</Box>
 			</>
