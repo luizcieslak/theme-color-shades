@@ -78,7 +78,7 @@ const DemoComponents: React.FC = () => {
 					</Flex>
 
 					<Image
-						src='https://placekitten.com/1920/250'
+						src='https://placekitten.com/768/250'
 						border='1px'
 						borderColor='transparent'
 						borderRadius='20px'
