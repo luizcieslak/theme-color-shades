@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `Theme Color Shades`,
+		title: `theme color shades`,
 		description: `Generate a group of color shades ready to be used in your UI library.`,
 		author: `@luizcieslak`
 	},
