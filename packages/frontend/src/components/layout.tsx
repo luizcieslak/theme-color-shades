@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 				) : (
 					<Header siteTitle={data.site?.siteMetadata?.title as string} />
 				)}
-				<Box as='main' mx='auto' maxW='1280px' py={20} px={2}>
+				<Box as='main' mx='auto' maxW='1280px' py={20} px={[4, 4, 4, 0]}>
 					{children}
 				</Box>
 			</>

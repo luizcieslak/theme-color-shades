@@ -102,18 +102,22 @@ const IndexPage: React.FC = () => {
 		<Layout theme={themeWithNewColor}>
 			{/* <Layout> */}
 			<SEO keywords={[`gatsby`, `colors`, `react`]} />
-			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']}>
-				<Box maxW={['300px', '400px']}>
-					<Logo setColor={setColorFromLogo} />
-				</Box>
+			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']} pb={[10, 20]}>
+				<Flex justifyContent={['center', 'center', 'center', 'flex-start']}>
+					<Box w={['250px', '300px', '400px']}>
+						<Logo setColor={setColorFromLogo} />
+					</Box>
+				</Flex>
+
 				<Stack spacing={2}>
 					<Text color='brand.900' fontSize={['2xl', '4xl', '5xl']}>
 						Generate a set of shades ready to be used in your UI library.
 					</Text>
-					<FormLabel htmlFor='color' fontSize='xl'>
-						Try it out:
-					</FormLabel>
-					<Stack isInline spacing={4}>
+
+					<Stack isInline spacing={4} flexWrap='wrap' alignItems='baseline'>
+						<FormLabel htmlFor='color' pb={0} fontSize='xl'>
+							Try it out:
+						</FormLabel>
 						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} w='50%' />
 						<Button variantColor='brand' onClick={() => navigate(`components?color=${colorFromLogo.split('#')[1]}`)}>
 							Go!
