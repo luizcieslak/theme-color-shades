@@ -7,10 +7,28 @@ import shades, { ColorObj } from 'theme-color-shades'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
 import theme, { CustomTheme } from '../theme'
-import { FormLabel, RadioGroup, Radio, Textarea, useClipboard, Button, Flex, Stack, Box } from '@chakra-ui/core'
+import {
+	FormLabel,
+	RadioGroup,
+	Radio,
+	Textarea,
+	useClipboard,
+	Button,
+	Flex,
+	Stack,
+	Box,
+	Text,
+	Slider,
+	SliderTrack,
+	SliderFilledTrack,
+	SliderThumb
+} from '@chakra-ui/core'
 
 const Components = () => {
 	const [format, setFormat] = useState<string>('object')
+
+	const [hueFactor, setHueFactor] = useState(2)
+	const [saturationFactor, setSaturationFactor] = useState(12)
 
 	let color = '#06D6A0' //default
 
@@ -22,9 +40,19 @@ const Components = () => {
 		}
 	}
 
-	const shadesTinyColor = shades({ color, hue: true, saturation: true })
-	const shadesArray = shades({ color, hue: true, saturation: true, outputFormat: 'array' })
-	const shadesObject = shades({ color, hue: true, saturation: { factor: 12 }, outputFormat: 'object' })
+	const shadesTinyColor = shades({ color, hue: { factor: hueFactor }, saturation: { factor: saturationFactor } })
+	const shadesArray = shades({
+		color,
+		hue: { factor: hueFactor },
+		saturation: { factor: saturationFactor },
+		outputFormat: 'array'
+	})
+	const shadesObject = shades({
+		color,
+		hue: { factor: hueFactor },
+		saturation: { factor: saturationFactor },
+		outputFormat: 'object'
+	})
 
 	const { onCopy, hasCopied } = useClipboard(JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2))
 
@@ -55,9 +83,21 @@ const Components = () => {
 							</Radio>
 						</RadioGroup>
 					</Box>
-					<Button py={4} variantColor='brand' onClick={onCopy}>
+					<Button variantColor='brand' onClick={onCopy}>
 						{hasCopied ? 'Copied' : 'Copy'}
 					</Button>
+					<Text>Hue Factor: {hueFactor} </Text>
+					<Slider color='brand' value={hueFactor} onChange={f => setHueFactor(f)} min={0} max={8}>
+						<SliderTrack />
+						<SliderFilledTrack />
+						<SliderThumb />
+					</Slider>
+					<Text>Saturation Factor: {saturationFactor}</Text>
+					<Slider color='brand' value={saturationFactor} onChange={f => setSaturationFactor(f)} min={0} max={24}>
+						<SliderTrack />
+						<SliderFilledTrack />
+						<SliderThumb />
+					</Slider>
 				</Stack>
 				<Textarea
 					value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
