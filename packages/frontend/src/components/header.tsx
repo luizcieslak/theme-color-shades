@@ -37,23 +37,25 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
 	// const data: GatsbyIconQuery = useStaticQuery(iconQuery)
 	// console.log('data icon header', data)
 	return (
-		<Flex justifyContent='space-between' align='center' bg='white' px={[2, 12]} py={4} boxShadow='sm'>
-			<Flex alignItems='center'>
-				{/* <Box width='100px' pr='4'>
+		<Box py={4} boxShadow='sm' px={4}>
+			<Flex justifyContent='space-between' align='center' bg='white' maxW='1280px' mx='auto '>
+				<Flex alignItems='center'>
+					{/* <Box width='100px' pr='4'>
 					<GatsbyImage fluid={data.file.childImageSharp.fluid} />
 				</Box> */}
-				<Text color='gray.900' w='60px' textTransform='lowercase'>
-					<GatsbyLink to='/'>{props.siteTitle}</GatsbyLink>
-				</Text>
-			</Flex>
+					<Text color='gray.900' w='60px' textTransform='lowercase'>
+						<GatsbyLink to='/'>{props.siteTitle}</GatsbyLink>
+					</Text>
+				</Flex>
 
-			<Stack isInline spacing={[4, 8]}>
-				<Link color='gray.900'>CLI package</Link>
-				<Link color='brand.800' _hover={{ color: 'brand.900' }}>
-					<IoLogoGithub size='25' />
-				</Link>
-			</Stack>
-		</Flex>
+				<Stack isInline spacing={[4, 8]}>
+					<Link color='gray.900'>CLI package</Link>
+					<Link color='brand.800' _hover={{ color: 'brand.900' }}>
+						<IoLogoGithub size='25' />
+					</Link>
+				</Stack>
+			</Flex>
+		</Box>
 	)
 }
 
