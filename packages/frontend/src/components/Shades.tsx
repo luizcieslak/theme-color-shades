@@ -24,7 +24,7 @@ const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
 	return (
 		<>
 			<Box p={4} m={4}>
-				<Flex justifyContent='center' pb={2}>
+				<Flex justifyContent='center' pb={4}>
 					<CardColorHex hex={originalColor} name={ntcjs.name(`#${originalColor}`)[1]} />
 				</Flex>
 				<Flex justifyContent='center' alignItems='center' w='100%'>
