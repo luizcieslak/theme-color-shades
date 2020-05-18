@@ -150,7 +150,7 @@ const IndexPage: React.FC = () => {
 			</Box>
 
 			<Box>
-				<Stack spacing={4} py={10}>
+				<Stack spacing={12} py={10}>
 					<Text fontSize='6xl' textAlign='center' color='brand.900'>
 						We
 						<Box d='inline' as={IoIosHeart} color='brand.500' mx={2} />
