@@ -122,10 +122,10 @@ const IndexPage: React.FC = () => {
 				</Stack>
 			</SimpleGrid>
 
-			<Box pos='relative'>
-				<BoxWithGradient pos='absolute' w='99.2vw' height='100%' zIndex='-10' />
-				<Stack spacing={4} py={20}>
-					<Text color='white' fontSize='6xl' textAlign='center'>
+			<Box minH='750px'>
+				<BoxWithGradient pos='absolute' w='100vw' minH='750px' left={0} zIndex={-1} />
+				<Stack spacing={4} py={10}>
+					<Text color='white' fontSize={['4xl', '5xl', '6xl']} textAlign='center'>
 						You can also get them from the CLI
 					</Text>
 					{/* <Box w='50%'>
