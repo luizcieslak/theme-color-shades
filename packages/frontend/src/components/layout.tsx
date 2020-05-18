@@ -9,6 +9,7 @@ import { Box } from '@chakra-ui/core'
 import Header from './header'
 import ComponentsHeader from './ComponentsHeader'
 import { SiteQuery } from '../generated/graphql'
+import Footer from './Footer'
 
 const pageQuery = graphql`
 	query Site {
@@ -42,6 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 					{children}
 				</Box>
 			</>
+			<Footer />
 		</ThemeProvider>
 	)
 }
