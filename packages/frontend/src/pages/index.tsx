@@ -1,19 +1,22 @@
-import { Link, graphql } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import GatsbyImage from 'gatsby-image'
-import { GatsbyAstronautQuery } from '../generated/graphql'
-
-import { FaBeer } from 'react-icons/fa'
 
 import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Input } from '@chakra-ui/core'
-// TODO: this should be a standard library import. Don't create a @types/ inside frontend
-// import shades from 'theme-color-shades/lib/src'
-import shades, { sum } from 'theme-color-shades'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link } from '@chakra-ui/core'
+import shades, { ColorObj } from 'theme-color-shades'
 import CardColorHex from '../components/ CardColorHex'
+import Logo from '../components/Logo'
+import customTheme, { CustomTheme } from '../theme'
+import { navigate } from 'gatsby'
+import styled from '@emotion/styled'
+import { theme } from 'styled-tools'
+
+import cliDemo from '../components/cliDemo.svg'
+import cliDemoMobile from '../components/cliDemoMobile.svg'
+
+import { IoIosHeart } from 'react-icons/io'
 
 // interface IProps {
 // 	data: GatsbyAstronautQuery
@@ -57,6 +60,19 @@ import CardColorHex from '../components/ CardColorHex'
 // 	}
 // `
 
+const BoxWithGradient = styled(Box)`
+	background: ${props => props.theme.colors.brand['600']};
+	background: -moz-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	background: -webkit-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	background: linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
+	props.theme.colors.brand['700']} 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="${props =>
+		props.theme.colors.brand['600']}",endColorstr="${props =>
+	props.theme.colors.brand['700']}",GradientType=1); /* ie6-9 */
+`
+
 interface ColorObject {
 	name: string
 	originalColor: string
@@ -64,90 +80,97 @@ interface ColorObject {
 }
 
 const IndexPage: React.FC = () => {
-	const [inputColor, setInputColor] = useState('d31233')
+	const [colorFromLogo, setColorFromLogo] = useState('')
 
-	// console.log('test', shades({ color: `#3e2f5b`, hue: true, saturation: true, outputFormat: 'array' }))
-	// console.log('test2', shades({ color: `#3e2f5b`, hue: true, saturation: true, outputFormat: 'object' }))
-	const colorObjectInput: ColorObject = {
-		name: 'color from input',
-		originalColor: `#${inputColor}`,
-		method: shades({ color: `#${inputColor}`, hue: true, saturation: true }) as tinyColor.Instance[]
-	}
+	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
-	const colorsArray: Array<ColorObject> = [
-		{
-			name: 'purple',
-			originalColor: '#3e2f5b',
-			method: shades({ color: `#3e2f5b`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-
-		{
-			name: 'blueGIS',
-			originalColor: '#59ccf2',
-			method: shades({ color: `#59ccf2`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'redGIS',
-			originalColor: '#FC5A5A',
-			method: shades({ color: `#FC5A5A`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'brightYellow',
-			originalColor: '#fce15a',
-			method: shades({ color: `#fce15a`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'greenGIS',
-			originalColor: '#3dd598',
-			method: shades({ color: `#3dd598`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'grayGIS',
-			originalColor: '#B5B5BE',
-			method: shades({ color: `#B5B5BE`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'yellowGIS',
-			originalColor: '#FF933C',
-			method: shades({ color: `#FF933C`, hue: true, saturation: true }) as tinyColor.Instance[]
-		},
-		{
-			name: 'darkJungleGreen',
-			originalColor: '#000F08',
-			method: shades({ color: `#000F08`, hue: true, saturation: true }) as tinyColor.Instance[]
+	useEffect(() => {
+		if (colorFromLogo !== '') {
+			const shadesObject = shades({ color: colorFromLogo, hue: true, saturation: true, outputFormat: 'object' })
+			setThemeWithNewColor({
+				...customTheme,
+				colors: {
+					...customTheme.colors,
+					brand: shadesObject as ColorObj
+				}
+			})
 		}
-	]
+	}, [colorFromLogo])
 
+	console.log('color', colorFromLogo)
 	return (
-		<Layout>
-			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-			<Box border='1px' p={4} m={4}>
-				<Input type='text' value={inputColor} onChange={(e: any) => setInputColor(e.target.value)} />
-				<Flex justifyContent='center' pb={2}>
-					<CardColorHex hex={colorObjectInput.originalColor} name={colorObjectInput.name} />
+		<Layout theme={themeWithNewColor}>
+			{/* <Layout> */}
+			<SEO keywords={[`gatsby`, `colors`, `react`]} />
+			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']} pb={[10, 20]}>
+				<Flex justifyContent={['center', 'center', 'center', 'flex-start']}>
+					<Box w={['250px', '300px', '400px']}>
+						<Logo setColor={setColorFromLogo} />
+					</Box>
 				</Flex>
-				<br />
-				<Flex justifyContent='center' alignItems='center'>
-					<Text pr={4}>Method</Text>
-					{colorObjectInput.method.map((color, i2) => (
-						<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-					))}
-				</Flex>
+
+				<Stack spacing={2}>
+					<Text color='brand.900' fontSize={['2xl', '4xl', '5xl']}>
+						Generate a set of shades ready to be used in your UI library.
+					</Text>
+
+					<Stack isInline spacing={4} flexWrap='wrap' alignItems='baseline'>
+						<FormLabel htmlFor='color' pb={0} fontSize='xl'>
+							Try it out:
+						</FormLabel>
+						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} w='50%' />
+						<Button variantColor='brand' onClick={() => navigate(`components?color=${colorFromLogo.split('#')[1]}`)}>
+							Go!
+						</Button>
+					</Stack>
+				</Stack>
+			</SimpleGrid>
+
+			<Box minH='750px'>
+				<BoxWithGradient pos='absolute' w='100vw' minH='750px' left={0} zIndex={-1} />
+				<Stack spacing={4} py={10}>
+					<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center'>
+						You can also get them from the CLI
+					</Text>
+					{/* <Box w='50%'>
+						<SvgTerm />
+					</Box> */}
+					<Flex justifyContent='center'>
+						{typeof window !== 'undefined' && window.innerWidth >= 768 ? (
+							<Box as={'object'} type='image/svg+xml' data={cliDemo} border='1px' borderRadius='10px'>
+								CLI demo
+							</Box>
+						) : (
+							<Box as={'object'} type='image/svg+xml' data={cliDemoMobile} border='1px' borderRadius='10px'>
+								CLI demo
+							</Box>
+						)}
+					</Flex>
+				</Stack>
 			</Box>
 
-			{colorsArray.map((colorObject, i) => (
-				<Box key={`b-${i}`} border='1px' p={4} m={4}>
-					<Flex justifyContent='center' pb={2}>
-						<CardColorHex hex={colorObject.originalColor} name={colorObject.name} />
-					</Flex>
-					<Flex justifyContent='center' alignItems='center'>
-						<Text pr={4}>Method</Text>
-						{colorObject.method.map((color, i2) => (
-							<CardColorHex key={`ccx-${i2}`} hex={color.toHexString()} index={i2} />
-						))}
-					</Flex>
-				</Box>
-			))}
+			<Box>
+				<Stack spacing={12} py={10}>
+					<Text fontSize='6xl' textAlign='center' color='brand.900'>
+						We
+						<Box d='inline' as={IoIosHeart} color='brand.500' mx={2} />
+						open source
+					</Text>
+
+					<Text textAlign='center' fontSize='xl' color='gray.800'>
+						Please refer to the{' '}
+						<Link
+							color='brand.700'
+							href='https://github.com/luizcieslak/theme-color-shades'
+							rel='noopener'
+							target='_blank'
+						>
+							GitHub repo
+						</Link>{' '}
+						to check the docs and to contribute to the project!
+					</Text>
+				</Stack>
+			</Box>
 		</Layout>
 	)
 }

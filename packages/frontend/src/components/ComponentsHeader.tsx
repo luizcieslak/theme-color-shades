@@ -57,39 +57,30 @@ const ComponentsHeader: React.FunctionComponent<HeaderProps> = props => {
 	}, [pageYOffset])
 
 	return (
-		<Flex
-			pos='fixed'
-			w='100vw'
-			top='0'
-			zIndex={2}
-			justifyContent='space-between'
-			align='center'
-			bg='white'
-			px={[2, 12]}
-			py={4}
-			boxShadow='sm'
-		>
-			<GatsbyLink to='/'>
-				<Flex alignItems='center'>
-					<Box width='40px' pr='4'>
-						<GatsbyImage fluid={data.file.childImageSharp.fluid} />
-					</Box>
-					<Text d='inline-block' color='gray.900' textTransform='lowercase'>
-						{props.siteTitle}
-					</Text>
-				</Flex>
-			</GatsbyLink>
+		<Box pos='fixed' top='0' w='100vw' zIndex={2} bg='white' boxShadow='sm' py={4} px={4}>
+			<Flex justifyContent='space-between' align='center' bg='white'>
+				<GatsbyLink to='/'>
+					<Flex alignItems='center'>
+						<Box width='40px' pr='4'>
+							<GatsbyImage fluid={data.file.childImageSharp.fluid} />
+						</Box>
+						<Text d='inline-block' color='gray.900' textTransform='lowercase'>
+							{props.siteTitle}
+						</Text>
+					</Flex>
+				</GatsbyLink>
 
-			<Stack isInline spacing={[4, 8]}>
-				{pageYOffset > 228 ? (
-					<ShadesStripeHeader shades={Object.values(theme.colors.brand)} />
-				) : (
-					<Link color='brand.800' _hover={{ color: 'brand.900' }}>
-						<IoLogoGithub size='25' />
-					</Link>
-				)}
-			</Stack>
-		</Flex>
+				<Stack isInline spacing={[4, 8]}>
+					{pageYOffset > 228 ? (
+						<ShadesStripeHeader shades={Object.values(theme.colors.brand)} />
+					) : (
+						<Link color='brand.800' _hover={{ color: 'brand.900' }}>
+							<IoLogoGithub size='25' />
+						</Link>
+					)}
+				</Stack>
+			</Flex>
+		</Box>
 	)
 }
 

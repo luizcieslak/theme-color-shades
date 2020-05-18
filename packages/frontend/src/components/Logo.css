@@ -1,0 +1,18 @@
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.logo {
+		animation: spin infinite 40s linear;
+	}
+}
+
+.cursor {
+	cursor: pointer;
+}
