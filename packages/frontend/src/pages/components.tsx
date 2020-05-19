@@ -20,7 +20,8 @@ import {
 	Slider,
 	SliderTrack,
 	SliderFilledTrack,
-	SliderThumb
+	SliderThumb,
+	Flex
 } from '@chakra-ui/core'
 
 const Components = () => {
@@ -72,22 +73,25 @@ const Components = () => {
 			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
 			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
 
-			<Stack flexWrap='wrap' py={2} isInline spacing={16}>
-				<Stack spacing={4}>
-					<Box>
-						<FormLabel htmlFor='format'>Select output format</FormLabel>
-						<RadioGroup id='format' value={format} onChange={e => setFormat(e.target.value)} spacing={5} isInline>
-							<Radio variantColor='brand' value='object'>
-								Object
-							</Radio>
-							<Radio variantColor='brand' value='array'>
-								Array
-							</Radio>
-						</RadioGroup>
-					</Box>
-					<Button variantColor='brand' onClick={onCopy}>
-						{hasCopied ? 'Copied' : 'Copy'}
-					</Button>
+			<Stack flexWrap='wrap' py={2} isInline spacing={[0, 0, 40]} justifyContent='center'>
+				<Stack spacing={4} minW='320px' pb={8}>
+					<Flex alignItems='flex-end' justifyContent='space-between'>
+						<Box>
+							<FormLabel htmlFor='format'>Select output format</FormLabel>
+							<RadioGroup id='format' value={format} onChange={e => setFormat(e.target.value)} spacing={5} isInline>
+								<Radio variantColor='brand' value='object'>
+									Object
+								</Radio>
+								<Radio variantColor='brand' value='array'>
+									Array
+								</Radio>
+							</RadioGroup>
+						</Box>
+						<Button variantColor='brand' onClick={onCopy}>
+							{hasCopied ? 'Copied' : 'Copy'}
+						</Button>
+					</Flex>
+
 					<Text>Hue Factor: {hueFactor} </Text>
 					<Slider color='brand' value={hueFactor} onChange={f => setHueFactor(f)} min={0} max={8}>
 						<SliderTrack />
@@ -104,7 +108,7 @@ const Components = () => {
 				<Textarea
 					value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
 					minH='280px'
-					maxW='250px'
+					maxW='320px'
 				/>
 			</Stack>
 			<DemoComponents />
