@@ -44,18 +44,17 @@ const Components = () => {
 	}
 
 	const shadesTinyColor = shades({ color, hue: { factor: hueFactor }, saturation: { factor: saturationFactor } })
-	const shadesArray = shades({
-		color,
-		hue: { factor: hueFactor },
-		saturation: { factor: saturationFactor },
-		outputFormat: 'array'
-	})
-	const shadesObject = shades({
-		color,
-		hue: { factor: hueFactor },
-		saturation: { factor: saturationFactor },
-		outputFormat: 'object'
-	})
+	const shadesArray = (shadesTinyColor as tinyColor.Instance[])
+		.slice()
+		.map((color: tinycolor.Instance) => color.toHexString())
+
+	const shadesObject = (shadesTinyColor as tinyColor.Instance[]).reduce((acc, val, index) => {
+		const key = index > 0 ? index * 100 : 50
+		return {
+			...acc,
+			[key]: val.toHexString()
+		}
+	}, {})
 
 	const { onCopy, hasCopied } = useClipboard(JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2))
 
