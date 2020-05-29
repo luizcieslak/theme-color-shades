@@ -59,8 +59,8 @@ const DemoComponents: React.FC = () => {
 			<Title mt={8} mb={12} fontSize='xl'>
 				UI Example
 			</Title>
-			<Box boxShadow='xl' p={4} maxW='768px'>
-				<Stack spacing={6}>
+			<Flex justifyContent='center'>
+				<Stack spacing={6} boxShadow='xl' p={4} maxW='768px'>
 					<Flex justifyContent='space-between'>
 						<Box>
 							<Text fontWeight='bold' fontSize='xl' color='brand.900'>
@@ -78,7 +78,7 @@ const DemoComponents: React.FC = () => {
 					</Flex>
 
 					<Image
-						src='https://placekitten.com/1920/250'
+						src='https://placekitten.com/768/250'
 						border='1px'
 						borderColor='transparent'
 						borderRadius='20px'
@@ -201,7 +201,7 @@ const DemoComponents: React.FC = () => {
 						</Button>
 					</Flex>
 				</Stack>
-			</Box>
+			</Flex>
 
 			<Title mt={8} mb={12} fontSize='xl'>
 				Written texts

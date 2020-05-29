@@ -58,7 +58,7 @@ const ComponentsHeader: React.FunctionComponent<HeaderProps> = props => {
 
 	return (
 		<Box pos='fixed' top='0' w='100vw' zIndex={2} bg='white' boxShadow='sm' py={4} px={4}>
-			<Flex justifyContent='space-between' align='center' bg='white'>
+			<Flex justifyContent='space-between' align='center' bg='white' maxW='1280px' mx='auto'>
 				<GatsbyLink to='/'>
 					<Flex alignItems='center'>
 						<Box width='40px' pr='4'>
