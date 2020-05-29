@@ -72,7 +72,7 @@ const IndexPage: React.FC = () => {
 
 			<Box minH='750px'>
 				<BoxWithGradient pos='absolute' w='99.2vw' minH='750px' left={0} zIndex={-1} />
-				<Stack spacing={8} py={16}>
+				<Stack spacing={12} pt={16}>
 					<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center'>
 						You can also get them from the CLI!
 					</Text>
