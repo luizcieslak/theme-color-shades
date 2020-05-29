@@ -86,9 +86,6 @@ const Components = () => {
 								</Radio>
 							</RadioGroup>
 						</Box>
-						<Button variantColor='brand' onClick={onCopy}>
-							{hasCopied ? 'Copied' : 'Copy'}
-						</Button>
 					</Flex>
 
 					<Text>Hue Factor: {hueFactor} </Text>
@@ -104,11 +101,16 @@ const Components = () => {
 						<SliderThumb />
 					</Slider>
 				</Stack>
-				<Textarea
-					value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
-					minH='280px'
-					maxW='320px'
-				/>
+				<Stack spacing={8}>
+					<Textarea
+						value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
+						minH='280px'
+						maxW='320px'
+					/>
+					<Button variantColor='brand' onClick={onCopy}>
+						{hasCopied ? 'Copied' : 'Copy'}
+					</Button>
+				</Stack>
 			</Stack>
 			<DemoComponents />
 		</Layout>
