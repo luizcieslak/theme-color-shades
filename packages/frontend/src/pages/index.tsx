@@ -19,69 +19,17 @@ import test from '../components/test.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
-// interface IProps {
-// 	data: GatsbyAstronautQuery
-// }
-
-// const IndexPage: React.FC<IProps> = ({ data }) => {
-// 	return (
-// 		<Layout>
-// 			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-// 			<Box width='30%'>
-// 				{/* TODO: add optional chaining in file */}
-
-// 				<FaBeer />
-// 				<GatsbyImage fluid={data.file.childImageSharp.fluid} />
-// 			</Box>
-// 			<Link to='/page-2'>go to page 2</Link>
-// 		</Layout>
-// 	)
-// }
-
-// export const pageQuery = graphql`
-// 	query GatsbyAstronaut {
-// 		file(relativePath: { eq: "gatsby-astronaut.png" }) {
-// 			childImageSharp {
-// 				fluid {
-// 					base64
-// 					tracedSVG
-// 					aspectRatio
-// 					src
-// 					srcSet
-// 					srcWebp
-// 					srcSetWebp
-// 					sizes
-// 					originalImg
-// 					originalName
-// 					presentationWidth
-// 					presentationHeight
-// 				}
-// 			}
-// 		}
-// 	}
-// `
-
 const BoxWithGradient = styled(Box)`
-	background: ${props => props.theme.colors.brand['600']};
-	background: -moz-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	background: -webkit-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	background: linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="${props =>
-		props.theme.colors.brand['600']}",endColorstr="${props =>
-	props.theme.colors.brand['700']}",GradientType=1); /* ie6-9 */
+	background: linear-gradient(267.9deg, ${theme('colors.brand.600')} -1.96%, ${theme('colors.brand.500')} 101.04%);
 `
 
-interface ColorObject {
-	name: string
-	originalColor: string
-	method: tinyColor.Instance[]
-}
-
 const IndexPage: React.FC = () => {
-	const [colorFromLogo, setColorFromLogo] = useState('')
+	const [colorFromLogo, setColorFromLogo] = useState(
+		tinyColor
+			.random()
+			.toHexString()
+			.split('#')[1]
+	)
 
 	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
@@ -128,10 +76,10 @@ const IndexPage: React.FC = () => {
 			</SimpleGrid>
 
 			<Box minH='750px'>
-				<BoxWithGradient pos='absolute' w='100vw' minH='750px' left={0} zIndex={-1} />
-				<Stack spacing={4} py={10}>
+				<BoxWithGradient pos='absolute' w='99.2vw' minH='750px' left={0} zIndex={-1} />
+				<Stack spacing={8} py={16}>
 					<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center'>
-						You can also get them from the CLI
+						You can also get them from the CLI!
 					</Text>
 					{/* <Box w='50%'>
 						<SvgTerm />
@@ -151,7 +99,7 @@ const IndexPage: React.FC = () => {
 			</Box>
 
 			<Box>
-				<Stack spacing={12} py={10}>
+				<Stack spacing={12} py={20}>
 					<Text fontSize='6xl' textAlign='center' color='brand.900'>
 						We
 						<Box d='inline' as={IoIosHeart} color='brand.500' mx={2} />
