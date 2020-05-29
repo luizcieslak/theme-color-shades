@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link } from '@chakra-ui/core'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
 import shades, { ColorObj } from 'theme-color-shades'
 import CardColorHex from '../components/ CardColorHex'
 import Logo from '../components/Logo'
@@ -15,6 +15,7 @@ import { theme } from 'styled-tools'
 
 import cliDemo from '../components/cliDemo.svg'
 import cliDemoMobile from '../components/cliDemoMobile.svg'
+import test from '../components/test.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
@@ -137,14 +138,14 @@ const IndexPage: React.FC = () => {
 					</Box> */}
 					<Flex justifyContent='center'>
 						{typeof window !== 'undefined' && window.innerWidth >= 768 ? (
-							<Box as={'object'} type='image/svg+xml' data={cliDemo} border='1px' borderRadius='10px'>
-								CLI demo
-							</Box>
+							<Image src={cliDemo} border='1px' borderRadius='10px' />
 						) : (
-							<Box as={'object'} type='image/svg+xml' data={cliDemoMobile} border='1px' borderRadius='10px'>
-								CLI demo
-							</Box>
+							<Image src={cliDemoMobile} border='1px' borderRadius='10px' />
 						)}
+						{/* <Box maxW='100%'>
+		
+							<Image src={test} />
+						</Box> */}
 					</Flex>
 				</Stack>
 			</Box>
