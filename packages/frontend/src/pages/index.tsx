@@ -24,12 +24,7 @@ const BoxWithGradient = styled(Box)`
 `
 
 const IndexPage: React.FC = () => {
-	const [colorFromLogo, setColorFromLogo] = useState(
-		tinyColor
-			.random()
-			.toHexString()
-			.split('#')[1]
-	)
+	const [colorFromLogo, setColorFromLogo] = useState('')
 
 	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
