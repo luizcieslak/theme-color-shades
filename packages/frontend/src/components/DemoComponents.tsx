@@ -59,8 +59,8 @@ const DemoComponents: React.FC = () => {
 			<Title mt={8} mb={12} fontSize='xl'>
 				UI Example
 			</Title>
-			<Flex justifyContent='center'>
-				<Stack spacing={6} boxShadow='xl' p={4} maxW='768px'>
+			<Flex justifyContent='center' pb={8}>
+				<Stack spacing={6} boxShadow='xl' p={4} maxW='768px' py={8}>
 					<Flex justifyContent='space-between'>
 						<Box>
 							<Text fontWeight='bold' fontSize='xl' color='brand.900'>
