@@ -28,8 +28,8 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
 	const data: SiteQuery = useStaticQuery(pageQuery)
 
+	// TODO: this causes a flick in header when in components/
 	const currentPage = typeof window !== 'undefined' && window.location.pathname
-	console.log(currentPage)
 	return (
 		<ThemeProvider theme={theme}>
 			<CSSReset />

@@ -41,7 +41,6 @@ const IndexPage: React.FC = () => {
 		}
 	}, [colorFromLogo])
 
-	console.log('color', colorFromLogo)
 	return (
 		<Layout theme={themeWithNewColor}>
 			{/* <Layout> */}
