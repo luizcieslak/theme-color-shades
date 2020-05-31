@@ -7,7 +7,7 @@ import SEO from './seo'
 
 interface ShadesArgs {
 	originalColor: string
-	shades: tinyColor.Instance[]
+	shades: string[]
 }
 
 interface CardColorProps {
@@ -23,6 +23,7 @@ const ColorSquare: React.FC<CardColorProps> = ({ hex }) => {
 
 const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
 	const nameByNtcjs = ntcjs.name(`#${originalColor}`)[1]
+	console.log('Shades originalColor', originalColor)
 	return (
 		<>
 			<SEO title={nameByNtcjs} />
@@ -32,7 +33,7 @@ const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
 				</Flex>
 				<Flex justifyContent='center' alignItems='center' w='100%'>
 					{shades.map((color, i) => (
-						<ColorSquare key={`ccx-${i}`} hex={color.toHexString()} />
+						<ColorSquare key={`ccx-${i}`} hex={color} />
 					))}
 				</Flex>
 			</Box>
