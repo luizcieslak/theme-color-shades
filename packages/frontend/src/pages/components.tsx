@@ -79,7 +79,7 @@ const Components = () => {
 		<Layout theme={themeWithNewColor} componentsHeader>
 			{/* <Layout> */}
 			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
-			<Shades originalColor={color} shades={shadesArray} />
+			<Shades originalColor={color} shades={shadesArray as string[]} />
 
 			<Stack flexWrap='wrap' py={2} isInline spacing={[0, 0, 40]} justifyContent='center'>
 				<Stack spacing={4} minW='320px' pb={8}>

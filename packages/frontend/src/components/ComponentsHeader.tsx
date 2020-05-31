@@ -1,12 +1,13 @@
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+
+import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
+import GatsbyImage from 'gatsby-image'
+
 import { Box, Flex, Text, Stack, Link, useTheme } from '@chakra-ui/core'
 
 import { IoLogoGithub } from 'react-icons/io'
 
 import { LogoIconQuery } from '../generated/graphql'
-import GatsbyImage from 'gatsby-image'
-import Shades from './Shades'
 import ShadesStripeHeader from './ShadesStripeHeader'
 import { CustomTheme } from '../theme'
 

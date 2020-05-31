@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
-import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
-import shades, { ColorObj } from 'theme-color-shades'
-import CardColorHex from '../components/ CardColorHex'
-import Logo from '../components/Logo'
-import customTheme, { CustomTheme } from '../theme'
 import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
+
+import shades, { ColorObj } from 'theme-color-shades'
+
+import Logo from '../components/Logo'
+import customTheme, { CustomTheme } from '../theme'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 import cliDemo from '../components/cliDemo.svg'
 import cliDemoMobile from '../components/cliDemoMobile.svg'
