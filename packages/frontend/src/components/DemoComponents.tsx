@@ -60,7 +60,7 @@ const DemoComponents: React.FC = () => {
 				UI Example
 			</Title>
 			<Flex justifyContent='center' pb={8}>
-				<Stack spacing={6} boxShadow='xl' p={4} maxW='768px' py={8}>
+				<Stack spacing={6} boxShadow='xl' p={[4, 8]} maxW='1024'>
 					<Flex justifyContent='space-between'>
 						<Box>
 							<Text fontWeight='bold' fontSize='xl' color='brand.900'>

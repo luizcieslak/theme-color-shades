@@ -1,7 +1,7 @@
 import React from 'react'
 
 import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Skeleton } from '@chakra-ui/core'
+import { Box, Flex, Text, Skeleton, Stack } from '@chakra-ui/core'
 
 interface CardColorProps {
 	hex: string
@@ -19,15 +19,15 @@ const CardColorHex: React.FC<CardColorProps> = ({ hex, index, name }) => {
 	}
 
 	return (
-		<Flex direction='column' alignItems='center' px={1} py={2} boxShadow='md' minW='120px' minH='160px'>
-			{name && <Text fontSize='sm'>{name}</Text>}
+		<Stack spacing={1} alignItems='center' px={6} py={4} boxShadow='md' minH='160px'>
+			{name && <Text fontSize='md'>{name}</Text>}
 			<Skeleton isLoaded={Boolean(hex)}>
-				<Box w='80px' h='80px' bg={tinyObj.toString()} />
+				<Box w='100px' h='100px' bg={tinyObj.toString()} />
 			</Skeleton>
 			{<Text fontSize='xs'>{shadeNumber}</Text>}
 			<Text fontSize='sm'>{tinyObj.toHexString()}</Text>
 			<Text fontSize='xs'>{tinyObj.toHslString()}</Text>
-		</Flex>
+		</Stack>
 	)
 }
 

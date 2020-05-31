@@ -18,7 +18,14 @@ const ColorSquare: React.FC<CardColorProps> = ({ hex }) => {
 	// console.log('tsdx', sum(1, 2))
 	const tinyObj = tinyColor(`${hex}`)
 
-	return <Box w={['8%', '80px']} h={['20px', '50px', '80px']} minH='20px' bg={tinyObj.toString()} />
+	return (
+		<Box
+			w={['8%', 'calc(1024px / 10)']}
+			h={['30px', '60px', '75px', 'calc(1024px / 10)']}
+			minH='30px'
+			bg={tinyObj.toString()}
+		/>
+	)
 }
 
 const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
@@ -27,7 +34,7 @@ const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
 	return (
 		<>
 			<SEO title={nameByNtcjs} />
-			<Box p={4} m={4}>
+			<Box py={4}>
 				<Flex justifyContent='center' pb={4}>
 					<CardColorHex hex={originalColor} name={nameByNtcjs} />
 				</Flex>

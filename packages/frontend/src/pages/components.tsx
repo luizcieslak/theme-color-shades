@@ -81,8 +81,8 @@ const Components = () => {
 			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
 			<Shades originalColor={color} shades={shadesArray as string[]} />
 
-			<Stack flexWrap='wrap' py={2} isInline spacing={[0, 0, 40]} justifyContent='center'>
-				<Stack spacing={4} minW='320px' pb={8}>
+			<Stack flexWrap='wrap' py={2} isInline justifyContent='space-between' py={8}>
+				<Stack spacing={4} w='min(420px, 100%)' pb={8} alignItems={['center', 'center', 'flex-start']}>
 					<Flex alignItems='flex-end' justifyContent='space-between'>
 						<Box>
 							<FormLabel htmlFor='format'>Select output format</FormLabel>
@@ -110,12 +110,8 @@ const Components = () => {
 						<SliderThumb />
 					</Slider>
 				</Stack>
-				<Stack spacing={8}>
-					<Textarea
-						value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
-						minH='280px'
-						maxW='320px'
-					/>
+				<Stack spacing={8} w='min(420px, 100%)'>
+					<Textarea value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)} minH='280px' />
 					<Button variantColor='brand' onClick={onCopy}>
 						{hasCopied ? 'Copied' : 'Copy'}
 					</Button>
