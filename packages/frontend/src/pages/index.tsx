@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
 import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
 
-import shades, { ColorObj } from 'theme-color-shades'
+import shades, { ColorObj } from '@theme-color-shades/core'
 
 import Logo from '../components/Logo'
 import customTheme, { CustomTheme } from '../theme'
