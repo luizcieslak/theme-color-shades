@@ -1,5 +1,4 @@
 {
-  "name": "checklib",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -11,9 +10,8 @@
     "postinstall": "lerna bootstrap",
     "clean": "lerna clean",
     "dev": "lerna run dev --parallel --stream",
-    "dev:frontend": "yarn workspace frontend run dev",
-    "dev:backend": "yarn workspace backend run dev",
-    "build:frontend": "yarn workspace frontend run build",
+    "dev:frontend": "yarn workspace @theme-color-shades/frontend run dev",
+    "build:frontend": "yarn workspace @theme-color-shades/frontend run build",
     "build": "lerna run build",
     "test": "lerna run test",
     "format": "lerna run format"
