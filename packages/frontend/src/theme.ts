@@ -4,7 +4,7 @@ const theme = {
 	...chakraTheme,
 	// breakpoints: ['768px'],
 	fonts: {
-		body: 'Lato, sans-serif'
+		body: 'Lato, sans-serif',
 	},
 	colors: {
 		...chakraTheme.colors,
@@ -18,10 +18,10 @@ const theme = {
 			'600': '#08ab7c',
 			'700': '#007f57',
 			'800': '#004d32',
-			'900': '#001a10'
+			'900': '#001a10',
 			// ...chakraTheme.colors.gray
-		}
-	}
+		},
+	},
 }
 
 // copy from @types, not exported

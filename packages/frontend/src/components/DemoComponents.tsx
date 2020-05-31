@@ -25,7 +25,7 @@ import {
 	Collapse,
 	Avatar,
 	Input,
-	Badge
+	Badge,
 } from '@chakra-ui/core'
 import styled from '@emotion/styled'
 

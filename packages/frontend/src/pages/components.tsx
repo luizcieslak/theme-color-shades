@@ -3,7 +3,7 @@ import qs from 'query-string'
 import tinyColor from 'tinycolor2'
 
 import Layout from '../components/layout'
-import shades, { ColorObj } from 'theme-color-shades'
+import shades, { ColorObj } from '@theme-color-shades/core'
 import Shades from '../components/Shades'
 import DemoComponents from '../components/DemoComponents'
 import theme, { CustomTheme } from '../theme'
@@ -21,7 +21,7 @@ import {
 	SliderTrack,
 	SliderFilledTrack,
 	SliderThumb,
-	Flex
+	Flex,
 } from '@chakra-ui/core'
 
 const Components = () => {
@@ -40,10 +40,7 @@ const Components = () => {
 				setColor(query.color as string)
 			} else {
 				setColor(
-					tinyColor
-						.random()
-						.toHexString()
-						.split('#')[1] // if none is passed, random color is selected.
+					tinyColor.random().toHexString().split('#')[1] // if none is passed, random color is selected.
 				)
 			}
 		}
@@ -54,14 +51,14 @@ const Components = () => {
 		color,
 		hue: { factor: hueFactor },
 		saturation: { factor: saturationFactor },
-		outputFormat: 'array'
+		outputFormat: 'array',
 	})
 
 	const shadesObject = (shadesArray as string[]).reduce((acc, val, index) => {
 		const key = index > 0 ? index * 100 : 50
 		return {
 			...acc,
-			[key]: val
+			[key]: val,
 		}
 	}, {})
 
@@ -71,8 +68,8 @@ const Components = () => {
 		...theme,
 		colors: {
 			...theme.colors,
-			brand: shadesObject as ColorObj
-		}
+			brand: shadesObject as ColorObj,
+		},
 	}
 
 	return (

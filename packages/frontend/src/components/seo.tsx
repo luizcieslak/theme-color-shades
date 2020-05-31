@@ -7,7 +7,7 @@ const buildMeta = ({
 	metaDescription,
 	title,
 	author,
-	keywords
+	keywords,
 }: {
 	meta: []
 	metaDescription: string
@@ -18,42 +18,42 @@ const buildMeta = ({
 	[
 		{
 			content: metaDescription,
-			name: `description`
+			name: `description`,
 		},
 		{
 			content: title,
-			property: `og:title`
+			property: `og:title`,
 		},
 		{
 			content: metaDescription,
-			property: `og:description`
+			property: `og:description`,
 		},
 		{
 			content: `website`,
-			property: `og:type`
+			property: `og:type`,
 		},
 		{
 			content: `summary`,
-			name: `twitter:card`
+			name: `twitter:card`,
 		},
 		{
 			content: author,
-			name: `twitter:creator`
+			name: `twitter:creator`,
 		},
 		{
 			content: title,
-			name: `twitter:title`
+			name: `twitter:title`,
 		},
 		{
 			content: metaDescription,
-			name: `twitter:description`
-		}
+			name: `twitter:description`,
+		},
 	]
 		.concat(
 			keywords.length > 0
 				? {
 						content: keywords.join(`, `),
-						name: `keywords`
+						name: `keywords`,
 				  }
 				: []
 		)
@@ -86,7 +86,7 @@ function SEO({ description, lang, meta, keywords, title }: IProps) {
 		keywords,
 		meta,
 		metaDescription,
-		title: title || data.site.siteMetadata.titlec
+		title: title || data.site.siteMetadata.titlec,
 	})
 
 	return (
@@ -102,7 +102,7 @@ function SEO({ description, lang, meta, keywords, title }: IProps) {
 SEO.defaultProps = {
 	keywords: [],
 	lang: `en`,
-	meta: []
+	meta: [],
 }
 
 export default SEO

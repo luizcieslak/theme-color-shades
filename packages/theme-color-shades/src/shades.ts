@@ -36,7 +36,7 @@ export default function shades({
 	hue,
 	saturation,
 	color,
-	outputFormat = 'tinycolor'
+	outputFormat = 'tinycolor',
 }: ShadesArgs): tinycolor.Instance[] | string[] | ColorObj {
 	// All shades uses lightness modification
 	let colorsArray = shadesMonochrome(color)
@@ -69,7 +69,7 @@ export default function shades({
 			// acc[key.toString()] = val.toHexString()
 			return {
 				...acc,
-				[key]: val.toHexString()
+				[key]: val.toHexString(),
 			}
 		}, {})
 

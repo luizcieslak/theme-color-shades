@@ -29,13 +29,18 @@ const IndexPage: React.FC = () => {
 
 	useEffect(() => {
 		if (colorFromLogo !== '') {
-			const shadesObject = shades({ color: colorFromLogo, hue: true, saturation: true, outputFormat: 'object' })
+			const shadesObject = shades({
+				color: colorFromLogo,
+				hue: true,
+				saturation: true,
+				outputFormat: 'object',
+			})
 			setThemeWithNewColor({
 				...customTheme,
 				colors: {
 					...customTheme.colors,
-					brand: shadesObject as ColorObj
-				}
+					brand: shadesObject as ColorObj,
+				},
 			})
 		}
 	}, [colorFromLogo])
