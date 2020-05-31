@@ -15,11 +15,11 @@ CLI command to create a group of color shades ready to be used in your UI librar
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g cli
+$ npm install -g theme-color-shades
 $ theme-color-shades COMMAND
 running command...
 $ theme-color-shades (-v|--version|version)
-cli/0.0.1 linux-x64 node-v11.11.0
+theme-color-shades/0.1.0 linux-x64 node-v11.11.0
 $ theme-color-shades --help [COMMAND]
 USAGE
   $ theme-color-shades COMMAND

@@ -2,7 +2,7 @@
   "name": "theme-color-shades",
   "private": false,
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "luizcieslak",
   "bin": {
     "theme-color-shades": "./bin/run"
@@ -12,7 +12,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "@theme-color-shades/core": "^0.0.2",
+    "@theme-color-shades/core": "^0.1.0",
     "@types/ascii-art": "^1.4.0",
     "ascii-art": "^2.5.0",
     "chalk": "^4.0.0",
