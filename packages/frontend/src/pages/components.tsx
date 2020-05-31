@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import qs from 'query-string'
 import tinyColor from 'tinycolor2'
 
@@ -30,29 +30,38 @@ const Components = () => {
 	const [hueFactor, setHueFactor] = useState(2)
 	const [saturationFactor, setSaturationFactor] = useState(12)
 
-	let color = tinyColor
-		.random()
-		.toHexString()
-		.split('#')[1] // if none is passed, random color is selected.
+	const [color, setColor] = useState('')
 
-	if (typeof window !== 'undefined') {
-		const query = qs.parse(window.location.search)
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const query = qs.parse(window.location.search)
 
-		if ('color' in query) {
-			color = query.color as string
+			if ('color' in query) {
+				setColor(query.color as string)
+			} else {
+				setColor(
+					tinyColor
+						.random()
+						.toHexString()
+						.split('#')[1] // if none is passed, random color is selected.
+				)
+			}
 		}
-	}
+	}, [])
 
-	const shadesTinyColor = shades({ color, hue: { factor: hueFactor }, saturation: { factor: saturationFactor } })
-	const shadesArray = (shadesTinyColor as tinyColor.Instance[])
-		.slice()
-		.map((color: tinycolor.Instance) => color.toHexString())
+	// const shadesTinyColor = shades({ color, hue: { factor: hueFactor }, saturation: { factor: saturationFactor } })
+	const shadesArray = shades({
+		color,
+		hue: { factor: hueFactor },
+		saturation: { factor: saturationFactor },
+		outputFormat: 'array'
+	})
 
-	const shadesObject = (shadesTinyColor as tinyColor.Instance[]).reduce((acc, val, index) => {
+	const shadesObject = (shadesArray as string[]).reduce((acc, val, index) => {
 		const key = index > 0 ? index * 100 : 50
 		return {
 			...acc,
-			[key]: val.toHexString()
+			[key]: val
 		}
 	}, {})
 
@@ -67,13 +76,13 @@ const Components = () => {
 	}
 
 	return (
-		<Layout theme={themeWithNewColor}>
+		<Layout theme={themeWithNewColor} componentsHeader>
 			{/* <Layout> */}
 			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
-			<Shades originalColor={color} shades={shadesTinyColor as tinyColor.Instance[]} />
+			<Shades originalColor={color} shades={shadesArray as string[]} />
 
-			<Stack flexWrap='wrap' py={2} isInline spacing={[0, 0, 40]} justifyContent='center'>
-				<Stack spacing={4} minW='320px' pb={8}>
+			<Stack flexWrap='wrap' py={2} isInline justifyContent='space-between' py={8}>
+				<Stack spacing={4} w='min(420px, 100%)' pb={8} alignItems={['center', 'center', 'flex-start']}>
 					<Flex alignItems='flex-end' justifyContent='space-between'>
 						<Box>
 							<FormLabel htmlFor='format'>Select output format</FormLabel>
@@ -86,9 +95,6 @@ const Components = () => {
 								</Radio>
 							</RadioGroup>
 						</Box>
-						<Button variantColor='brand' onClick={onCopy}>
-							{hasCopied ? 'Copied' : 'Copy'}
-						</Button>
 					</Flex>
 
 					<Text>Hue Factor: {hueFactor} </Text>
@@ -104,11 +110,12 @@ const Components = () => {
 						<SliderThumb />
 					</Slider>
 				</Stack>
-				<Textarea
-					value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)}
-					minH='280px'
-					maxW='320px'
-				/>
+				<Stack spacing={8} w='min(420px, 100%)'>
+					<Textarea value={JSON.stringify(format === 'array' ? shadesArray : shadesObject, null, 2)} minH='280px' />
+					<Button variantColor='brand' onClick={onCopy}>
+						{hasCopied ? 'Copied' : 'Copy'}
+					</Button>
+				</Stack>
 			</Stack>
 			<DemoComponents />
 		</Layout>

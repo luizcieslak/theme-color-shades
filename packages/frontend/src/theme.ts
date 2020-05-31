@@ -3,11 +3,9 @@ import { theme as chakraTheme, DefaultTheme, ColorHues } from '@chakra-ui/core'
 const theme = {
 	...chakraTheme,
 	// breakpoints: ['768px'],
-	// fonts: {
-	// 	body: 'Roboto, sans-serif',
-	// 	heading: 'Poppins, serif',
-	// 	mono: 'Poppins, monospace'
-	// },
+	fonts: {
+		body: 'Lato, sans-serif'
+	},
 	colors: {
 		...chakraTheme.colors,
 		brand: {
@@ -21,6 +19,7 @@ const theme = {
 			'700': '#007f57',
 			'800': '#004d32',
 			'900': '#001a10'
+			// ...chakraTheme.colors.gray
 		}
 	}
 }

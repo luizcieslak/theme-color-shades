@@ -1,12 +1,13 @@
-import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+
+import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby'
+import GatsbyImage from 'gatsby-image'
+
 import { Box, Flex, Text, Stack, Link, useTheme } from '@chakra-ui/core'
 
 import { IoLogoGithub } from 'react-icons/io'
 
 import { LogoIconQuery } from '../generated/graphql'
-import GatsbyImage from 'gatsby-image'
-import Shades from './Shades'
 import ShadesStripeHeader from './ShadesStripeHeader'
 import { CustomTheme } from '../theme'
 
@@ -58,7 +59,7 @@ const ComponentsHeader: React.FunctionComponent<HeaderProps> = props => {
 
 	return (
 		<Box pos='fixed' top='0' w='100vw' zIndex={2} bg='white' boxShadow='sm' py={4} px={4}>
-			<Flex justifyContent='space-between' align='center' bg='white' maxW='1280px' mx='auto'>
+			<Flex justifyContent='space-between' align='flex-end' bg='white' maxW='1024px' mx='auto'>
 				<GatsbyLink to='/'>
 					<Flex alignItems='center'>
 						<Box width='40px' pr='4'>

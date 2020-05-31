@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
-import tinyColor from 'tinycolor2'
-import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
-import shades, { ColorObj } from 'theme-color-shades'
-import CardColorHex from '../components/ CardColorHex'
-import Logo from '../components/Logo'
-import customTheme, { CustomTheme } from '../theme'
 import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
+
+import shades, { ColorObj } from 'theme-color-shades'
+
+import Logo from '../components/Logo'
+import customTheme, { CustomTheme } from '../theme'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 import cliDemo from '../components/cliDemo.svg'
 import cliDemoMobile from '../components/cliDemoMobile.svg'
@@ -19,66 +18,9 @@ import test from '../components/test.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
-// interface IProps {
-// 	data: GatsbyAstronautQuery
-// }
-
-// const IndexPage: React.FC<IProps> = ({ data }) => {
-// 	return (
-// 		<Layout>
-// 			<SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-// 			<Box width='30%'>
-// 				{/* TODO: add optional chaining in file */}
-
-// 				<FaBeer />
-// 				<GatsbyImage fluid={data.file.childImageSharp.fluid} />
-// 			</Box>
-// 			<Link to='/page-2'>go to page 2</Link>
-// 		</Layout>
-// 	)
-// }
-
-// export const pageQuery = graphql`
-// 	query GatsbyAstronaut {
-// 		file(relativePath: { eq: "gatsby-astronaut.png" }) {
-// 			childImageSharp {
-// 				fluid {
-// 					base64
-// 					tracedSVG
-// 					aspectRatio
-// 					src
-// 					srcSet
-// 					srcWebp
-// 					srcSetWebp
-// 					sizes
-// 					originalImg
-// 					originalName
-// 					presentationWidth
-// 					presentationHeight
-// 				}
-// 			}
-// 		}
-// 	}
-// `
-
 const BoxWithGradient = styled(Box)`
-	background: ${props => props.theme.colors.brand['600']};
-	background: -moz-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	background: -webkit-linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	background: linear-gradient(0deg, ${props => props.theme.colors.brand['600']} 0%, ${props =>
-	props.theme.colors.brand['700']} 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="${props =>
-		props.theme.colors.brand['600']}",endColorstr="${props =>
-	props.theme.colors.brand['700']}",GradientType=1); /* ie6-9 */
+	background: linear-gradient(267.9deg, ${theme('colors.brand.600')} -1.96%, ${theme('colors.brand.500')} 101.04%);
 `
-
-interface ColorObject {
-	name: string
-	originalColor: string
-	method: tinyColor.Instance[]
-}
 
 const IndexPage: React.FC = () => {
 	const [colorFromLogo, setColorFromLogo] = useState('')
@@ -98,28 +40,25 @@ const IndexPage: React.FC = () => {
 		}
 	}, [colorFromLogo])
 
-	console.log('color', colorFromLogo)
 	return (
 		<Layout theme={themeWithNewColor}>
 			{/* <Layout> */}
 			<SEO keywords={[`gatsby`, `colors`, `react`]} />
-			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']} pb={[10, 20]}>
+			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']} pt={12} pb={[10, 32]}>
 				<Flex justifyContent={['center', 'center', 'center', 'flex-start']}>
 					<Box w={['250px', '300px', '400px']}>
 						<Logo setColor={setColorFromLogo} />
 					</Box>
 				</Flex>
 
-				<Stack spacing={2}>
+				<Stack spacing={8}>
 					<Text color='brand.900' fontSize={['2xl', '4xl', '5xl']}>
 						Generate a set of shades ready to be used in your UI library.
 					</Text>
 
-					<Stack isInline spacing={4} flexWrap='wrap' alignItems='baseline'>
-						<FormLabel htmlFor='color' pb={0} fontSize='xl'>
-							Try it out:
-						</FormLabel>
-						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} w='50%' />
+					<Stack isInline spacing={[2, 4]} alignItems='baseline' justifyContent={['space-between', 'flex-start']}>
+						<Text fontSize='xl'>Try it out:</Text>
+						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} maxW='50%' />
 						<Button variantColor='brand' onClick={() => navigate(`components?color=${colorFromLogo.split('#')[1]}`)}>
 							Go!
 						</Button>
@@ -128,10 +67,10 @@ const IndexPage: React.FC = () => {
 			</SimpleGrid>
 
 			<Box minH='750px'>
-				<BoxWithGradient pos='absolute' w='100vw' minH='750px' left={0} zIndex={-1} />
-				<Stack spacing={4} py={10}>
+				<BoxWithGradient pos='absolute' w='99.2vw' minH='750px' left={0} zIndex={-1} />
+				<Stack spacing={12} pt={16}>
 					<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center'>
-						You can also get them from the CLI
+						You can also get them from the CLI!
 					</Text>
 					{/* <Box w='50%'>
 						<SvgTerm />
@@ -151,7 +90,7 @@ const IndexPage: React.FC = () => {
 			</Box>
 
 			<Box>
-				<Stack spacing={12} py={10}>
+				<Stack spacing={12} py={20}>
 					<Text fontSize='6xl' textAlign='center' color='brand.900'>
 						We
 						<Box d='inline' as={IoIosHeart} color='brand.500' mx={2} />

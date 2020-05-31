@@ -23,23 +23,22 @@ const pageQuery = graphql`
 
 interface LayoutProps {
 	theme?: CustomTheme
+	componentsHeader?: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
+const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme, componentsHeader = false }) => {
 	const data: SiteQuery = useStaticQuery(pageQuery)
 
-	const currentPage = typeof window !== 'undefined' && window.location.pathname
-	console.log(currentPage)
 	return (
 		<ThemeProvider theme={theme}>
 			<CSSReset />
 			<>
-				{currentPage === '/components/' || currentPage === '/components' ? (
+				{componentsHeader ? (
 					<ComponentsHeader siteTitle={data.site?.siteMetadata?.title as string} />
 				) : (
 					<Header siteTitle={data.site?.siteMetadata?.title as string} />
 				)}
-				<Box as='main' mx='auto' maxW='1280px' py={20} px={[4, 4, 4, 0]}>
+				<Box as='main' mx='auto' maxW='1024px' py={[10, 20]} px={[4, 4, 4, 0]}>
 					{children}
 				</Box>
 			</>

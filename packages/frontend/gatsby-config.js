@@ -2,7 +2,8 @@ module.exports = {
 	siteMetadata: {
 		title: `theme color shades`,
 		description: `Generate a group of color shades ready to be used in your UI library.`,
-		author: `@luizcieslak`
+		author: `@luizcieslak`,
+		siteUrl: 'https://themecolorshades.com'
 	},
 	plugins: [
 		`gatsby-plugin-typescript`,
@@ -37,65 +38,65 @@ module.exports = {
 				icon: `src/images/logo.png` // This path is relative to the root of the site.
 			}
 		},
-		// {
-		// 	resolve: 'gatsby-plugin-sitemap',
-		// 	options: {
-		// 		output: '/sitemap.xml',
-		// 		// exclude: getNonCanonicalUrls(appPaths),
-		// 		query: `
-		//       {
-		//         site {
-		//           siteMetadata {
-		//             siteUrl
-		//           }
-		//         }
+		{
+			resolve: 'gatsby-plugin-sitemap',
+			options: {
+				output: '/sitemap.xml',
+				exclude: ['/debug'],
+				query: `
+		      {
+		        site {
+		          siteMetadata {
+		            siteUrl
+		          }
+		        }
 
-		//         allSitePage {
-		//           edges {
-		//             node {
-		//               path
-		//             }
-		//           }
-		//         }
-		//     }`,
-		// 		serialize: ({ site, allSitePage }) =>
-		// 			allSitePage.edges.map(edge => ({
-		// 				url: site.siteMetadata.siteUrl + edge.node.path,
-		// 				changefreq: 'daily',
-		// 				priority: 0.7
-		// 			}))
-		// 	}
-		// },
-		// {
-		// 	resolve: 'gatsby-plugin-robots-txt',
-		// 	options: {
-		// 		resolveEnv: () => process.env.NODE_ENV,
-		// 		env: {
-		// 			production: {
-		// 				// TODO: DEPLOY - erase this line and dis-comment the other on the first deploy
-		// 				// policy: [{ userAgent: '*', disallow: ['/'] }]
-		// 				policy: [
-		// 					{
-		// 						userAgent: '*',
-		// 						disallow: ['']
-		// 					},
-		// 					{ userAgent: 'Twitterbot', disallow: [''] },
-		// 					{ userAgent: '*' }
-		// 				]
-		// 			},
-		// 			'branch-deploy': {
-		// 				policy: [{ userAgent: '*', disallow: ['/'] }],
-		// 				sitemap: null,
-		// 				host: null
-		// 			},
-		// 			'deploy-preview': {
-		// 				policy: [{ userAgent: '*', disallow: ['/'] }],
-		// 				sitemap: null,
-		// 				host: null
-		// 			}
-		// 		}
-		// 	}
-		// },
+		        allSitePage {
+		          edges {
+		            node {
+		              path
+		            }
+		          }
+		        }
+		    }`,
+				serialize: ({ site, allSitePage }) =>
+					allSitePage.edges.map(edge => ({
+						url: site.siteMetadata.siteUrl + edge.node.path,
+						changefreq: 'daily',
+						priority: 0.7
+					}))
+			}
+		},
+		{
+			resolve: 'gatsby-plugin-robots-txt',
+			options: {
+				resolveEnv: () => process.env.NODE_ENV,
+				env: {
+					production: {
+						// TODO: DEPLOY - erase this line and dis-comment the other on the first deploy
+						// policy: [{ userAgent: '*', disallow: ['/'] }]
+						policy: [
+							{
+								userAgent: '*',
+								disallow: ['']
+							},
+							{ userAgent: 'Twitterbot', disallow: [''] },
+							{ userAgent: '*' }
+						]
+					},
+					'branch-deploy': {
+						policy: [{ userAgent: '*', disallow: ['/'] }],
+						sitemap: null,
+						host: null
+					},
+					'deploy-preview': {
+						policy: [{ userAgent: '*', disallow: ['/'] }],
+						sitemap: null,
+						host: null
+					}
+				}
+			}
+		},
 		{
 			resolve: 'gatsby-plugin-netlify',
 			options: {

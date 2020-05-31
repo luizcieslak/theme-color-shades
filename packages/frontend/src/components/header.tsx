@@ -38,7 +38,7 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
 	// console.log('data icon header', data)
 	return (
 		<Box py={4} boxShadow='sm' px={4}>
-			<Flex justifyContent='space-between' align='center' bg='white' maxW='1280px' mx='auto '>
+			<Flex justifyContent='space-between' align='center' bg='white' maxW='1024px' mx='auto' px={[4, 4, 4, 0]}>
 				<Flex alignItems='center'>
 					{/* <Box width='100px' pr='4'>
 					<GatsbyImage fluid={data.file.childImageSharp.fluid} />
