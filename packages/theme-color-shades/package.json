@@ -1,8 +1,8 @@
 {
-  "name": "theme-color-shades",
+  "name": "@theme-color-shades/core",
   "private": false,
   "version": "0.0.2",
-  "description": "CLI command to create a group of color shades ready to be used in your UI library.",
+  "description": "Core for theme-color-shades CLI package.",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

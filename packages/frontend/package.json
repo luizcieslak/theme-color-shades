@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@theme-color-shades/frontend",
   "private": false,
   "description": "frontend for theme-color-shades",
   "version": "0.0.2",
@@ -8,6 +8,7 @@
     "@chakra-ui/core": "^0.7.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@theme-color-shades/core": "^0.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "dotenv": "^8.2.0",
     "emotion-theming": "^10.0.27",
@@ -33,8 +34,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.10.0",
-    "styled-tools": "^1.7.1",
-    "theme-color-shades": "^0.0.2"
+    "styled-tools": "^1.7.1"
   },
   "keywords": [
     "gatsby"
