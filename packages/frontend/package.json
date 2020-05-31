@@ -1,6 +1,6 @@
 {
   "name": "@theme-color-shades/frontend",
-  "private": false,
+  "private": true,
   "description": "frontend for theme-color-shades",
   "version": "0.0.2",
   "author": "Luiz Cieslak <luiz@cieslak.dev>",
