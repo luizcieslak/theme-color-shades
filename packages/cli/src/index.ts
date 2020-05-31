@@ -1,6 +1,6 @@
 import path from 'path'
 import { Command, flags } from '@oclif/command'
-import shades from 'theme-color-shades'
+import shades from '@theme-color-shades/core'
 import chalk from 'chalk'
 import tinyColor from 'tinycolor2'
 import asciiArt from 'ascii-art'
