@@ -57,5 +57,6 @@
     "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
     "version": "oclif-dev readme && git add README.md"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "gitHead": "3dd2189cb83a7458c05bfaadf1b1aeb5501930bd"
 }

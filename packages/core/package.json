@@ -1,6 +1,6 @@
 {
   "name": "@theme-color-shades/core",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "Core for theme-color-shades CLI package.",
   "license": "MIT",
