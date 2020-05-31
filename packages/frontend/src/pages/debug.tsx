@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 import tinyColor from 'tinycolor2'
 import { Box, Flex, Text, Input } from '@chakra-ui/core'
-import shades from 'theme-color-shades'
+import shades from '@theme-color-shades/core'
 import CardColorHex from '../components/ CardColorHex'
 
 interface ColorObject {
