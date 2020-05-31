@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](/compare/theme-color-shades@0.1.0...theme-color-shades@0.1.1) (2020-05-31)
+
+**Note:** Version bump only for package theme-color-shades
+
+
+
+
+
 # [0.1.0](/compare/theme-color-shades@0.0.2...theme-color-shades@0.1.0) (2020-05-31)
 
 
