@@ -22,8 +22,8 @@ const ColorSquare: React.FC<CardColorProps> = ({ hex }) => {
 }
 
 const Shades: React.FC<ShadesArgs> = ({ originalColor, shades }) => {
-	const nameByNtcjs = ntcjs.name(`#${originalColor}`)[1]
-	console.log('Shades originalColor', originalColor)
+	const nameByNtcjs = originalColor ? ntcjs.name(`#${originalColor}`)[1] : 'Processing..'
+
 	return (
 		<>
 			<SEO title={nameByNtcjs} />

@@ -23,18 +23,17 @@ const pageQuery = graphql`
 
 interface LayoutProps {
 	theme?: CustomTheme
+	componentsHeader?: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme }) => {
+const Layout: React.FC<LayoutProps> = ({ children, theme = customTheme, componentsHeader = false }) => {
 	const data: SiteQuery = useStaticQuery(pageQuery)
 
-	// TODO: this causes a flick in header when in components/
-	const currentPage = typeof window !== 'undefined' && window.location.pathname
 	return (
 		<ThemeProvider theme={theme}>
 			<CSSReset />
 			<>
-				{currentPage === '/components/' || currentPage === '/components' ? (
+				{componentsHeader ? (
 					<ComponentsHeader siteTitle={data.site?.siteMetadata?.title as string} />
 				) : (
 					<Header siteTitle={data.site?.siteMetadata?.title as string} />

@@ -76,7 +76,7 @@ const Components = () => {
 	}
 
 	return (
-		<Layout theme={themeWithNewColor}>
+		<Layout theme={themeWithNewColor} componentsHeader>
 			{/* <Layout> */}
 			{/* <Text fontSize='4xl'>{ntcjs.name(`#${color}`)[1]}</Text> */}
 			<Shades originalColor={color} shades={shadesArray} />
