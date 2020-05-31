@@ -24,7 +24,7 @@
     "@types/chalk": "^2.2.0",
     "@types/node": "^10",
     "@types/tinycolor2": "^1.4.2",
-    "eslint": "^5.13",
+    "eslint": "^6.6.0",
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.1",
     "prettier": "^2.0.5",
