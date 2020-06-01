@@ -1,9 +1,9 @@
-import path from 'path'
+// import path from 'path'
 import { Command, flags } from '@oclif/command'
 import shades from '@theme-color-shades/core'
 import chalk from 'chalk'
 import tinyColor from 'tinycolor2'
-import asciiArt from 'ascii-art'
+// import asciiArt from 'ascii-art'
 
 require('dotenv').config()
 
@@ -50,18 +50,18 @@ class Cli extends Command {
 
 		const rgbColor = tinyColor(args.color).toRgb()
 
-		// TODO: Check if this path is the same when published to npm.
-		const art1 = await asciiArt
-			.image({
-				filepath: path.join(__dirname + '/images/colorwheel.png'),
-				width: 20,
-				height: 20,
-				alphabet: 'variant4',
-			})
-			.toPromise()
+		// Removed this art for now to have a smaller CLI response and a smaller bundle.
+		// const art1 = await asciiArt
+		// 	.image({
+		// 		filepath: path.join(__dirname + '/images/logo.png'),
+		// 		width: 20,
+		// 		height: 20,
+		// 		alphabet: 'variant4',
+		// 	})
+		// 	.toPromise()
 
-		this.log(art1)
-		this.log(`Theme Color Shades ${this.config.version} \n`)
+		// this.log(art1)
+		this.log(`Theme Color Shades ${this.config.version}`)
 
 		this.log(
 			`Hello! Here is your requested shades using ${chalk
