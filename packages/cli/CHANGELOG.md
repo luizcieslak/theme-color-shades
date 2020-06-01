@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](/compare/theme-color-shades@0.1.2...theme-color-shades@0.1.3) (2020-06-01)
+
+
+### Bug Fixes
+
+* **cli:** requiring .env.* (#22) d9ca331, closes #22
+
+
+
+
+
 ## [0.1.2](/compare/theme-color-shades@0.1.1...theme-color-shades@0.1.2) (2020-06-01)
 
 

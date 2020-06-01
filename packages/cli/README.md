@@ -19,7 +19,7 @@ $ npm install -g theme-color-shades
 $ theme-color-shades COMMAND
 running command...
 $ theme-color-shades (-v|--version|version)
-theme-color-shades/0.1.2 linux-x64 node-v11.11.0
+theme-color-shades/0.1.3 linux-x64 node-v11.11.0
 $ theme-color-shades --help [COMMAND]
 USAGE
   $ theme-color-shades COMMAND
