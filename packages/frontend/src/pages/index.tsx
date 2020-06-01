@@ -70,7 +70,7 @@ const IndexPage: React.FC = () => {
 			</SimpleGrid>
 
 			<Box minH='700px'>
-				<BoxWithGradient pos='absolute' w='99vw' minH='700px' left={0} zIndex={-1} />
+				<BoxWithGradient pos='absolute' w={['100vw', '99.2vw']} minH='700px' left={0} zIndex={-1} />
 				<Stack spacing={12} py={12}>
 					<Box>
 						<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center' lineHeight='2em'>
