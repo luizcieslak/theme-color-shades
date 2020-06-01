@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](/compare/theme-color-shades@0.1.1...theme-color-shades@0.1.2) (2020-06-01)
+
+
+### Bug Fixes
+
+* **prettier:** running for files outside src/, keeping eslint config equal 18235c6
+
+
+
+
+
 ## [0.1.1](/compare/theme-color-shades@0.1.0...theme-color-shades@0.1.1) (2020-05-31)
 
 **Note:** Version bump only for package theme-color-shades

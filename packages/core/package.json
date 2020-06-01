@@ -1,7 +1,7 @@
 {
   "name": "@theme-color-shades/core",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Core for theme-color-shades CLI package.",
   "license": "MIT",
   "main": "dist/index.js",
