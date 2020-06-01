@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](/compare/theme-color-shades@0.1.4...theme-color-shades@0.1.5) (2020-06-01)
+
+
+### Bug Fixes
+
+* **cli:** remove dotenv, does not work 44c8ec7
+
+
+
+
+
 ## [0.1.4](/compare/theme-color-shades@0.1.3...theme-color-shades@0.1.4) (2020-06-01)
 
 

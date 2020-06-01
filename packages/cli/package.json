@@ -2,7 +2,7 @@
   "name": "theme-color-shades",
   "private": false,
   "description": "CLI command to create a group of color shades ready to be used in your UI library.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "luizcieslak",
   "bin": {
     "theme-color-shades": "./bin/run"
