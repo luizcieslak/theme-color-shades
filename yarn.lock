@@ -3583,11 +3583,6 @@
     "@testing-library/dom" "^6.15.0"
     "@types/testing-library__react" "^9.1.2"
 
-"@types/ascii-art@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@types/ascii-art/-/ascii-art-1.4.0.tgz#8f6ca47e7505ff7876b2660eb6bf8ac8bdd32826"
-  integrity sha512-8+zkhuTxL+mxfyP4w4qJxxrSIMu7ih0HyBgHOf4I2vMl8rI01QIJBKtEF4GJ9dLXxoApa3be97tkq6PoCKAPkQ==
-
 "@types/babel__core@^7.1.0":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"

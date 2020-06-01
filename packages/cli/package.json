@@ -13,9 +13,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "@theme-color-shades/core": "^0.1.2",
-    "@types/ascii-art": "^1.4.0",
     "chalk": "^4.0.0",
-    "dotenv": "^8.2.0",
     "tinycolor2": "^1.4.1",
     "tslib": "^1"
   },

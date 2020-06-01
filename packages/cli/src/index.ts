@@ -71,7 +71,7 @@ class Cli extends Command {
 
 		this.log(
 			`\nWanna see how these shades play out in some components before using?
-Check it out here: ${process.env.URL}/components/?color=${tinyColor(args.color).toHexString().slice(1)}`
+Check it out here: https://themecolorshades.com/components/?color=${tinyColor(args.color).toHexString().slice(1)}`
 		)
 	}
 }
