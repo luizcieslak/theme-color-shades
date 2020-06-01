@@ -3,7 +3,7 @@ module.exports = {
 		title: `theme color shades`,
 		description: `Generate a group of color shades ready to be used in your UI library.`,
 		author: `@luizcieslak`,
-		siteUrl: 'https://themecolorshades.com'
+		siteUrl: 'https://themecolorshades.com',
 	},
 	plugins: [
 		`gatsby-plugin-typescript`,
@@ -21,8 +21,8 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `images`,
-				path: `${__dirname}/src/images`
-			}
+				path: `${__dirname}/src/images`,
+			},
 		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
@@ -35,8 +35,8 @@ module.exports = {
 				background_color: `#0dd8a4`,
 				theme_color: `#0dd8a4`,
 				display: `minimal-ui`,
-				icon: `src/images/logo.png` // This path is relative to the root of the site.
-			}
+				icon: `src/images/logo.png`, // This path is relative to the root of the site.
+			},
 		},
 		{
 			resolve: 'gatsby-plugin-sitemap',
@@ -63,9 +63,9 @@ module.exports = {
 					allSitePage.edges.map(edge => ({
 						url: site.siteMetadata.siteUrl + edge.node.path,
 						changefreq: 'daily',
-						priority: 0.7
-					}))
-			}
+						priority: 0.7,
+					})),
+			},
 		},
 		{
 			resolve: 'gatsby-plugin-robots-txt',
@@ -78,24 +78,24 @@ module.exports = {
 						policy: [
 							{
 								userAgent: '*',
-								disallow: ['']
+								disallow: [''],
 							},
 							{ userAgent: 'Twitterbot', disallow: [''] },
-							{ userAgent: '*' }
-						]
+							{ userAgent: '*' },
+						],
 					},
 					'branch-deploy': {
 						policy: [{ userAgent: '*', disallow: ['/'] }],
 						sitemap: null,
-						host: null
+						host: null,
 					},
 					'deploy-preview': {
 						policy: [{ userAgent: '*', disallow: ['/'] }],
 						sitemap: null,
-						host: null
-					}
-				}
-			}
+						host: null,
+					},
+				},
+			},
 		},
 		{
 			resolve: 'gatsby-plugin-netlify',
@@ -116,11 +116,11 @@ module.exports = {
 				mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
 				mergeCachingHeaders: true, // boolean to turn off the default caching headers
 				// transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-				generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
-			}
-		}
+				generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+			},
+		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',
-	]
+	],
 }

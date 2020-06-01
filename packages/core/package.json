@@ -19,7 +19,7 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css} && prettier --write *.{ts,tsx,js,jsx,css}",
     "prepare": "tsdx build"
   },
   "dependencies": {

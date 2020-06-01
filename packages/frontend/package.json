@@ -45,7 +45,7 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css}",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css} && prettier --write *.{ts,tsx,js,jsx,css}",
     "gql-gen": "gql-gen --config codegen.yml",
     "clean": "gatsby clean"
   },
