@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { theme } from 'styled-tools'
-import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image } from '@chakra-ui/core'
+import { Box, Flex, Text, Input, Stack, SimpleGrid, Button, FormLabel, Icon, Link, Image, Code } from '@chakra-ui/core'
 
 import shades, { ColorObj } from '@theme-color-shades/core'
 
@@ -12,9 +12,7 @@ import customTheme, { CustomTheme } from '../theme'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-import cliDemo from '../components/cliDemo.svg'
-import cliDemoMobile from '../components/cliDemoMobile.svg'
-import test from '../components/test.svg'
+import cliDemo from '../images/cli.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
@@ -71,25 +69,19 @@ const IndexPage: React.FC = () => {
 				</Stack>
 			</SimpleGrid>
 
-			<Box minH='750px'>
-				<BoxWithGradient pos='absolute' w='99.2vw' minH='750px' left={0} zIndex={-1} />
-				<Stack spacing={12} pt={16}>
-					<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center'>
-						You can also get them from the CLI!
-					</Text>
-					{/* <Box w='50%'>
-						<SvgTerm />
-					</Box> */}
+			<Box minH='700px'>
+				<BoxWithGradient pos='absolute' w='99vw' minH='700px' left={0} zIndex={-1} />
+				<Stack spacing={12} py={12}>
+					<Box>
+						<Text color='white' fontSize={['4xl', '5xl', '5xl']} textAlign='center' lineHeight='2em'>
+							You can also get them from the CLI!
+						</Text>
+						<Text color='white' textAlign='center'>
+							Just run &nbsp; <Code>npx theme-color-shades HEX_COLOR</Code> &nbsp; from anywhere.
+						</Text>
+					</Box>
 					<Flex justifyContent='center'>
-						{typeof window !== 'undefined' && window.innerWidth >= 768 ? (
-							<Image src={cliDemo} border='1px' borderRadius='10px' />
-						) : (
-							<Image src={cliDemoMobile} border='1px' borderRadius='10px' />
-						)}
-						{/* <Box maxW='100%'>
-		
-							<Image src={test} />
-						</Box> */}
+						<Image src={cliDemo} maxW='100%' h={['350px', '350px', '400px']} />
 					</Flex>
 				</Stack>
 			</Box>
