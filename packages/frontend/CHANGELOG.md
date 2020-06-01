@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/luizcieslak/js-templates/compare/@theme-color-shades/frontend@0.1.2...@theme-color-shades/frontend@0.2.0) (2020-06-01)
+
+
+### Features
+
+* **frontend:** add cli demo, adjust spacing and height ([#23](https://github.com/luizcieslak/js-templates/issues/23)) ([092518e](https://github.com/luizcieslak/js-templates/commit/092518eecdeb4c8335dd40b441c5b8edcaffadc1))
+
+
+
+
+
 ## [0.1.2](https://github.com/luizcieslak/js-templates/compare/@theme-color-shades/frontend@0.1.1...@theme-color-shades/frontend@0.1.2) (2020-06-01)
 
 
