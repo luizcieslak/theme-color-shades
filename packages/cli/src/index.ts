@@ -5,7 +5,11 @@ import chalk from 'chalk'
 import tinyColor from 'tinycolor2'
 // import asciiArt from 'ascii-art'
 
-require('dotenv').config()
+const activeEnv = process.env.NODE_ENV || 'development'
+require('dotenv').config({
+	path: `.env.${activeEnv}`,
+	// debug: true
+})
 
 type outputFormat = 'object' | 'array'
 
