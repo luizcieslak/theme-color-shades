@@ -75,7 +75,13 @@ const ComponentsHeader: React.FunctionComponent<HeaderProps> = props => {
 					{pageYOffset > 228 ? (
 						<ShadesStripeHeader shades={Object.values(theme.colors.brand)} />
 					) : (
-						<Link color='brand.800' _hover={{ color: 'brand.900' }}>
+						<Link
+							color='brand.800'
+							_hover={{ color: 'brand.900' }}
+							href='https://github.com/luizcieslak/theme-color-shades'
+							rel='noopener'
+							target='_blank'
+						>
 							<IoLogoGithub size='25' />
 						</Link>
 					)}
