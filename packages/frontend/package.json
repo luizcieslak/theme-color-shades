@@ -2,7 +2,7 @@
   "name": "@theme-color-shades/frontend",
   "private": true,
   "description": "frontend for theme-color-shades",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Luiz Cieslak <luiz@cieslak.dev>",
   "dependencies": {
     "@chakra-ui/core": "^0.7.0",

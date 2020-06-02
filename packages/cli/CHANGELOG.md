@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/luizcieslak/theme-color-shades/compare/theme-color-shades@0.1.6...theme-color-shades@0.1.7) (2020-06-02)
+
+**Note:** Version bump only for package theme-color-shades
+
+
+
+
+
 ## [0.1.6](/compare/theme-color-shades@0.1.5...theme-color-shades@0.1.6) (2020-06-02)
 
 **Note:** Version bump only for package theme-color-shades
