@@ -51,10 +51,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/luizcieslak/js-templates"
+    "url": "https://github.com/luizcieslak/theme-color-shades"
   },
   "bugs": {
-    "url": "https://github.com/luizcieslak/js-templates/issues"
+    "url": "https://github.com/luizcieslak/theme-color-shades/issues"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.0.0",
