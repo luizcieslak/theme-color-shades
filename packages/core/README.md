@@ -1,10 +1,6 @@
-# theme-color-shades
+# @theme-color-shades/core
 
-CLI command to create a group of color shades ready to be used in your UI library.
-
-# TSDX Bootstrap
-
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+Core to `theme-color-shades` package. Made with [TSDX](https://github.com/jaredpalmer/tsdx).
 
 ## Local Development
 
