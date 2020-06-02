@@ -50,7 +50,13 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
 
 				<Stack isInline spacing={[4, 8]} alignItems='center'>
 					<Link color='gray.900'>CLI package</Link>
-					<Link color='brand.600' _hover={{ color: 'brand.900' }}>
+					<Link
+						color='brand.600'
+						_hover={{ color: 'brand.900' }}
+						href='https://github.com/luizcieslak/theme-color-shades'
+						rel='noopener'
+						target='_blank'
+					>
 						<IoLogoGithub size='30' />
 					</Link>
 				</Stack>

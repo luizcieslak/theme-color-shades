@@ -26,7 +26,7 @@ const IndexPage: React.FC = () => {
 	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
 	useEffect(() => {
-		if (colorFromLogo !== '') {
+		if ((colorFromLogo.length > 6 && colorFromLogo.startsWith('#')) || colorFromLogo.length === 6) {
 			const shadesObject = shades({
 				color: colorFromLogo,
 				hue: true,
@@ -42,6 +42,20 @@ const IndexPage: React.FC = () => {
 			})
 		}
 	}, [colorFromLogo])
+
+	const onChangeInput = e => {
+		// if (e.target.value.length >= 6) {
+		setColorFromLogo(e.target.value)
+		// }
+	}
+
+	const navigateToComponents = () => {
+		if (colorFromLogo.startsWith('#')) {
+			navigate(`components?color=${colorFromLogo.split('#')[1]}`)
+		} else {
+			navigate(`components?color=${colorFromLogo}`)
+		}
+	}
 
 	return (
 		<Layout theme={themeWithNewColor}>
@@ -60,9 +74,18 @@ const IndexPage: React.FC = () => {
 					</Text>
 
 					<Stack isInline spacing={[2, 4]} alignItems='baseline' justifyContent={['space-between', 'flex-start']}>
-						<Text fontSize='xl'>Try it out:</Text>
-						<Input placeholder='type an HEX color' defaultValue={colorFromLogo} maxW='50%' />
-						<Button variantColor='brand' onClick={() => navigate(`components?color=${colorFromLogo.split('#')[1]}`)}>
+						<FormLabel fontSize='xl' htmlFor='colorInput'>
+							Try it out:
+						</FormLabel>
+						<Input
+							id='colorInput'
+							placeholder='type an HEX color'
+							value={colorFromLogo}
+							onChange={onChangeInput}
+							maxW='50%'
+							isRequired
+						/>
+						<Button type='submit' variantColor='brand' onClick={navigateToComponents}>
 							Go!
 						</Button>
 					</Stack>
