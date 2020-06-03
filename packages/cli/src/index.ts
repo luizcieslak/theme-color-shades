@@ -61,6 +61,10 @@ class Cli extends Command {
 		// this.log(art1)
 		this.log(`Theme Color Shades ${this.config.version}`)
 
+		if (!/^#?(?:[0-9a-fA-F]{3}){1,2}$/.test(args.color)) {
+			this.error(new Error('Argument must be valid a 3 or 6-digit hex color.'))
+		}
+
 		this.log(
 			`Hello! Here is your requested shades using ${chalk
 				.rgb(rgbColor.r, rgbColor.g, rgbColor.b)
