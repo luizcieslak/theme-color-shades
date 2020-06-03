@@ -49,7 +49,9 @@ const Header: React.FunctionComponent<HeaderProps> = props => {
 				</Flex>
 
 				<Stack isInline spacing={[4, 8]} alignItems='center'>
-					<Link color='gray.900'>CLI package</Link>
+					<Link color='gray.900' href='https://www.npmjs.com/package/theme-color-shades' rel='noopener' target='_blank'>
+						CLI package
+					</Link>
 					<Link
 						color='brand.600'
 						_hover={{ color: 'brand.900' }}
