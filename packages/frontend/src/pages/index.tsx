@@ -16,19 +16,35 @@ import cliDemo from '../images/cli.svg'
 
 import { IoIosHeart } from 'react-icons/io'
 
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+
+interface FormColor {
+	colorInput: string
+}
+
+const colorRegexp = /^#?(?:[0-9a-fA-F]{3}){1,2}$/
+
+const ColorSchema = yup.object().shape({
+	colorInput: yup.string().matches(colorRegexp),
+})
+
 const BoxWithGradient = styled(Box)`
 	background: linear-gradient(267.9deg, ${theme('colors.brand.600')} -1.96%, ${theme('colors.brand.500')} 101.04%);
 `
 
 const IndexPage: React.FC = () => {
-	const [colorFromLogo, setColorFromLogo] = useState('')
-
 	const [themeWithNewColor, setThemeWithNewColor] = useState<CustomTheme>(customTheme)
 
+	const { register, handleSubmit, errors, watch, setValue } = useForm<FormColor>({
+		validationSchema: ColorSchema,
+	})
+
+	const colorInput = watch('colorInput')
 	useEffect(() => {
-		if ((colorFromLogo.length > 6 && colorFromLogo.startsWith('#')) || colorFromLogo.length === 6) {
+		if (colorRegexp.test(colorInput)) {
 			const shadesObject = shades({
-				color: colorFromLogo,
+				color: colorInput,
 				hue: true,
 				saturation: true,
 				outputFormat: 'object',
@@ -41,19 +57,13 @@ const IndexPage: React.FC = () => {
 				},
 			})
 		}
-	}, [colorFromLogo])
+	}, [colorInput])
 
-	const onChangeInput = e => {
-		// if (e.target.value.length >= 6) {
-		setColorFromLogo(e.target.value)
-		// }
-	}
-
-	const navigateToComponents = () => {
-		if (colorFromLogo.startsWith('#')) {
-			navigate(`components?color=${colorFromLogo.split('#')[1]}`)
+	const onSubmit = ({ colorInput }: FormColor) => {
+		if (colorInput.startsWith('#')) {
+			navigate(`components?color=${colorInput.split('#')[1]}`)
 		} else {
-			navigate(`components?color=${colorFromLogo}`)
+			navigate(`components?color=${colorInput}`)
 		}
 	}
 
@@ -64,7 +74,7 @@ const IndexPage: React.FC = () => {
 			<SimpleGrid columns={2} spacing={10} minChildWidth={['300px', '400px']} pt={12} pb={[10, 32]}>
 				<Flex justifyContent={['center', 'center', 'center', 'flex-start']}>
 					<Box w={['250px', '300px', '400px']}>
-						<Logo setColor={setColorFromLogo} />
+						<Logo setColor={(color: string) => setValue('colorInput', color)} />
 					</Box>
 				</Flex>
 
@@ -73,22 +83,35 @@ const IndexPage: React.FC = () => {
 						Generate a set of shades ready to be used in your UI library.
 					</Text>
 
-					<Stack isInline spacing={[2, 4]} alignItems='baseline' justifyContent={['space-between', 'flex-start']}>
+					<Stack
+						as='form'
+						onSubmit={handleSubmit(onSubmit)}
+						isInline
+						spacing={[2, 4]}
+						alignItems='baseline'
+						justifyContent={['space-between', 'flex-start']}
+					>
 						<FormLabel fontSize='xl' htmlFor='colorInput'>
 							Try it out:
 						</FormLabel>
 						<Input
-							id='colorInput'
+							name='colorInput'
 							placeholder='type an HEX color'
-							value={colorFromLogo}
-							onChange={onChangeInput}
+							// value={colorFromLogo}
+							ref={register}
+							// onChange={onChangeInput}
 							maxW='50%'
 							isRequired
 						/>
-						<Button type='submit' variantColor='brand' onClick={navigateToComponents}>
+						<Button
+							type='submit'
+							variantColor='brand'
+							//  onClick={navigateToComponents}
+						>
 							Go!
 						</Button>
 					</Stack>
+					{errors.colorInput?.type && <Text color='red.500'>Must be a 3 or 6-digit hex color.</Text>}
 				</Stack>
 			</SimpleGrid>
 
