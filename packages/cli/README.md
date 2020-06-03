@@ -8,9 +8,9 @@
 
 CLI command to create a group of color shades ready to be used in your UI library.
 
-<p align="center">
-  <img width="400" src="./packages/frontend/src/images/cli.svg">
-</p>
+<center>
+  <img width="600" src="https://imgur.com/VnCtTDZ.gif">
+</center>
 
 ## Usage
 
@@ -37,9 +37,9 @@ When you choose a color to your application, you probably going to need a lighte
 
 Usually, a set of shades has 10 elements, going from 50 to 900, being 900 the darkest one:
 
-<p align="center">
-  <img width="400" src="https://imgur.com/smgUYp4.png">
-</p>
+<center>
+  <img width="400" src="https://imgur.com/smgUYp4.gif">
+</center>
 
 ```js
 {
