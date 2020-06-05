@@ -6,12 +6,12 @@ import shadesWithSaturationChange from './shadesWithSaturationChange'
 
 interface ShadesArgs {
 	color: string
-	saturation:
+	saturation?:
 		| {
 				factor: number
 		  }
 		| boolean
-	hue:
+	hue?:
 		| {
 				factor: number
 		  }
