@@ -33,8 +33,10 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-helmet": "^5.2.1",
+    "react-hook-form": "^5.7.2",
     "react-icons": "^3.10.0",
-    "styled-tools": "^1.7.1"
+    "styled-tools": "^1.7.1",
+    "yup": "^0.29.1"
   },
   "keywords": [
     "gatsby"
@@ -66,6 +68,7 @@
     "@types/jest": "^24.0.14",
     "@types/node": "^12.0.2",
     "@types/react-helmet": "^5.0.14",
+    "@types/yup": "^0.29.2",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
     "babel-jest": "^24.9.0",
