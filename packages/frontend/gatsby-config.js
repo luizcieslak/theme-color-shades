@@ -1,3 +1,14 @@
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
+
+console.log(`Using environment config: '${activeEnv}'`)
+require('dotenv').config({
+	path: `.env.${activeEnv}`,
+	// debug: true
+})
+
+const { ACKEE_DOMAIN, ACKEE_SERVER } = process.env
+console.log(ACKEE_DOMAIN, ACKEE_SERVER)
+
 module.exports = {
 	siteMetadata: {
 		title: `theme color shades`,
@@ -117,6 +128,15 @@ module.exports = {
 				mergeCachingHeaders: true, // boolean to turn off the default caching headers
 				// transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
 				generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+			},
+		},
+		{
+			resolve: 'gatsby-plugin-ackee-tracker',
+			options: {
+				domainId: ACKEE_DOMAIN,
+				server: ACKEE_SERVER,
+				// ignoreLocalhost: false,
+				detailed: true,
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
