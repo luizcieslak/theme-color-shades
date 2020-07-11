@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/luizcieslak/theme-color-shades/compare/@theme-color-shades/frontend@0.2.2...@theme-color-shades/frontend@0.2.3) (2020-07-11)
+
+
+### Bug Fixes
+
+* **Frontend:** npm package link ([#26](https://github.com/luizcieslak/theme-color-shades/issues/26)) ([c94591b](https://github.com/luizcieslak/theme-color-shades/commit/c94591bb710548e12eaece730ebf279eaf5d0c88))
+
+
+### Features
+
+* **frontend:** add ackee ([#29](https://github.com/luizcieslak/theme-color-shades/issues/29)) ([4408581](https://github.com/luizcieslak/theme-color-shades/commit/44085818a1e473df2e6be7488d05d406ee7cd42e))
+
+
+
+
+
 ## [0.2.2](https://github.com/luizcieslak/theme-color-shades/compare/@theme-color-shades/frontend@0.2.1...@theme-color-shades/frontend@0.2.2) (2020-06-02)
 
 **Note:** Version bump only for package @theme-color-shades/frontend
