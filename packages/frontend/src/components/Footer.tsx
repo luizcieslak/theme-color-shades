@@ -7,7 +7,7 @@ const Footer = () => {
 			<Divider />
 			<Box py={4}>
 				<Text color='gray.500' textAlign='center'>
-					This site is powered by Netlify
+					This site is powered by Vercel
 				</Text>
 				<Text color='gray.500' textAlign='center'>
 					Released under the MIT License
